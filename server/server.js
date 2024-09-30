@@ -1,8 +1,16 @@
 const express = require('express')
+const cors = require('cors');
+
 const app = express()
 
-app.get("/api", (req,res)=>{
-    res.json({"users":["pavel","ondra"]})
-})
+app.use(cors()); //allow cross-origin requests
+app.use(express.json());
 
-app.listen(5005, () =>{console.log("Server started on port 5005");})
+app.get('/welcome', (req, res) => {
+    res.json({ message: "Vítej v biocrossu!" });
+});
+app.get('/author', (req, res) => {
+    res.json({ message: "Autorem je student prestižního gymnazia Arabská. Kryštof Maxa!" });
+});
+
+app.listen(5000, () =>{console.log("Server started on port 5000");})
