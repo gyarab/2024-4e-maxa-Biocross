@@ -8,5 +8,6 @@ Tento projekt je maturitní prací. Nástroj pro výuku křížení v předmětu
 
 ## Client
 - npx create-react-app .
+- npm i react-router-dom
 
 
