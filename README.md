@@ -10,3 +10,6 @@
 
 ## Then install dependencies:
 - npm install
+
+## Spuštění projektu
+- npm start / npm run dev
