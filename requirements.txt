@@ -1,5 +1,0 @@
-express
-react
-nodemon
-http-proxy-middleware --save
-express cors
