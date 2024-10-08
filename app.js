@@ -26,6 +26,10 @@ app.get("/home",(req,res)=>{
     heroImage: '/images/alel.png'
   })
 })
+
+app.get("/navbar",(req,res)=>{
+  res.render("navbar")
+})
 //routers
 // const registerRouter = require("./routes/register")
 // app.use('/register', registerRouter)
