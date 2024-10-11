@@ -5,36 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/stylesheets/homepage.css">
 
-  <title>Responsive Homepage</title>
-  <style>
-    /* Global Styles */
-    
-  </style>
+  <title>Home</title>
+ 
 </head>
 <body>
 
-  <!-- Header Section -->
-  <header>
-    <h1>Welcome to My Responsive Website</h1>
-    
-  </header>
+  <div>
+    <%- include('../views/navbar.ejs') %>
+  </div>
 
-  <!-- Navigation Bar -->
-  <nav>
-    <ul>
-      <li><a href="/home">Domovská stránka</a></li>
-      <li><a href="/about">About</a></li>
-      <li><a href="/services">Services</a></li>
-      <li><a href="/contact">Contact</a></li>
-      <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
-    </ul>
-  </nav>
 
   <!-- Hero Section -->
   <section class="hero">
     <div>
-      <h1><%= heroTitle %></h1>
-      <p><%= heroSubtitle %></p>
+      <h1>Učební pomůcka pro křížení alel</h1>
+      
     </div>
   </section>
 
@@ -44,10 +29,15 @@
     <p>This is the main content section of your homepage. It looks great on both mobile and desktop!</p>
   </section>
 
-  <!-- Footer Section -->
-  <footer>
-    <p>&copy; 2024 My Responsive Website</p>
-  </footer>
+
+
+  <div>
+
+    <!-- PRAZDNY DIV -->
+    <div style="width: 100px; height: 1000px; "></div>
+
+    <%- include('../views/footer.ejs') %>
+  </div>
 
   <script src="/javascripts/homepage.js"></script>
 

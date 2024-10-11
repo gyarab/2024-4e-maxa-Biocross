@@ -4,13 +4,11 @@
     box-sizing: border-box;
     font-family: "Gill Sans", sans-serif;
 }
- body{
-    height: 100vh;
-    background-color: #000;
-    background-image: url(https://png.pngtree.com/background/20230303/original/pngtree-dna-education-biology-picture-image_2083459.jpg);
+header {
+    background-color: #32a852;
     background-size: cover;
     background-position: center;
-} 
+}  
 
 li{
     list-style: none;
@@ -18,7 +16,7 @@ li{
 
 a{
     text-decoration: none;
-    color: white;
+    color: rgb(0, 0, 0);
     font-size: 1rem;
 }
 a:hover{
@@ -120,6 +118,8 @@ header {
 
     .dropdown_menu {
         display: block;
+        left: 2rem;
+        width: unset;
     }
 }
 

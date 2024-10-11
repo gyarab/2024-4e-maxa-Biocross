@@ -19,16 +19,24 @@ const PORT = process.env.PORT || 3000;
 //Domovska stranka
 //gets
 app.get("/home",(req,res)=>{
-  res.render("homepage",
-    {
-    heroTitle: 'Welcome to My Website',
-    heroSubtitle: 'This is a dynamic subtitle rendered by EJS.',
-    heroImage: '/images/alel.png'
-  })
+  res.render("homepage")
 })
 
+//Crossing stranka
+//gets
+app.get("/crossing",(req,res)=>{
+  res.render("crossing")
+})
+
+
+
+//DEVELOPMENT HTML
 app.get("/navbar",(req,res)=>{
   res.render("navbar")
+})
+
+app.get("/footer",(req,res)=>{
+  res.render("footer")
 })
 //routers
 // const registerRouter = require("./routes/register")
