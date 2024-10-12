@@ -28,6 +28,12 @@ app.get("/crossing",(req,res)=>{
   res.render("crossing")
 })
 
+//Classroom stranka
+//gets
+app.get("/classroom",(req,res)=>{
+  res.render("classroom")
+})
+
 
 
 //DEVELOPMENT HTML

@@ -43,8 +43,8 @@ body.dark-mode {
     background-color: #555;
   }
 
-  /* Hero Section */
-  .hero {
+  /* Hero Section = Tohle je puvodni ktery funguje ale neni obraz*/
+  /* .hero {
     background-image: url('<%= heroImage %>');
     background-size: cover;
     background-position: center;
@@ -64,8 +64,106 @@ body.dark-mode {
   .hero p {
     font-size: 1.5rem;
     margin-top: 1rem;
-  }
+  } */
 
+
+  /* HERO SECTION S OBRAZKEM V POZADI - je s obrazkem ale neni responsivni*/
+
+  /* .hero-image {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-image: url("https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&q=80");
+  }
+  
+  .hero {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.65);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  .hero h1 {
+    font-size: 65px;
+    letter-spacing: 0px;
+    margin: 0 0 5px;
+  }
+  
+  .hero p {
+    margin: 0;
+    font-size: 28px;
+  } */
+
+
+  /* HERO S OBRAZKEM - RESPONSIVNI, ale menu neprekryva ten obrazek */
+  .hero-image {
+    height: 100vh; /* Full height of the viewport */
+    width: 99vw; /* Full width of the viewport */
+    position: relative; /* Allows absolute positioning of child elements */
+    background-size: cover; /* Ensures the image covers the entire container */
+    background-position: center; /* Centers the background image */
+    background-image: url("https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80");
+    padding: 3px;
+    margin: 3px;
+    z-index: -99;  /*TOHLE MOZNA RESI PROBLEM a v navbaru je z-index: 99*/
+}
+
+.hero {
+    position: absolute; /* Positions the hero content over the image */
+    height: 100%; /* Full height of the hero-image container */
+    width: 100%; /* Full width of the hero-image container */
+    top: 0; /* Aligns to the top */
+    left: 0; /* Aligns to the left */
+    background: rgba(0, 0, 0, 0.65); /* Semi-transparent black overlay */
+    color: white; /* Text color */
+    display: flex; /* Flexbox layout */
+    align-items: center; /* Vertically centers content */
+    justify-content: center; /* Horizontally centers content */
+    flex-direction: column; /* Stacks items vertically */
+}
+
+.hero h1 {
+    font-size: 65px; /* Large font size for desktop */
+    letter-spacing: 0px;
+    margin: 0 0 5px;
+    text-align: center; /* Centers the heading text */
+}
+
+.hero p {
+    margin: 0;
+    font-size: 28px; /* Font size for desktop */
+    text-align: center; /* Centers the paragraph text */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) { /* For tablets and smaller screens */
+    .hero h1 {
+        font-size: 40px; /* Smaller font size for mobile */
+    }
+
+    .hero p {
+        font-size: 18px; /* Smaller font size for mobile */
+    }
+}
+
+@media (max-width: 480px) { /* For mobile phones */
+    .hero h1 {
+        font-size: 30px; /* Further reduced font size */
+    }
+
+    .hero p {
+        font-size: 16px; /* Further reduced font size */
+    }
+}
   /* Main Content */
   .content {
     padding: 2rem;
