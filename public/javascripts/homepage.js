@@ -13,3 +13,7 @@
         localStorage.setItem('dark-mode', isDarkMode); // Save the preference
     }
 
+
+    function moveBox() {
+        document.getElementById("animateBox").classList.toggle("move");
+    }

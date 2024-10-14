@@ -16,7 +16,7 @@
                 <li><a class="nav-prepinace" href="literatura">Literatura</a></li>
                 <li><a class="nav-prepinace" href="classroom">Classroom</a></li>
             </ul>
-            <a href="#" class="action_btn">Get Started</a>
+            <a href="login" class="action_btn">Přihlásit se</a>
             <div class="toggle_btn">
                 <i class="fa-solid fa-bars"></i>
             </div>
@@ -27,23 +27,9 @@
                 <li><a href="crossing">Crossing</a></li>
                 <li><a href="literatura">Literatura</a></li>
                 <li><a href="classroom">Classroom</a></li>
-                <li><a href="#" class="action_btn">Get Started</a></li>
+                <li><a href="#" class="action_btn">Přihlásit se</a></li>
         </div>
     </header>
-
-    <script>
-        const toggleBtn = document.querySelector('.toggle_btn')
-        const toggleBtnIcon = document.querySelector('.toggle_btn i')
-        const dropDownMenu = document.querySelector('.dropdown_menu')
-
-        toggleBtn.onclick = function () {
-            dropDownMenu.classList.toggle('open')
-            const isOpen = dropDownMenu.classList.contains('open')
-
-            toggleBtnIcon.classList = isOpen
-            ? 'fa-solid fa-xmark'
-            : 'fa-solid fa-bars'
-        }
-    </script>
+<script src="/javascripts/navbar.js"></script>
 </body>
 </html>

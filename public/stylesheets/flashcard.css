@@ -29,6 +29,52 @@ img {
     border-radius: 8px;
 }
 
+
+.button-vyberAlel{
+    background-color: #4CAF50; /* Green background */
+    border: none; /* Remove default border */
+    color: white; /* White text */
+    padding: 15px 32px; /* Padding around text */
+    text-align: center; /* Center text inside button */
+    text-decoration: none; /* Remove underline from text */
+    display: inline-block; /* Allows setting dimensions */
+    font-size: 17px; /* Text size */
+    font-weight: bold; /* Make text bold */
+    margin: 10px 2px; /* Margin around button */
+    cursor: pointer; /* Changes cursor on hover */
+    border-radius: 12px; /* Rounded corners */
+    transition: background-color 0.6s ease; /* Smooth hover effect */
+}
+.button-vyberAlel:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+.alely{
+    padding-top: 10px;
+}
+.horizontal-div{
+    display: flex;
+    justify-content: center;
+    gap: 40px;;
+
+}
+.vertical-div {
+    display: flex; /* Enable flexbox layout */
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-start; /* Align items to the left */
+    gap: 20px; /* Space between the h3 elements */
+    
+}
+/* ANIMACE */
+
+/* .alela {
+    text-align: left;
+    transition: all 1s ease;
+} */
+
+.move {
+    /* transform: translateX(10rem); */
+}
+
 /* Media query for tablet and larger screens */
 @media (min-width: 768px) {
     .flashcard {

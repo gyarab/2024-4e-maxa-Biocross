@@ -27,6 +27,11 @@ app.get("/home",(req,res)=>{
 app.get("/crossing",(req,res)=>{
   res.render("crossing")
 })
+//Literatura stranka
+//gets
+app.get("/classroom",(req,res)=>{
+  res.render("classroom")
+})
 
 //Classroom stranka
 //gets

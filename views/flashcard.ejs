@@ -6,21 +6,41 @@
     <link rel="stylesheet" href="/stylesheets/flashcard.css">
 </head>
 <body>
+    <!-- FLASHCARDS - pro hezci vizualizaci postupu -->
     <div class="body-flashcard">
+        <!-- PRVNI FLASHCARD -->
         <div class="flashcard">
-            <h2 class="h-flashcard">Prvně se náhodně zvolí alela z otce a matky</h2>
-            <p>This is the content for the first flashcard.</p>
+            <h1 class="h-flashcard">1. Náhodné zvolení otcovy a matčiny alely</h2>
+            <p>Výběr té alely, která putuje z otce nebo matky je čistě náhodný. <br>Šance jsou tedy rozděleny 1:1, neboli 50% a 50%</p>
+            <Button class="button-vyberAlel" onclick="volbaAlely()">Spustit náhodný výběr</Button>
+            <!-- HORIZNOTAL DIV + VERTICAL DIV - zobrazime alelu otce a matky -->
+            <div class="alely" > 
+                <div class="horizontal-div">
+                    <div class="verical-div">
+                        <h3>Alela otce</h3>
+                        <p class="alela" id="alelaOtec">__</p> <!-- doplni se diky funkci volbaAlely() -->
+                    </div>
+                    <div class="verical-div">
+                        <h3>Alela matky</h3>
+                        <p class="alela" id="alelaMatka">__</p>
+                    </div>
+                </div>
+            </div>
         </div>
+        <!-- DRUHA FLASHCARD -->
         <div class="flashcard">
             <h2>F1 - formule</h2>
             <p>This is the content for the second flashcard.</p>
             <img src="/images/alel.png" alt="f1_formule_img">
         </div>
+        <!-- TRETI FLASHCARD -->
         <div class="flashcard">
             <h2>F2 - formule</h2>
             <p>This is the content for the third flashcard.</p>
             <img src="/images/f3formule.jpeg" alt="">
         </div>
-    </div>    
+    </div>  
+    
+    <script src="/javascripts/flashcard.js"></script>
 </body>
 </html>
