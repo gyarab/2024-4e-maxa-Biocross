@@ -151,6 +151,7 @@ header {
         display: block;
         left: 2rem;
         width: unset;
+        backdrop-filter: blur(40px);
     }
 }
 
@@ -158,6 +159,7 @@ header {
     .dropdown_menu{
         left: 2rem;
         width: unset;
+        backdrop-filter: blur(40px);
     }
 }
 
