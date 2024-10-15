@@ -8,11 +8,15 @@
 <body>
     <!-- FLASHCARDS - pro hezci vizualizaci postupu -->
     <div class="body-flashcard">
+
+
         <!-- PRVNI FLASHCARD -->
         <div class="flashcard">
             <h1 class="h-flashcard">1. Náhodné zvolení otcovy a matčiny alely</h2>
             <p>Výběr té alely, která putuje z otce nebo matky je čistě náhodný. <br>Šance jsou tedy rozděleny 1:1, neboli 50% a 50%</p>
+
             <Button class="button-vyberAlel" onclick="volbaAlely()">Spustit náhodný výběr</Button>
+
             <!-- HORIZNOTAL DIV + VERTICAL DIV - zobrazime alelu otce a matky -->
             <div class="alely" > 
                 <div class="horizontal-div">
@@ -27,11 +31,28 @@
                 </div>
             </div>
         </div>
+
+
         <!-- DRUHA FLASHCARD -->
         <div class="flashcard">
             <h2>F1 - formule</h2>
             <p>This is the content for the second flashcard.</p>
-            <img src="/images/alel.png" alt="f1_formule_img">
+            <Button class="button-vyberAlel" onclick="zobrazKrizeniF1()">Spustit křížení</Button>
+            <table>
+                <tr>
+                    <th>Header 1</th>
+                    <th>Header 2</th>
+                </tr>
+                <tr>
+                    <td id="td1"></td>
+                    <td id="td2"></td>
+                </tr>
+                <tr>
+                    <td id="td3"></td>
+                    <td id="td4"></td>
+                </tr>
+            </table>
+
         </div>
         <!-- TRETI FLASHCARD -->
         <div class="flashcard">
