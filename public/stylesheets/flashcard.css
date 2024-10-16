@@ -87,6 +87,23 @@ th {
     transition: all 1s ease;
 } */
 
+/* Style for the select box */
+.select-krizeni {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 2px solid #2980b9; /* Border color */
+    cursor: pointer;
+    transition: all 0.9s ease;
+}
+
+
+.pickbox {
+    position: relative;
+    width: 250px; /* Control width of the select wrapper */
+}
+
 .move {
     /* transform: translateX(10rem); */
 }
