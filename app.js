@@ -15,7 +15,11 @@ app.use(express.static('public'))
 // Set the port 
 const PORT = process.env.PORT || 3000;
 
-
+//Login stranka
+//gets
+app.get("/login",(req,res)=>{
+  res.render("login")
+})
 //Domovska stranka
 //gets
 app.get("/home",(req,res)=>{
@@ -29,8 +33,8 @@ app.get("/crossing",(req,res)=>{
 })
 //Literatura stranka
 //gets
-app.get("/classroom",(req,res)=>{
-  res.render("classroom")
+app.get("/literatura",(req,res)=>{
+  res.render("literatura")
 })
 
 //Classroom stranka
@@ -38,6 +42,7 @@ app.get("/classroom",(req,res)=>{
 app.get("/classroom",(req,res)=>{
   res.render("classroom")
 })
+
 
 
 
