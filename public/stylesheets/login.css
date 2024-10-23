@@ -28,10 +28,12 @@ body{
     border: 3px solid rgba(255, 255, 255, 0.3);
     border-radius: 30px;
     backdrop-filter: blur(20px);
+    overflow: hidden;
 }  
 .form-col{
     position: relative;
     width: 100%;
+    overflow: hidden;
 }
 
 .btn-box{
@@ -74,10 +76,18 @@ body{
     font-size: 28px;
     font-weight: 600;
 }
+/* LOGIN from */
 .login-form{
     left: 50%;
 }
 
+/* REGISTER form */
+.register-form{
+    left: -50%;
+}
+.register-form .form-title{
+    margin-block: 40px 20px;
+}
 .form-inputs{
     width: 100%;
 

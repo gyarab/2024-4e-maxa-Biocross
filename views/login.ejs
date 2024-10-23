@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/stylesheets/login.css">
 </head>
 <body>
-
+<!-- ZDROJ: https://www.youtube.com/watch?v=NItTR0iBrls&t=1090s -->
     <div class="form-container">
         <div class="form-col">
             <div class="btn-box">
@@ -18,24 +18,61 @@
             <!-- Login form kontent - info o loginu klienta -->
             <form  class="form-box login-form">
                 <div class="form-title">
-                    <span>Prihlasit se</span>
+                    <span>Přihlásit se</span>
                 </div>
                 <div class="form-inputs">
                     <div class="input-box">
-                        <input type="text" class="inputs input-field" placeholder="Prihlasovaci jmeno">
+                        <input type="text" class="inputs input-field" placeholder="Přihlašovací jméno">
                         <ion-icon name="person-outline" class="icon"></ion-icon>
                     </div>
                     <div class="input-box">
-                        <input type="password" class="inputs input-field" placeholder="Heslo">
-                        <ion-icon name="lock-closed-outline" class="icon"></ion-icon>
+                        <input type="password" oninput="changeIcon(this.value)" id="logPassword" class="inputs input-field" placeholder="Heslo">
+                        <ion-icon name="lock-closed-outline" class="icon" id="log-pass-icon" onclick="myLogPassword()"></ion-icon>
                     </div>
                     <div class="forgot-pass">
-                        <a href="#">Zapomenute heslo?</a>
+                        <a href="#">Zapomenuté heslo?</a>
                     </div>
                     <div class="input-box">
                         <button class="inputs submit-btn">
-                            <span>Prihlasit se</span>
-                            <ion-icon class="arrow-forward-outline"></ion-icon>
+                            <span>Přihlásit se</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="social-login">
+                    <div class="social-login-box">
+                        <ion-icon name="logo-google" class="social-login-icon"></ion-icon>
+                    </div>
+                    <div class="social-login-box">
+                        <ion-icon name="logo-github" class="social-login-icon"></ion-icon>
+                    </div>
+                    
+                </div>
+            </form>
+            <!-- REGISTER -->
+            <form  class="form-box register-form">
+                <div class="form-title">
+                    <span>Zaregistrovat se</span>
+                </div>
+                <div class="form-inputs">
+                    <div class="input-box">
+                        <input type="text" class="inputs input-field" placeholder="Email">
+                        <ion-icon name="mail-outline" class="icon"></ion-icon>
+                    </div>
+                    <div class="input-box">
+                        <input type="text" class="inputs input-field" placeholder="Přihlašovací jméno">
+                        <ion-icon name="person-outline" class="icon"></ion-icon>
+                    </div>
+                    <div class="input-box">
+                        <input type="password" oninput="changeIcon(this.value)" id="regPassword" class="inputs input-field" placeholder="Heslo">
+                        <ion-icon name="lock-closed-outline" class="icon" id="reg-pass-icon" onclick="myRegPassword()"></ion-icon>
+                    </div>
+                    <div class="remember-me">
+                        <input type="checkbox" id="remember-me-check">
+                        <label for="remember-me-check">Zapamatuj si mě</label>
+                    </div>
+                    <div class="input-box">
+                        <button class="inputs submit-btn">
+                            <span>Zaregistrovat se</span>
                         </button>
                     </div>
                 </div>
@@ -54,5 +91,80 @@
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script>
+        const loginBtn = document.querySelector("#login");
+        const registerBtn = document.querySelector("#register");
+        const loginForm = document.querySelector(".login-form");
+        const registerForm = document.querySelector(".register-form");
+
+        
+        loginBtn.addEventListener('click', ()=>{
+            loginBtn.style.backgroundColor = "#21264D";
+            registerBtn.style.backgroundColor = "rgba(255, 255, 255, 0.2)";
+        
+            loginForm.style.left = "50%";
+            registerForm.style.left = "-50%";
+        
+            loginForm.style.opacity = 1;
+            registerForm.style.opacity = 0;
+        })
+        
+        registerBtn.addEventListener('click', ()=>{
+            loginBtn.style.backgroundColor = "rgba(255, 255, 255, 0.2)";
+            registerBtn.style.backgroundColor = "#21264D";
+        
+            loginForm.style.left = "150%";
+            registerForm.style.left = "50%";
+        
+            loginForm.style.opacity = 0;
+            registerForm.style.opacity = 1;
+        })
+
+    // View Password Funkce
+
+    const logInputField = document.getElementById('logPassword');
+    const logInputIcon = document.getElementById('log-pass-icon');
+
+    const regInputField = document.getElementById('regPassword');
+    const regInputIcon = document.getElementById('reg-pass-icon');
+
+    function myLogPassword() {
+        if (logInputField.type === "password") {
+            logInputField.type = "text";
+
+            logInputIcon.name = "eye-off-outline";
+            logInputIcon.style.cursor = "pointer";   
+        }else{
+            logInputField.type = "password";
+
+            logInputIcon.name = "eye-outline";
+            logInputIcon.style.cursor = "pointer";   
+        }
+    }
+    function myRegPassword() {
+        if (regInputField.type === "password") {
+            regInputField.type = "text";
+
+            regInputIcon.name = "eye-off-outline";
+            regInputIcon.style.cursor = "pointer";   
+        }else{
+            regInputField.type = "password";
+
+            regInputIcon.name = "eye-outline";
+            regInputIcon.style.cursor = "pointer";   
+        }
+    }
+
+    function changeIcon(value) {
+        if (value.length > 0) {
+            logInputIcon.name = "eye-outline";
+            regInputIcon.name = "eye-outline";
+        }else{
+            logInputIcon.name = "lock-closed-outline"
+            regInputIcon.name = "lock-closed-outline"
+        }
+        
+    }
+    </script>
 </body>
 </html>
