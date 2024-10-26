@@ -15,18 +15,19 @@
                 <button class="btn btn-2" id="register">Zaregistrovat se</button>
             </div>
 
-            <!-- Login form kontent - info o loginu klienta -->
-            <form  class="form-box login-form">
+            <!-- LOGIN form kontent - info o loginu klienta -->
+            <form  class="form-box login-form" action="/login" method="POST">
                 <div class="form-title">
                     <span>Přihlásit se</span>
                 </div>
                 <div class="form-inputs">
                     <div class="input-box">
-                        <input type="text" class="inputs input-field" placeholder="Přihlašovací jméno">
+                        <input type="hidden" name="formType" value="login"> <!-- rozlisime login od registru na stejne strance -->
+                        <input name="log_email" type="text" class="inputs input-field" placeholder="Email">
                         <ion-icon name="person-outline" class="icon"></ion-icon>
                     </div>
                     <div class="input-box">
-                        <input type="password" oninput="changeIcon(this.value)" id="logPassword" class="inputs input-field" placeholder="Heslo">
+                        <input name="log_password" type="password" oninput="changeIcon(this.value)" id="logPassword" class="inputs input-field" placeholder="Heslo">
                         <ion-icon name="lock-closed-outline" class="icon" id="log-pass-icon" onclick="myLogPassword()"></ion-icon>
                     </div>
                     <div class="forgot-pass">
@@ -49,21 +50,30 @@
                 </div>
             </form>
             <!-- REGISTER -->
-            <form  class="form-box register-form">
+            <form  class="form-box register-form" action="/login" method="POST">
                 <div class="form-title">
                     <span>Zaregistrovat se</span>
                 </div>
                 <div class="form-inputs">
                     <div class="input-box">
-                        <input type="text" class="inputs input-field" placeholder="Email">
+                        <input name="formType" type="hidden"value="register"> <!-- rozlisime login od registru na stejne strance -->
+                        <input name="reg_email" type="text" class="inputs input-field" placeholder="Email" >
                         <ion-icon name="mail-outline" class="icon"></ion-icon>
                     </div>
                     <div class="input-box">
-                        <input type="text" class="inputs input-field" placeholder="Přihlašovací jméno">
+                        <input name="reg_firstname" type="text" class="inputs input-field" placeholder="Jméno">
                         <ion-icon name="person-outline" class="icon"></ion-icon>
                     </div>
                     <div class="input-box">
-                        <input type="password" oninput="changeIcon(this.value)" id="regPassword" class="inputs input-field" placeholder="Heslo">
+                        <input name="reg_lastname" type="text" class="inputs input-field" placeholder="Příjmení">
+                        <ion-icon name="person-outline" class="icon"></ion-icon>
+                    </div>
+                    <select name="reg_role" class="inputs input-field">
+                        <option style="color: black;" value="Student">Student</option>
+                        <option style="color: black;" value="Teacher">Ucitel</option>
+                    </select>
+                    <div class="input-box">
+                        <input name="reg_password" type="password" oninput="changeIcon(this.value)" id="regPassword" class="inputs input-field" placeholder="Heslo">
                         <ion-icon name="lock-closed-outline" class="icon" id="reg-pass-icon" onclick="myRegPassword()"></ion-icon>
                     </div>
                     <div class="remember-me">
@@ -97,7 +107,7 @@
         const loginForm = document.querySelector(".login-form");
         const registerForm = document.querySelector(".register-form");
 
-        
+        // LOGIN 
         loginBtn.addEventListener('click', ()=>{
             loginBtn.style.backgroundColor = "#21264D";
             registerBtn.style.backgroundColor = "rgba(255, 255, 255, 0.2)";
@@ -107,8 +117,10 @@
         
             loginForm.style.opacity = 1;
             registerForm.style.opacity = 0;
+
+
         })
-        
+        // REGISTER
         registerBtn.addEventListener('click', ()=>{
             loginBtn.style.backgroundColor = "rgba(255, 255, 255, 0.2)";
             registerBtn.style.backgroundColor = "#21264D";
@@ -118,53 +130,57 @@
         
             loginForm.style.opacity = 0;
             registerForm.style.opacity = 1;
+
+           
         })
 
-    // View Password Funkce
+        // Funkce pro zneviditelneni hesla
+            // prepne se take ikonka
 
-    const logInputField = document.getElementById('logPassword');
-    const logInputIcon = document.getElementById('log-pass-icon');
+        const logInputField = document.getElementById('logPassword');
+        const logInputIcon = document.getElementById('log-pass-icon');
 
-    const regInputField = document.getElementById('regPassword');
-    const regInputIcon = document.getElementById('reg-pass-icon');
+        const regInputField = document.getElementById('regPassword');
+        const regInputIcon = document.getElementById('reg-pass-icon');
+            // LOGIN
+        function myLogPassword() {
+            if (logInputField.type === "password") {
+                logInputField.type = "text";
 
-    function myLogPassword() {
-        if (logInputField.type === "password") {
-            logInputField.type = "text";
+                logInputIcon.name = "eye-off-outline";
+                logInputIcon.style.cursor = "pointer";   
+            }else{
+                logInputField.type = "password";
 
-            logInputIcon.name = "eye-off-outline";
-            logInputIcon.style.cursor = "pointer";   
-        }else{
-            logInputField.type = "password";
-
-            logInputIcon.name = "eye-outline";
-            logInputIcon.style.cursor = "pointer";   
+                logInputIcon.name = "eye-outline";
+                logInputIcon.style.cursor = "pointer";   
+            }
         }
-    }
-    function myRegPassword() {
-        if (regInputField.type === "password") {
-            regInputField.type = "text";
+            // REGISTER
+        function myRegPassword() {
+            if (regInputField.type === "password") {
+                regInputField.type = "text";
 
-            regInputIcon.name = "eye-off-outline";
-            regInputIcon.style.cursor = "pointer";   
-        }else{
-            regInputField.type = "password";
+                regInputIcon.name = "eye-off-outline";
+                regInputIcon.style.cursor = "pointer";   
+            }else{
+                regInputField.type = "password";
 
-            regInputIcon.name = "eye-outline";
-            regInputIcon.style.cursor = "pointer";   
+                regInputIcon.name = "eye-outline";
+                regInputIcon.style.cursor = "pointer";   
+            }
         }
-    }
 
-    function changeIcon(value) {
-        if (value.length > 0) {
-            logInputIcon.name = "eye-outline";
-            regInputIcon.name = "eye-outline";
-        }else{
-            logInputIcon.name = "lock-closed-outline"
-            regInputIcon.name = "lock-closed-outline"
+        function changeIcon(value) {
+            if (value.length > 0) {
+                logInputIcon.name = "eye-outline";
+                regInputIcon.name = "eye-outline";
+            }else{
+                logInputIcon.name = "lock-closed-outline"
+                regInputIcon.name = "lock-closed-outline"
+            }
+            
         }
-        
-    }
     </script>
 </body>
 </html>

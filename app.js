@@ -15,11 +15,16 @@ app.use(express.static('public'))
 // Set the port 
 const PORT = process.env.PORT || 3000;
 
-//Login stranka
+//LOGIN stranka
 //gets
 app.get("/login",(req,res)=>{
   res.render("login")
 })
+// router
+const loginRouter = require("./routes/login");
+app.use("/login", loginRouter);
+
+
 //Domovska stranka
 //gets
 app.get("/home",(req,res)=>{
