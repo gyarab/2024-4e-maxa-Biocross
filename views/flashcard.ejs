@@ -48,9 +48,30 @@
                 </ul>
             </div> <!-- https://www.youtube.com/watch?v=hBbrGFCszU4 -->
         </div>
+        <!-- Prvni Generace -->
+        <div class="flashcard">
+            <h1 class="h-flashcard">1. zákon – uniformity</h2>
+            <p>Při vzájemném křížení 2 homozygotů vznikají potomci genotypově i fenotypově jednotní. Pokud jde o 2 různé homozygoty jsou potomci vždy heterozygotními hybridy</p>
+
+            <Button class="button-vyberAlel" onclick="volbaAlely()">Spustit náhodný výběr</Button>
+
+            <!-- HORIZNOTAL DIV + VERTICAL DIV - zobrazime alelu otce a matky -->
+            <div class="alely" > 
+                <div class="horizontal-div">
+                    <div class="verical-div">
+                        <h3>Alela otce</h3>
+                        <p class="alela" id="alelaOtec">__</p> <!-- doplni se diky funkci volbaAlely() -->
+                    </div>
+                    <div class="verical-div">
+                        <h3>Alela matky</h3>
+                        <p class="alela" id="alelaMatka">__</p>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- DRUHA FLASHCARD -->
         <div class="flashcard">
-            <h2>F1 - formule</h2>
+            <h1 class="h-flashcard">2. zákon – segregace</h2>
             <p>This is the content for the second flashcard.</p>
             <Button class="button-vyberAlel" onclick="zobrazKrizeniF1()">Spustit křížení</Button>
             <table>
