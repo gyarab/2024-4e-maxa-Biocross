@@ -10,30 +10,9 @@
     <div class="body-flashcard">
 
 
-        <!-- PRVNI FLASHCARD -->
-        <div class="flashcard">
-            <h1 class="h-flashcard">1. Náhodné zvolení otcovy a matčiny alely</h2>
-            <p>Výběr té alely, která putuje z otce nebo matky je čistě náhodný. <br>Šance jsou tedy rozděleny 1:1, neboli 50% a 50%</p>
-
-            <Button class="button-vyberAlel" onclick="volbaAlely()">Spustit náhodný výběr</Button>
-
-            <!-- HORIZNOTAL DIV + VERTICAL DIV - zobrazime alelu otce a matky -->
-            <div class="alely" > 
-                <div class="horizontal-div">
-                    <div class="verical-div">
-                        <h3>Alela otce</h3>
-                        <p class="alela" id="alelaOtec">__</p> <!-- doplni se diky funkci volbaAlely() -->
-                    </div>
-                    <div class="verical-div">
-                        <h3>Alela matky</h3>
-                        <p class="alela" id="alelaMatka">__</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+       
         <!-- VYBRANI TYPU KRIZENI -->
-        <div class="flashcard">
+        <!-- <div class="flashcard">
             <div class="select-dropdown">
                 <div class="select">
                     <span class="select-selected">Typ KRIZENI</span>
@@ -46,14 +25,42 @@
                     <li class="active">Typ KRIZENI</li>
                     <li>ADOBE xs</li>
                 </ul>
-            </div> <!-- https://www.youtube.com/watch?v=hBbrGFCszU4 -->
-        </div>
-        <!-- Prvni Generace -->
+            </div>  https://www.youtube.com/watch?v=hBbrGFCszU4 
+        </div> -->
+        <!-- NEBO SI HEZKY VYBERU JAKY MENDELUV ZAKON CHCI -->
         <div class="flashcard">
-            <h1 class="h-flashcard">1. zákon – uniformity</h2>
+           <select name="" id="">
+            <option value="">1. Mendelův zákon</option>
+            <option value="">2. Mendelův zákon</option>
+            <option value="">3. Mendelův zákon</option>
+           </select>
+        </div> 
+
+
+
+        <!-- UVOD k vybrani alel -->
+        <div class="flashcard">
+            <h1 class="h-flashcard">1. zákon – uniformity</h1>
             <p>Při vzájemném křížení 2 homozygotů vznikají potomci genotypově i fenotypově jednotní. Pokud jde o 2 různé homozygoty jsou potomci vždy heterozygotními hybridy</p>
 
-            <Button class="button-vyberAlel" onclick="volbaAlely()">Spustit náhodný výběr</Button>
+            <div class="horizontal-div">
+                <div class="verical-div">
+                    <img src="/images/KytkaAA.png" alt="">
+                    <p>Červená kytka s alelou <b>AA</b></p>
+                </div>
+                <div class="verical-div">
+                    <img src="/images/MKytkaaa.png" alt="">
+                    <p>Modrá kytka s alelou <b>aa</b></p>
+                </div>
+            </div>
+        </div>
+        <!-- Prvni Generace -->
+        <!-- PRVNI FLASHCARD -->
+        <div class="flashcard">
+            <h2>Náhodné zvolení otcovy a matčiny alely</h2>
+            <p>Výběr té alely, která putuje z otce nebo matky je čistě náhodný. <br>Šance jsou tedy rozděleny 1:1, neboli 50% a 50%</p>
+
+            <Button class="button-vyberAlel" onclick="volbaAlelyRodic()">Spustit náhodný výběr</Button>
 
             <!-- HORIZNOTAL DIV + VERTICAL DIV - zobrazime alelu otce a matky -->
             <div class="alely" > 
@@ -69,9 +76,18 @@
                 </div>
             </div>
         </div>
+
+        <!-- KRIZENI OTCE A MATKY? -->
+        <div class="flashcard">
+            <h2>F1 generace</h2>
+            <p>F1 generace (1. filiální = první generace potomků) vzejde z krizeni dvou A a z rodicu bla bla</p>
+            <img style="height: 400px;" src="/images/KytkaPAa.png" alt="">
+            <p>Červená kytka s alelou <b>Aa</b></p>
+        </div>
+
         <!-- DRUHA FLASHCARD -->
         <div class="flashcard">
-            <h1 class="h-flashcard">2. zákon – segregace</h2>
+            <h1 class="h-flashcard">2. zákon – segregace</h1>
             <p>This is the content for the second flashcard.</p>
             <Button class="button-vyberAlel" onclick="zobrazKrizeniF1()">Spustit křížení</Button>
             <table>
