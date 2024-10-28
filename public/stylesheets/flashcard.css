@@ -4,6 +4,12 @@
     align-items: center;
     padding: 20px;
 }
+.body-flashcard-select {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
 
 .flashcard {
     background-color: #FEF9FA;
@@ -89,6 +95,64 @@ th {
 
 /* Style pro select box*/
 
+
+  /* Center the select menu */
+  
+
+  /* Style the select element */
+  select {
+    padding: 12px;
+    width: 260px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 2px solid #4e8dd4;
+    background-color: #f4f4f9;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    appearance: none; /* Remove default styling for a cleaner look */
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"%3E%3Cpath d="M7 10l5 5 5-5z" fill="%234e8dd4"/%3E%3C/svg%3E');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+  }
+
+  select:hover {
+    border-color: #356cb1;
+  }
+
+  /* Option styling - limited support */
+  option {
+    padding: 10px;
+    color: #4e8dd4;
+    background-color: #f4f4f9;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+  }
+
+  /* Specific option colors (optional) */
+  option[value="mendel1"] { color: #d35d6e; }
+  option[value="mendel2"] { color: #6d9eeb; }
+  option[value="mendel3"] { color: #76c7c0; }
+
+
+
+
+/* select {
+    padding: 10px;
+    width: 250px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 2px solid #4e8dd4;
+    background-color: #f4f4f9;
+    color: #333;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+  }
+
+  select:hover {
+    border-color: #356cb1;
+  } */
+/* 
 .select-dropdown{
     min-width: 15em;
     position: relative;
@@ -144,7 +208,7 @@ th {
     display: none;
     transition: 0.2s;
     z-index: 1;
-}
+} */
 /* Media query for tablet and larger screens */
 @media (min-width: 768px) {
     .flashcard {
