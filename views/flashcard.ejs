@@ -18,8 +18,6 @@
     <!-- FLASHCARDS - pro hezci vizualizaci postupu -->
     <div id="mendel1" class="body-flashcard">
 
-
-       
         <!-- VYBRANI TYPU KRIZENI -->
         <!-- <div class="flashcard">
             <div class="select-dropdown">
@@ -47,7 +45,28 @@
          </div>  -->
 
 
-        
+<!-- VYBRAT HROZINKA -->
+
+            <!-- UVOD k vybrani alel -->
+            <div class="flashcard">
+                <h1 class="h-flashcard">1. zákon – uniformity</h1>
+                <p>Při vzájemném křížení 2 homozygotů vznikají potomci genotypově i fenotypově jednotní. Pokud jde o 2 různé homozygoty jsou potomci vždy heterozygotními hybridy</p>
+
+                
+                <div class="horizontal-div">
+                    <div class="verical-div">
+                        <p style="font-weight: 600; font-size: larger;">Homozygot s alelou <b>AA</b></p>
+                        <img src="/images/KytkaAA.png" alt="KytkaAA">
+                    </div>
+                    <h1 style="align-content: center;"><ion-icon name="close-outline"></ion-icon></h1>
+                    <div class="verical-div">
+                        <p style="font-weight: 600; font-size: larger;">Homozygot s alelou <b>aa</b></p>
+                        <img src="/images/MKytkaaa.png" alt="MKytkaaa">
+                    </div>
+                </div>
+            </div>
+<!-- VYBRAT HROZINKA -->
+
             <!-- UVOD k vybrani alel -->
             <div class="flashcard">
                 <h1 class="h-flashcard">1. zákon – uniformity</h1>
@@ -56,12 +75,12 @@
                 <div class="horizontal-div">
                     <div class="verical-div">
                         <img src="/images/KytkaAA.png" alt="">
-                        <p>Červená kytka s alelou <b>AA</b></p>
+                        <p style="font-weight: 600; font-size: larger;">Homozygot s alelou <b>AA</b></p>
                     </div>
                     <div class="verical-div">
                         <img src="/images/MKytkaaa.png" alt="">
-                        <p>Modrá kytka s alelou <b>aa</b></p>
-                    </div>
+                        <p style="font-weight: 600; font-size: larger;">Homozygot s alelou <b>aa</b></p>
+                    </div> 
                 </div>
             </div>
             <!-- Prvni Generace -->
@@ -86,16 +105,17 @@
                     </div>
                 </div>
             </div>
+            
 
             <!-- KRIZENI OTCE A MATKY? -->
             <div class="flashcard">
-                <h2>F1 generace</h2>
+                <h2>F1 Generace</h2>
                 <p>F1 generace (1. filiální = první generace potomků) vzejde z krizeni dvou A a z rodicu bla bla</p>
                 <img style="height: 400px;" src="/images/KytkaPAa.png" alt="">
                 <p>Červená kytka s alelou <b>Aa</b></p>
             </div>
     </div>
-    
+<!-- MENDEL 2 -->
     <div id="mendel2" class="body-flashcard" style="display: none;">
         <!-- <div class="flashcard">
             <select id="mendelSelect" onchange="showContent()">
@@ -105,28 +125,68 @@
              <option value="mendel3">3. Mendelův zákon</option>
             </select>
          </div>  -->
+         <!-- KRIZIM DVA HETEROZIGOTY M2 - 1. FLASHCARD -->
+        <div class="flashcard">
+            <h1 class="h-flashcard">2. zákon – segregace</h1>
+            <p>Při křížení 2 heterozygotů může být potomkovi předána každá ze dvou alel (dominantní i recesivní) se stejnou pravděpodobností.</p>
 
-            <!-- DRUHA FLASHCARD -->
-            <div class="flashcard">
-                <h1 class="h-flashcard">2. zákon – segregace</h1>
-                <p>This is the content for the second flashcard.</p>
-                <Button class="button-vyberAlel" onclick="zobrazKrizeniF1()">Spustit křížení</Button>
-                <table>
-                    <tr>
-                        <th>Prvni</th>
-                        <th>Druha</th>
-                    </tr>
-                    <tr>
-                        <td id="td1"></td>
-                        <td id="td2"></td>
-                    </tr>
-                    <tr>
-                        <td id="td3"></td>
-                        <td id="td4"></td>
-                    </tr>
-                </table>
-
+            <div class="horizontal-div">
+                <div class="verical-div">
+                    <p style="font-weight: 600; font-size: larger;">Heterozygot s alelou <b>Aa</b></p>
+                    <img src="/images/KytkaPAa.png" alt="KytkaPAa">
+                </div>
+                <h1 style="align-content: center;"><ion-icon name="close-outline"></ion-icon></h1>
+                <div class="verical-div">
+                    <p style="font-weight: 600; font-size: larger;">Heterozygot s alelou <b>Aa</b></p>
+                    <img src="/images/KytkaPAa.png" alt="KytkaPAa">
+                </div>
             </div>
+        </div>
+            <!-- VYSLEDEK KRIZENI F1 GENERACE?  M2 - 2. FLASHCARD -->
+        <div class="flashcard">
+            <h1 class="h-flashcard">F2 Generace</h1>
+            <Button class="button-vyberAlel" onclick="zobrazKrizeniF1();showImg()">Spustit křížení</Button>
+            
+
+            <br><br><br>
+            <p>Rozdeleni alel po krizeni F1 Generace</p>
+            <table>
+                <tr>
+                    <th>xx</th>
+                    <th>A</th>
+                    <th>a</th>
+                </tr>
+                <tr>
+                    <th>A</th>
+                    <td id="td1"></td>
+                    <td id="td2"></td>
+                </tr>
+                <tr>
+                    <th>a</th>
+                    <td id="td3"></td>
+                    <td id="td4"></td>
+                </tr>
+            </table>
+            <br><br><br>
+            <p>Tabulka pro zobrazeni moznych dvojic pro alely s ukazkou projevu fenotypu</p>
+            <table>
+                <tr>
+                    <th>xx</th>
+                    <th>A</th>
+                    <th>a</th>
+                </tr>
+                <tr>
+                    <th>A</th>
+                    <td><img id="img1" class="img-M2tabulka" src="/images/KytkaAA.png" alt="KytkaPAa"></td>
+                    <td><img id="img2" class="img-M2tabulka" src="/images/KytkaPAa.png" alt="KytkaPAa"></td>
+                </tr>
+                <tr>
+                    <th>a</th>
+                    <td><img id="img3" class="img-M2tabulka" src="/images/KytkaPAa.png" alt="KytkaPAa"></td>
+                    <td><img id="img4" class="img-M2tabulka" src="/images/MKytkaaa.png" alt="MKytkaaa"></td>
+                </tr>
+            </table>
+        </div>
     </div>
     <div id="mendel3" class="body-flashcard" style="display: none;"> 
         <!-- <div class="flashcard">
@@ -146,5 +206,7 @@
     </div>  
     
     <script src="/javascripts/flashcard.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>

@@ -1,0 +1,21 @@
+- Neco na prihlaseni 
+    - Vyrovnat kytky | Aa ma jiny velikost nez aa X AA
+    - Pridelat krizel mezi Kytky
+    -  Vyresit problem s centrovanim a velikost na mobilu <h1 style="align-content: center;"><ion-icon name="close-outline"></ion-icon></h1>
+    - PRepsat style u obrazku a <p style="font-weight: 600; font-size: larger;">Homozygot s alelou <b>aa</b></p>
+
+ToDO
+    - Kliknout na tlacitko a pak at se to tam zobrazi ten obrazek
+
+VYLEPSENI
+    - Prokliknutelny Homozygot na literaturu
+
+
+
+
+
+
+
+
+MOHLO BY SE HODIT 
+- https://css-tricks.com/how-to-show-images-on-click/

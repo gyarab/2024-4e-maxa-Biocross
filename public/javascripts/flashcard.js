@@ -2,11 +2,12 @@
 const tabulka1 = [document.getElementById('td1'),document.getElementById('td2'), document.getElementById('td3'),document.getElementById('td4')];
 
 
+
 //PRVNI VERZE - SPATNE Z HLEDISKA BIOLOGIE?
 // function volbaAlely() {
 //     // Vybrání náhodné alely z rodičů, sance je 1:1
 //     const poleAlel = ["Aa", "Bb"];
-//     //Chceme nahodne vybrat bud Aa nebo Bb z poleAlel
+//     //Chceme nahodne vybrat bud Adocument.getElementById('td1')a nebo Bb z poleAlel
 //     var nahodnyOtec = poleAlel.at(Math.floor(Math.random() * 2)); // Vraci cislo od 0 do 1, Math.floor zaokrouhli na 1 nebo 0
 //     var nahodnaMatka = poleAlel.at(Math.floor(Math.random() * 2));
 
@@ -42,7 +43,7 @@ function volbaAlelyRodic() {
         
     }
 }
-
+// ZOBRZENI PRVNI TABULKY
 function zobrazKrizeniF1() {
     var alelaOtec = document.getElementById('alelaOtec').textContent;
     var alelaMatka = document.getElementById('alelaMatka').textContent;
@@ -60,6 +61,20 @@ function zobrazKrizeniF1() {
             k++;
         }
     }
+}
+//DRUHA TABULKA     
+function showImg() {
+    // Obrazky, ktere pak zobrazime v tabulce pro M2 
+    const img1 = document.getElementById('img1');
+    const img2 = document.getElementById('img2');
+    const img3 = document.getElementById('img3');
+    const img4 = document.getElementById('img4');
+
+    img1.style.display = "block";
+    img2.style.display = "block";
+    img3.style.display = "block";
+    img4.style.display = "block";
+    
 }
 function showContent() {
     // Hide all content divs
