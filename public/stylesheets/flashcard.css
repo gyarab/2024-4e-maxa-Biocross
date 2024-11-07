@@ -31,6 +31,7 @@
 
 img {
     max-width: 100%; /* Ensure images are responsive */
+    /* max-width: 200px; */
     height: auto;
     border-radius: 8px;
     margin-top: 1rem;
@@ -67,8 +68,13 @@ img {
     display: flex;
     margin-top: 2rem;
     justify-content: center;
-    gap: 40px;;
-
+    gap: 40px;
+}
+.horizontal-div-mobile{
+    display: flex;
+    margin-top: 2rem;
+    justify-content: center;
+    gap: 40px;
 }
 .vertical-div {
     display: flex; /* Enable flexbox layout */
@@ -141,86 +147,12 @@ th {
   option[value="mendel2"] { color: #6d9eeb; }
   option[value="mendel3"] { color: #76c7c0; }
 
-
-
-
-/* select {
-    padding: 10px;
-    width: 250px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: 2px solid #4e8dd4;
-    background-color: #f4f4f9;
-    color: #333;
-    cursor: pointer;
-    transition: border-color 0.3s ease;
-  }
-
-  select:hover {
-    border-color: #356cb1;
-  } */
-/* 
-.select-dropdown{
-    min-width: 15em;
-    position: relative;
-    margin: 2em;
-}
-.select-dropdown * {
-    box-sizing: border-box;
-}
-.select{
-    background: #276b2b;
-    color: #fff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: 2px black solid;
-    border-radius: 0.5em;
-    padding: 1em;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-.select-clicked{
-    border: 2px #aaa solid;
-    box-shadow: 0 0 0.8em #aaa;
-}
-.select:hover{
-    background: #45a049;
-}
-
-.caret{
-    width: 0;
-    height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 6px solid red;
-    transition: 0.3s;
-}
-.caret-rotate{
-    transform: rotate(180deg);
-}
-.menu{
-    list-style: none;
-    background: #45a049;
-    border: 1px #363a43 solid;
-    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
-    border-radius: 0.5em;
-    color:  #fff;
-    position: absolute;
-    top: 3em;
-    left: 50%;
-    width: 100%;
-    transform: translateX(-50%);
-    opacity: 0;
-    display: none;
-    transition: 0.2s;
-    z-index: 1;
-} */
 /* Media query for tablet and larger screens */
 @media (min-width: 768px) {
     .flashcard {
         width: 80%; /* Adjust width for tablet */
     }
+
 }
 
 /* Media query for desktop and larger screens */
@@ -229,3 +161,15 @@ th {
         width: 60%; /* Adjust width for desktop */
     }
 }
+
+ @media (max-width: 987px) {
+    .horizontal-div-mobile{
+        flex-direction: column; /* Stack items vertically */
+        align-items: flex-start; /* Align items to the left */
+        gap: 20px; /* Space between the h3 elements */        
+    }
+    .img{
+        max-width: 100px;
+    }
+} 
+
