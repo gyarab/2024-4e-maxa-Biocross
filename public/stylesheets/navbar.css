@@ -9,9 +9,9 @@ header {
     background-color: #347230;
     background-size: cover;
     background-position: center;
-    border-radius: 3px;
+    /* border-radius: px; */
     width: 100%;
-    margin-top: 3px;
+    /* margin-top: 3px; */
     /* margin-left:3px ; */
 }  
 
@@ -165,5 +165,4 @@ header {
         backdrop-filter: blur(40px);
     }
 }
-
 

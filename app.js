@@ -9,7 +9,7 @@ app.set('view engine', 'ejs');  // or 'ejs', 'hbs', etc.
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static('public'))
+app.use(express.static('public'));
 
 
 // Set the port 
@@ -20,10 +20,6 @@ const PORT = process.env.PORT || 3000;
 app.get("/login",(req,res)=>{
   res.render("login")
 })
-// router
-const loginRouter = require("./routes/login");
-app.use("/login", loginRouter);
-
 
 //Domovska stranka
 //gets
@@ -63,7 +59,13 @@ app.get("/footer",(req,res)=>{
 // const registerRouter = require("./routes/register")
 // app.use('/register', registerRouter)
 
-
+//ROUTERS
+//login
+const loginRouter = require("./routes/login");
+app.use("/login", loginRouter);
+//classroom
+const classroomRouter = require("./routes/classroom");
+app.use("/classroom", classroomRouter);
 
 
 app.listen(PORT, ()=>{
