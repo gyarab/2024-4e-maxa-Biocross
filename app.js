@@ -22,7 +22,9 @@ app.get("/login",(req,res)=>{
 })
 
 //Domovska stranka
+//Domovska stranka
 //gets
+//Domovska stranka
 app.get("/home",(req,res)=>{
   res.render("homepage")
 })
@@ -40,8 +42,36 @@ app.get("/literatura",(req,res)=>{
 
 //Classroom stranka
 //gets
-app.get("/classroom",(req,res)=>{
-  res.render("classroom")
+
+const getCurses = require('./routes/methods/getCurses')
+
+// if(id=ucitel){classroomUcitel} if student classroom student
+app.get("/classroom", async(req,res)=>{
+  //nactu existujici kurzy uzivatele
+  var arrCurses = await getCurses.getCurses()
+
+  try {
+    res.format({
+      html: async () => {
+        res.render("classroom")
+      },
+      json: () => {   
+        res.json(arrCurses);
+      }
+    }); 
+  } catch (err){
+    console.error(err);
+    res.status(500).send('Server Error');
+  }
+  
+    // res.render("classroom")
+});
+
+
+//ClassroomUcitel stranka
+//gets
+app.get("/classroomUcitel",(req,res)=>{
+  res.render("classroomUcitel")
 })
 
 
@@ -66,6 +96,10 @@ app.use("/login", loginRouter);
 //classroom
 const classroomRouter = require("./routes/classroom");
 app.use("/classroom", classroomRouter);
+
+//classroomUcitel
+const classroomUcitelRouter = require("./routes/classroomUcitel");
+app.use("/classroomUcitel", classroomUcitelRouter);
 
 
 app.listen(PORT, ()=>{

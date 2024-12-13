@@ -14,33 +14,32 @@
     </div>
     <div class="main-body">
         <div>
-            <%- include('../views/sidebar.ejs') %>
+            <%- include('../views/sidebarUcitel.ejs') %>
         </div>
        <main>
         <div class="container">
-          <h1>Classroom</h1>
+          <h1>Jak vytvorit novy kurz</h1>
           <p>Classroom je místo, kde studenti najdou všechna zadání úkolů a materiály ke studiu na jednom místě. Umožňuje snadný přístup k zadání úkolů, což usnadňuje orientaci a pomáhá studentům lépe si organizovat studium. Každý student zde může jednoduše odevzdat svůj vypracovaný úkol ve formátu PDF, a mít tak přehled o všech odevzdaných pracích.</p>
         </div>
-        <div class="horizontal-div">
             <div class="container">
-                <h1>Zpasat se do kurzu</h1>
+                <h1>Vytvorit novy kurz</h1>
                 <p>Zde napiste kod kurzu</p>   
-                <input type="text" placeholder="kod">
-                <button> Zapsat se </button>
-            </div>
+                <form action="/classroomUcitel/novyKurz" method="post">
+                    <input name="courseName" type="text" placeholder="Jmeno Kurzu">
+                    <input name="teachersName" type="text" placeholder="Jmeno vyucujiciho">
+                    <input name="className" type="text" placeholder="Trida">
+                    <input name="courseYear" type="text" placeholder="Rok">
 
-            <div class="container">
-                <h1>Zpasat se do kurzu</h1>
-                <p>Zde napiste kod kurzu</p>   
-                <input type="text" placeholder="kod">
-                <button> Zapsat se </button>
+                    <button class="submit" type="submit">Vytvorit kurz</button>
+
+                </form>
+             
             </div>
-        </div>
       </main>
     </div>
     <div>
         <%- include('../views/footer.ejs') %>
     </div>
-    <script src="/javascripts/handlers/sidebarHandler.js"></script>
+    <!-- <script src="/javascripts/classroom.js"></script> -->
 </body>
 </html>

@@ -40,6 +40,10 @@ main p{
 .container p {
   color: var(--line-clr);
 }
+/* .horizontal-div{
+  display: flex;
+
+} */
 
 
 @media(max-width: 987px){
