@@ -111,7 +111,7 @@ body.dark-mode {
     position: relative; /* Allows absolute positioning of child elements */
     background-size: cover; /* Ensures the image covers the entire container */
     background-position: center; /* Centers the background image */
-    background-image: url("https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80");
+    background-image: url('../images/mendel.jpg');
     padding: 3px;
     margin: 3px;
     z-index: -99;  /*TOHLE MOZNA RESI PROBLEM a v navbaru je z-index: 99*/

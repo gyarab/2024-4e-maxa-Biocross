@@ -12,7 +12,7 @@ function getCurses(){
              reject(err);
            }
            resolve(result);
-           console.log(result);
+          //  console.log(result);
          });
        });
 }
