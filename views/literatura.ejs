@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/literatura.css">
+    <link rel="stylesheet" href="/stylesheets/body.css">
+
+    <title>Literatura</title>
+</head>
+<body>
+    <div>
+        <%- include('../views/navbar.ejs') %>
+    </div>
+    
+    <!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubliny s obsahem</title>
+
+</head>
+<body>
+    <div class="container">
+
+        <div id="alela" class="bubble" onclick="toggleContent(this)">
+            <h3>Alela</h3>
+            <div class="content">
+                <h3>Alela</h3>
+                <p><b>Alela</b> je varianta určitého genu, která se nachází na konkrétním místě (lokus) na chromozomu. Každý jedinec má od každého genu dvě alely (jednu od otce a jednu od matky), pokud se jedná o diploidní organismy, jako jsou lidé.</p>
+                <p><b><i>Dominantní alela</b></i>: Stačí přítomnost jedné, aby ovlivnila vlastnost organismu (např. alela pro hnědé oči).</p>
+                <p><b><i>Recesivní alela</b></i>: Projevuje se pouze tehdy, pokud jsou přítomny obě recesivní alely (např. alela pro modré oči).</p>
+            </div>
+        </div>
+
+        <div id="homozygot" class="bubble" onclick="toggleContent(this)">
+            <h3>Homozygot</h3>
+            <div class="content">
+                <h3>Homozygot</h3>
+                <p><b>Homozygot</b> je jedinec, který má ve své genetické výbavě (genotypu) dvě stejné alely pro určitý gen. Tyto alely mohou být buď dominantní (např. AA) nebo recesivní (např. aa). </p>
+                <p><b><i>Homozygot dominantní (AA)</i></b>: Má dvě dominantní alely. Projevuje se dominantní vlastnost.</p>
+                <p><b><i>Homozygot recesivní (aa)</i></b>: Má dvě recesivní alely. Projevuje se recesivní vlastnost, pokud dominantní alela není přítomna.</p>
+            </div>
+        </div>
+
+        <div id="heterozygot" class="bubble" onclick="toggleContent(this)">
+            <h3>Heterozygot</h3>            
+            <div class="content">
+                <h3>Heterozygot</h3>
+                <p><b>Heterozygot</b> je jedinec, který má ve své genetické výbavě (genotypu) dvě různé alely pro určitý gen, tedy jednu dominantní a jednu recesivní alelu (například Aa).</p>
+                <p><b><i>Dominantní alela (A)</i></b>: Projevuje se ve fenotypu (vnějších znacích), pokud je přítomná alespoň jedna.</p>
+                <p><b><i>Recesivní alela (a)</i></b>: Neprojevuje se ve fenotypu, pokud je přítomna dominantní alela.</p>
+            </div>
+        </div>
+
+       
+
+        <div class="bubble" onclick="toggleContent(this)">
+            Bublina 4
+            <div class="content">
+                <h3>Téma 4</h3>
+                <p>Detailní informace o tématu 4.</p>
+            </div>
+        </div>
+
+        <div class="bubble" onclick="toggleContent(this)">
+            Bublina 5
+            <div class="content">
+                <h3>Téma 5</h3>
+                <p>Detailní informace o tématu 5.</p>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <%- include('../views/footer.ejs') %>
+    </div>
+
+    <script>
+        function toggleContent(bubble) {
+            const content = bubble.querySelector('.content');
+            content.style.display = content.style.display === 'block' ? 'none' : 'block';
+        }
+        function toggleContent(bubble) {
+            const content = bubble.querySelector('.content');
+            content.style.display = content.style.display === 'block' ? 'none' : 'block';
+        }
+
+        // Automatically open a specific bubble if referenced in the URL hash
+        window.addEventListener('DOMContentLoaded', () => {
+            const hash = window.location.hash;
+            if (hash) {
+                const bubble = document.querySelector(hash);
+                if (bubble) {
+                    toggleContent(bubble);
+                    bubble.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        });
+    </script>
+</body>
+</html>
