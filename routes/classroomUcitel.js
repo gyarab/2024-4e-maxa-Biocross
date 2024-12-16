@@ -16,7 +16,7 @@ router.post("/novyKurz", (req,res)=>{
     }
 
     //prepsat to bez sql injection = hotove
-     var sql = "INSERT INTO biocross.course(course_name,course_teacherName,course_className,course_year) VALUES (?,?,?,?)";
+     var sql = "INSERT INTO course(course_name,course_teacherName,course_className,course_year) VALUES (?,?,?,?)";
 
     db.query(sql,[inputData.course_name,inputData.course_teacherName,inputData.course_className,inputData.course_year], function(err,result){
         if(err) throw err
@@ -27,5 +27,15 @@ router.post("/novyKurz", (req,res)=>{
     res.render('classroomNewKurz');
 });
 
+//kazdy kurz ma svuj random kod, musi byt unikatni 
+//pdoivat se do DB jestli jiz existuje?
+function createCode(params) {
+    var sql = "SELECT course(course_code) WHERE VALUES ";
+
+    db.query(sql,[inputData.course_name,inputData.course_teacherName,inputData.course_className,inputData.course_year], function(err,result){
+        if(err) throw err
+        console.log("Course add correctly?");
+    });
+}
 //Kurzy
 module.exports = router;
