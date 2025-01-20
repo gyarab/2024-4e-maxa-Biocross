@@ -3,8 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/nano.min.css"/> <!-- 'nano' theme -->
+
     <link rel="stylesheet" href="/stylesheets/body.css">
     <link rel="stylesheet" href="/stylesheets/crossing.css">
+    <!-- Knihovna  --> 
+
 
 
     <title>Crossing</title>
@@ -13,21 +18,24 @@
     <div>
         <%- include('../views/navbar.ejs') %>
     </div>
-    
+
     <div class="menu-container">
       
         <div class="subjekt">
             <h1>Subjekt 1</h1>
             <div class="sub-container">
                 <h2>Vybrat barvu</h2>
-                <div>
-                    <%- include('../views/colorpicker.ejs') %>
-                </div>
+                <div class="color-picker"></div>
+
+              
             </div>
             <div class="sub-container">
                 <h2>V=</h2>
                 <p>adsdas</p>
                 <button>dsadas</button>
+
+
+
             </div>
         </div>
         <div class="vl"></div>
@@ -46,5 +54,8 @@
     <div>
         <%- include('../views/footer.ejs') %>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.es5.min.js"></script>
+    <script src="javascripts/crossing.js"></script>
 </body>
 </html>
