@@ -10,7 +10,30 @@
     <link rel="stylesheet" href="/stylesheets/crossing.css">
     <!-- Knihovna  --> 
 
+    <style>
+       /* Style the container to control layout */
+.canvas-container {
+    width: 100%; /* Or set a specific width, like '400px' */
+    max-width: 200px; /* Prevents the container from growing too large */
+    height: auto; /* Maintain aspect ratio */
+    margin: 0 auto; /* Center align */
+    position: relative; /* Ensure proper stacking with other elements */
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
+/* Make the canvas responsive */
+canvas {
+    width: 50%; /* Canvas takes full width of the container */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Avoid inline-block spaces */
+    border: 1px solid #000; /* Optional border for visibility */
+    border-radius: 5px; /* Rounded corners */
+} */
+    </style>
 
     <title>Crossing</title>
 </head>
@@ -18,36 +41,41 @@
     <div>
         <%- include('../views/navbar.ejs') %>
     </div>
-
+<!-- https://medium.com/@laners.org/how-to-add-a-color-picker-in-html-ebd55e419b16 -->
     <div class="menu-container">
-      
         <div class="subjekt">
             <h1>Subjekt 1</h1>
-            <div class="sub-container">
-                <h2>Vybrat barvu</h2>
-                <div class="color-picker"></div>
-
-              
-            </div>
-            <div class="sub-container">
-                <h2>V=</h2>
-                <p>adsdas</p>
-                <button>dsadas</button>
-
-
-
+            <div class="horizontal-div">
+                <div class="horizontal-div">
+                    <h3>Zvolte barvu</h3>
+                    <form>
+                        <label for="colorPicker">Select Your Color:</label>
+                        <input type="color" id="colorPicker" name="colorPicker">
+                        <input type="submit" value="Submit">
+                    </form>
+                </div>
+                <div class="horizontal-div">
+                    <h3>Zvolte predmet</h3> <input type="number" style="width: 30px; height: 30px;" id="input1"><button style="width: 30px; height: 30px;" onclick="generuj()"></button>
+                    <canvas id="canvas1" width="400" height="400"></canvas>
+                </div>
             </div>
         </div>
-        <div class="vl"></div>
         <div class="subjket">
-            <div class="sub-container">
-                <h1>Subjekt 2</h1>
-                <p>asdad</p>
-                <h1>asd</h1>
+            <h1>Subjekt 2</h1>
+            <div class="horizontal-div">
+                <div class="horizontal-div">
+                    <h3>Zvolte barvu</h3>
+                    <form>
+                        <label for="colorPicker">Select Your Color:</label>
+                        <input type="color" id="colorPicker" name="colorPicker">
+                        <input type="submit" value="Submit">
+                    </form>                </div>
+                <div class="horizontal-div">
+                    <h3>Zvolte predmet</h3><input type="number" style="width: 30px; height: 30px;" id="input2"><button onclick="generuj()"></button>
+                    <canvas id="canvas2" width="400" height="400"></canvas> 
+                </div>
             </div>
-        </div>
-       
-        
+        </div>        
     </div>
     <div style="height: 800px;"></div>
 
@@ -55,7 +83,39 @@
         <%- include('../views/footer.ejs') %>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.es5.min.js"></script>
-    <script src="javascripts/crossing.js"></script>
+
+    <script>
+    function drawPolygon(context, x, y, radius, sides) {
+        const angleStep = (2 * Math.PI) / sides;
+        context.beginPath();
+        for (let i = 0; i < sides; i++) {
+            const angle = i * angleStep;
+            const xPos = x + radius * Math.cos(angle);
+            const yPos = y + radius * Math.sin(angle);
+            context.lineTo(xPos, yPos);
+        }
+        context.closePath();
+        context.stroke();
+    }
+    const a = document.getElementById('input1').innerText;
+    const b = document.getElementById('input2').innerText;
+    function generuj(){
+        console.log("a:"+a);
+        console.log(b);
+        
+        
+        const canvas1 = document.getElementById('canvas1');
+        const ctx1 = canvas1.getContext('2d');
+        drawPolygon(ctx1, 200, 200, 100, a); // Nakreslí sedmiúhelník
+
+        const canvas2 = document.getElementById('canvas2');
+        const ctx2 = canvas2.getContext('2d');
+        drawPolygon(ctx2, 200, 200, 100, b); // Nakreslí sedmiúhelník
+    }
+    
+    </script>
+    
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.es5.min.js"></script> -->
+    <!-- <script src="javascripts/crossing.js"></script> -->
 </body>
 </html>

@@ -44,38 +44,31 @@
 
 
     background-color: var(--text-clr);
-    display: flex;
+    justify-content: center;
 
 }
-.subjekt{
-    margin-right: 40%;
-    display: flex;
 
+.menu-container h1{
+    color: var(--base-clr);
+    font-size: 30px;
+    text-align: center;
+  }
+  .menu-container p {
+    color: var(--line-clr);
+  }
+  
+  
+.subjekt{
+    margin-right: 30%;
 }
 .sub-container{
     margin-right: 40%;
-
-
 }
 
 .vl {
   border-left: 6px solid green;
   height: 150px;
 }
-
-.menu-container h1{
-  color: var(--base-clr);
-  font-size: 30px;
-}
-.menu-container p {
-  color: var(--line-clr);
-}
-
-/* h1 {
-    text-align: center;
-    color: #2c3e50;
-    margin-bottom: 20px;
-} */
 
 p {
     text-align: center;
