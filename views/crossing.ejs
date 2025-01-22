@@ -83,7 +83,7 @@ canvas {
         <%- include('../views/footer.ejs') %>
     </div>
 
-
+    <input id="inputZkouska" type="number"><button onclick="zkouska()" style="height: 100pxs; width: 100px;"></button>
     <script>
     function drawPolygon(context, x, y, radius, sides) {
         const angleStep = (2 * Math.PI) / sides;
@@ -97,25 +97,25 @@ canvas {
         context.closePath();
         context.stroke();
     }
-    const a = document.getElementById('input1').innerText;
-    const b = document.getElementById('input2').innerText;
+   
+   
     function generuj(){
-        console.log("a:"+a);
-        console.log(b);
-        
+        var N_Uhelnik1 = parseInt(document.getElementById('input1').value);
+        var N_Uhelnik2= parseInt(document.getElementById('input2').value);
+
+    
         
         const canvas1 = document.getElementById('canvas1');
         const ctx1 = canvas1.getContext('2d');
-        drawPolygon(ctx1, 200, 200, 100, a); // Nakreslí sedmiúhelník
+        drawPolygon(ctx1, 200, 200, 100, N_Uhelnik1); // Nakreslí n-úhelník
 
         const canvas2 = document.getElementById('canvas2');
         const ctx2 = canvas2.getContext('2d');
-        drawPolygon(ctx2, 200, 200, 100, b); // Nakreslí sedmiúhelník
+        drawPolygon(ctx2, 200, 200, 100, 4.5); // Nakreslí n-úhelník
     }
     
     </script>
     
-    <!-- <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.es5.min.js"></script> -->
     <!-- <script src="javascripts/crossing.js"></script> -->
 </body>
 </html>
