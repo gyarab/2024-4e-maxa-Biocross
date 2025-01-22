@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/nano.min.css"/> <!-- 'nano' theme -->
 
     <link rel="stylesheet" href="/stylesheets/body.css">
     <link rel="stylesheet" href="/stylesheets/crossing.css">
@@ -49,8 +48,8 @@ canvas {
                 <div class="horizontal-div">
                     <h3>Zvolte barvu</h3>
                     <form>
-                        <label for="colorPicker">Select Your Color:</label>
-                        <input type="color" id="colorPicker" name="colorPicker">
+                        <label for="colorPicker1">Select Your Color:</label>
+                        <input type="color" id="colorPicker1" name="colorPicker1">
                         <input type="submit" value="Submit">
                     </form>
                 </div>
@@ -96,24 +95,46 @@ canvas {
         }
         context.closePath();
         context.stroke();
+        
     }
    
    
     function generuj(){
+        // Nacte jaky n uhlenik ma vytvorit
         var N_Uhelnik1 = parseInt(document.getElementById('input1').value);
         var N_Uhelnik2= parseInt(document.getElementById('input2').value);
 
-    
-        
+        //vymaze to co je v canvasu
         const canvas1 = document.getElementById('canvas1');
+        const canvas2 = document.getElementById('canvas2');
+        canvas1.innerHTML = "";
+        canvas2.innerHTML = "";
+
+
         const ctx1 = canvas1.getContext('2d');
         drawPolygon(ctx1, 200, 200, 100, N_Uhelnik1); // Nakreslí n-úhelník
+        ctx1.fillStyle = "red";
+        ctx1.fill();
 
-        const canvas2 = document.getElementById('canvas2');
         const ctx2 = canvas2.getContext('2d');
-        drawPolygon(ctx2, 200, 200, 100, 4.5); // Nakreslí n-úhelník
+        drawPolygon(ctx2, 200, 200, 100, N_Uhelnik2); // Nakreslí n-úhelník
+        ctx2.fillStyle = "red";
+        ctx2.fill();
     }
     
+
+    function dejBarvu() {
+        
+    }
+    const colorPicker = document.getElementById('colorPicker1');
+    const colorPreview = document.getElementById('colorPreview1');
+    colorPicker.addEventListener('change', () => {
+        const selectedColor = colorPicker.value;
+        colorPreview.style.backgroundColor = selectedColor;
+        console.log(selectedColor);
+        
+    });
+
     </script>
     
     <!-- <script src="javascripts/crossing.js"></script> -->
