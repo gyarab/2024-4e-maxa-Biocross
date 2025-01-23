@@ -12,9 +12,9 @@
     <style>
        /* Style the container to control layout */
 .canvas-container {
-    width: 100%; /* Or set a specific width, like '400px' */
-    max-width: 200px; /* Prevents the container from growing too large */
-    height: auto; /* Maintain aspect ratio */
+    width: 50px; /* Or set a specific width, like '400px' */
+    max-width: 20px; /* Prevents the container from growing too large */
+    height: 50px; /* Maintain aspect ratio */
     margin: 0 auto; /* Center align */
     position: relative; /* Ensure proper stacking with other elements */
     border: 1px solid #ccc;
@@ -45,36 +45,42 @@ canvas {
         <div class="subjekt">
             <h1>Subjekt 1</h1>
             <div class="horizontal-div">
-                <div class="horizontal-div">
+                <div class="vertical-div">
                     <h3>Zvolte barvu</h3>
-                    <form>
-                        <label for="colorPicker1">Select Your Color:</label>
-                        <input type="color" id="colorPicker1" name="colorPicker1">
-                        <input type="submit" value="Submit">
-                    </form>
+                    <label for="colorPicker1">Select Your Color:</label>
+                    <input type="color" id="colorPicker1" name="colorPicker1">
+                    <button onclick="generuj()">Generuj tvar</button>
                 </div>
-                <div class="horizontal-div">
-                    <h3>Zvolte predmet</h3> <input type="number" style="width: 30px; height: 30px;" id="input1"><button style="width: 30px; height: 30px;" onclick="generuj()"></button>
+                <div class="vertical-div">
+                    <h3>Zvolte predmet</h3>
+                    <input type="number" style="width: 30px; height: 30px;" id="input1">
                     <canvas id="canvas1" width="400" height="400"></canvas>
                 </div>
             </div>
         </div>
-        <div class="subjket">
+        <div class="sub">
+            <button style="background-color : green;" onclick="kriz()">Krizit</button>
+        </div>
+        <div class="subjket">   
             <h1>Subjekt 2</h1>
             <div class="horizontal-div">
-                <div class="horizontal-div">
+                <div class="vertical-div">
                     <h3>Zvolte barvu</h3>
-                    <form>
-                        <label for="colorPicker">Select Your Color:</label>
-                        <input type="color" id="colorPicker" name="colorPicker">
-                        <input type="submit" value="Submit">
-                    </form>                </div>
-                <div class="horizontal-div">
-                    <h3>Zvolte predmet</h3><input type="number" style="width: 30px; height: 30px;" id="input2"><button onclick="generuj()"></button>
+                    <label>Select Your Color:</label>
+                    <input type="color" id="colorPicker2" name="colorPicker2">
+                    <button onclick="generuj()">Generuj tvar</button>
+                </div>
+                <div class="vertical-div">
+                    <h3>Zvolte predmet</h3>
+                    <input type="number" style="width: 30px; height: 30px;" id="input2">
+                    <button onclick="generuj()"></button>
                     <canvas id="canvas2" width="400" height="400"></canvas> 
                 </div>
             </div>
-        </div>        
+        </div>     
+    </div>
+    <div class="menu-container">
+        <canvas id="canvas3" width="400" height="400"></canvas> 
     </div>
     <div style="height: 800px;"></div>
 
@@ -98,7 +104,40 @@ canvas {
         
     }
    
+
+        // Function to convert HEX to RGB
+function hexToRgb(hex) {
+  hex = hex.replace('#', '');
+  const r = parseInt(hex.substring(0, 2), 16);
+  const g = parseInt(hex.substring(2, 4), 16);
+  const b = parseInt(hex.substring(4, 6), 16);
+  return { r, g, b };
+}
+
+// Function to convert RGB to HEX
+function rgbToHex(r, g, b) {
+  return (
+    '#' +
+    [r, g, b]
+      .map((value) => value.toString(16).padStart(2, '0'))
+      .join('')
+      .toUpperCase()
+  );
+}
+
+// Function to mix two colors
+function mixColors(color1, color2) {
+  const rgb1 = hexToRgb(color1);
+  const rgb2 = hexToRgb(color2);
+
+  const r = Math.round((rgb1.r + rgb2.r) / 2);
+  const g = Math.round((rgb1.g + rgb2.g) / 2);
+  const b = Math.round((rgb1.b + rgb2.b) / 2);
+
+  return rgbToHex(r, g, b);
+}
    
+
     function generuj(){
         // Nacte jaky n uhlenik ma vytvorit
         var N_Uhelnik1 = parseInt(document.getElementById('input1').value);
@@ -106,34 +145,66 @@ canvas {
 
         //vymaze to co je v canvasu
         const canvas1 = document.getElementById('canvas1');
-        const canvas2 = document.getElementById('canvas2');
-        canvas1.innerHTML = "";
-        canvas2.innerHTML = "";
-
-
         const ctx1 = canvas1.getContext('2d');
+        ctx1.clearRect(0, 0, canvas1.width, canvas1.height);
+
+        const canvas2 = document.getElementById('canvas2');
+        const ctx2 = canvas2.getContext('2d');
+        ctx2.clearRect(0, 0, canvas2.width, canvas2.height);
+
+
+        const colorPicker1 = document.getElementById('colorPicker1');
+        const colorPicker2 = document.getElementById('colorPicker2');
+
+        const selectedColor1 = colorPicker1.value;
+        const selectedColor2 = colorPicker2.value;
+
         drawPolygon(ctx1, 200, 200, 100, N_Uhelnik1); // Nakreslí n-úhelník
-        ctx1.fillStyle = "red";
+        ctx1.fillStyle = selectedColor1;
         ctx1.fill();
 
-        const ctx2 = canvas2.getContext('2d');
         drawPolygon(ctx2, 200, 200, 100, N_Uhelnik2); // Nakreslí n-úhelník
-        ctx2.fillStyle = "red";
+        ctx2.fillStyle = selectedColor2;
         ctx2.fill();
     }
-    
 
-    function dejBarvu() {
-        
+    function kriz() {
+        const colorPicker1 = document.getElementById('colorPicker1');
+        const colorPicker2 = document.getElementById('colorPicker2');
+
+        const selectedColor1 = colorPicker1.value;
+        const selectedColor2 = colorPicker2.value;
+
+        var N_Uhelnik1 = parseInt(document.getElementById('input1').value);
+        var N_Uhelnik2= parseInt(document.getElementById('input2').value);
+
+        var X = (N_Uhelnik1+N_Uhelnik2)/2;
+        console.log(X);
+
+        const canvas3 = document.getElementById('canvas3');
+        const ctx3 = canvas3.getContext('2d');
+        ctx3.clearRect(0, 0, canvas3.width, canvas3.height);
+
+
+        //smichani barvy 
+
+        const color1 = '#FF0000'; // Red
+        const color2 = '#0000FF'; // Blue
+        const mixedColor = mixColors(selectedColor1, selectedColor2);
+
+console.log('Mixed Color:', mixedColor); // Output: Mixed Color: #800080 (Purple)
+
+        drawPolygon(ctx3, 200, 200, 100, X); // Nakreslí n-úhelník
+        ctx3.fillStyle = mixedColor;
+        ctx3.fill();
+
     }
-    const colorPicker = document.getElementById('colorPicker1');
-    const colorPreview = document.getElementById('colorPreview1');
-    colorPicker.addEventListener('change', () => {
-        const selectedColor = colorPicker.value;
-        colorPreview.style.backgroundColor = selectedColor;
-        console.log(selectedColor);
-        
-    });
+
+
+// Example usage
+
+
+  
 
     </script>
     
