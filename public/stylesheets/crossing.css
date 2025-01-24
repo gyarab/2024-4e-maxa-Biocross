@@ -31,19 +31,30 @@
     justify-content: center;
     gap: 40px;
 }
+
+.vertical-div {
+    display: flex; /* Enable flexbox layout */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Align items to the left */
+    gap: 10px; 
+    
+}
 /* VYBEROVE MENU */
 
 .menu-container{
     border: 1px solid var(--line-clr);
     border-radius: 1em;
-    margin-right: 10em;
-    width: 100%;
-
+    /* margin-right: 10em; */
+    margin-left: 6em;
+    margin-right: 6em;
+    margin-top: 3em;
+    margin-bottom: 3em;
+ 
     display: flex;
 
 
-    background-color: var(--text-clr);
-    /* justify-content: center; */
+    background-color: #b3e2b5;
+    justify-content: center;
 
 }
 
@@ -57,9 +68,9 @@
   }
   
   
-.subjekt{
+/* .subjekt{
     margin-right: 10%;
-}
+} */
 /* .sub-container{
     margin-right: 10%;
 } */
@@ -104,4 +115,35 @@ p {
 ul {
     margin: 10px 0;
     padding-left: 20px;
+}
+
+.button-krizeni{
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 19px;
+    font-weight: bold;
+    margin: 10px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: background-color 0.6s ease;
+}
+.button-generujTvar{
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 7px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 10px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: background-color 0.6s ease;
 }

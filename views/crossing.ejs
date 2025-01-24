@@ -42,45 +42,63 @@ canvas {
     </div>
 <!-- https://medium.com/@laners.org/how-to-add-a-color-picker-in-html-ebd55e419b16 -->
     <div class="menu-container">
+
+
+        <div class="vertical-div">
+        <label for="cars">Vyberte typ křížení</label>
+        <select name="cars" id="cars">
+          <option value="volvo">Úplná dominance</option>
+          <option value="saab">Kodominace</option>
+          <option value="opel">Neúplná dominance</option>
+        </select>
+        <div class="horizontal-div">
         <div class="subjekt">
             <h1>Subjekt 1</h1>
-            <div class="horizontal-div">
-                <div class="vertical-div">
+            <div class="vertical-div">
+                <div class="horizontal-div">
                     <h3>Zvolte barvu</h3>
-                    <label for="colorPicker1">Select Your Color:</label>
                     <input type="color" id="colorPicker1" name="colorPicker1">
-                    <button onclick="generuj()">Generuj tvar</button>
+                </div>
+                <div class="horizontal-div">
+                    <h3>Navolte počet vrcholů</h3>
+                    <input type="number" style="width: 30px; height: 30px;" id="input1">
                 </div>
                 <div class="vertical-div">
-                    <h3>Zvolte predmet</h3>
-                    <input type="number" style="width: 30px; height: 30px;" id="input1">
+                    <button class="button-generujTvar" onclick="generuj()">Generuj tvar</button>
                     <canvas id="canvas1" width="400" height="400"></canvas>
                 </div>
             </div>
         </div>
-        <div class="sub">
-            <button style="background-color : green;" onclick="kriz()">Krizit</button>
-        </div>
         <div class="subjket">   
             <h1>Subjekt 2</h1>
-            <div class="horizontal-div">
-                <div class="vertical-div">
+            <div class="vertical-div">
+                <div class="horizontal-div">
                     <h3>Zvolte barvu</h3>
-                    <label>Select Your Color:</label>
                     <input type="color" id="colorPicker2" name="colorPicker2">
-                    <button onclick="generuj()">Generuj tvar</button>
+                </div>
+                <div class="horizontal-div">
+                    <h3>Navolte počet vrcholů</h3>
+                    <input type="number" style="width: 30px; height: 30px;" id="input2">
                 </div>
                 <div class="vertical-div">
-                    <h3>Zvolte predmet</h3>
-                    <input type="number" style="width: 30px; height: 30px;" id="input2">
-                    <button onclick="generuj()"></button>
-                    <canvas id="canvas2" width="400" height="400"></canvas> 
+                    <button class="button-generujTvar" onclick="generuj()">Generuj tvar</button>
+                    <canvas id="canvas2" width="400" height="400"></canvas>
                 </div>
             </div>
-        </div>     
+        </div>  
+        </div>
+        <div style="text-align: center; width: 100%;">
+            <button class="button-krizeni" onclick="kriz()">Křížit</button>
+        </div>
+
+    </div>
+
     </div>
     <div class="menu-container">
-        <canvas id="canvas3" width="400" height="400"></canvas> 
+        <div class="vertical-div">
+            <h1>Výsledný subjekt</h1>
+            <canvas id="canvas3" width="400" height="400"></canvas> 
+        </div>
     </div>
     <div style="height: 800px;"></div>
 
@@ -88,7 +106,6 @@ canvas {
         <%- include('../views/footer.ejs') %>
     </div>
 
-    <input id="inputZkouska" type="number"><button onclick="zkouska()" style="height: 100pxs; width: 100px;"></button>
     <script>
     function drawPolygon(context, x, y, radius, sides) {
         const angleStep = (2 * Math.PI) / sides;
