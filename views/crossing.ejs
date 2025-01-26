@@ -32,6 +32,35 @@ canvas {
     border: 1px solid #000; /* Optional border for visibility */
     border-radius: 5px; /* Rounded corners */
 } */
+
+h1 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
+            border-collapse: collapse;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            text-align: center;
+            padding: 10px;
+            font-size: 16px;
+        }
+        th {
+            background-color: #f4f4f4;
+            font-weight: bold;
+        }
+        td {
+            color: #555;
+        }
+        tr:nth-child(even) td {
+            background-color: #f9f9f9;
+        }
     </style>
 
     <title>Crossing</title>
@@ -41,63 +70,270 @@ canvas {
         <%- include('../views/navbar.ejs') %>
     </div>
 <!-- https://medium.com/@laners.org/how-to-add-a-color-picker-in-html-ebd55e419b16 -->
-    <div class="menu-container">
 
-
-        <div class="vertical-div">
-        <label for="cars">Vyberte typ křížení</label>
-        <select name="cars" id="cars">
-          <option value="volvo">Úplná dominance</option>
-          <option value="saab">Kodominace</option>
-          <option value="opel">Neúplná dominance</option>
+    <div class="select-krizeni">
+        <label>Vyberte typ křížení</label>
+        <select name="krizeniSelect" id="krizeniSelect" >
+            <option value="" disabled selected hidden>Vybrat krížení</option>
+            <option value="neuplnaDominance">Neúplná dominance</option>
+            <option value="uplnaDominance">Úplná dominance</option>
+            <option value="kodokinance">Kodominace</option>
         </select>
-        <div class="horizontal-div">
-        <div class="subjekt">
-            <h1>Subjekt 1</h1>
-            <div class="vertical-div">
-                <div class="horizontal-div">
-                    <h3>Zvolte barvu</h3>
-                    <input type="color" id="colorPicker1" name="colorPicker1">
+    </div>
+    <div class="menu-container">
+        <div class="vertical-div">
+            <div class="horizontal-div">
+                <div class="subjekt">
+                    <h1>Subjekt 1</h1>
+                    <div class="vertical-div">
+                        <div class="horizontal-div">
+                            <h2>Alely: AaBb</h2>
+                            <!-- <h3>Znak pro barvu X</h3> -->
+                            <!-- <h>AaBb</h3> -->
+                        </div>
+                        <div class="horizontal-div">
+                            <h3><b>Aa</b> ..... Znak pro barvu X</h3>
+
+                            <!-- <h>AaBb</h3> -->
+                        </div>
+                        <div class="horizontal-div">
+                            <h3><b>Bb</b> ..... Znak pro tvar X</h3>
+
+                            <!-- <h>AaBb</h3> -->
+                        </div>
+                        
+                        <div class="horizontal-div">
+                            <h3>Zvolte barvu X</h3>
+                            <input type="color" id="colorPicker1" name="colorPicker1" value="#FF0000">
+                        </div>
+                        <div class="horizontal-div">
+                            <h3>Navolte počet vrcholů</h3>
+                            <input type="number" style="width: 30px; height: 30px;" id="input1">
+                        </div>
+                        <div class="vertical-div">
+                            <button class="button-generujTvar" onclick="generuj()">Generuj tvar</button>
+                            <canvas id="canvas1" width="400" height="400"></canvas>
+                        </div>
+                    </div>
                 </div>
-                <div class="horizontal-div">
-                    <h3>Navolte počet vrcholů</h3>
-                    <input type="number" style="width: 30px; height: 30px;" id="input1">
-                </div>
-                <div class="vertical-div">
-                    <button class="button-generujTvar" onclick="generuj()">Generuj tvar</button>
-                    <canvas id="canvas1" width="400" height="400"></canvas>
-                </div>
+                <div class="subjket">   
+                    <h1>Subjekt 2</h1>
+                    <div class="vertical-div">
+                        <div class="horizontal-div">
+                            <h2>Alely: AaBb</h2>
+                            <!-- <h3>Znak pro barvu X</h3> -->
+                            <!-- <h>AaBb</h3> -->
+                        </div>
+                        <div class="horizontal-div">
+                            <h3><b>Aa</b> ..... Znak pro barvu Y</h3>
+
+                            <!-- <h>AaBb</h3> -->
+                        </div>
+                        <div class="horizontal-div">
+                            <h3><b>Bb</b> ..... Znak pro tvar Y</h3>
+
+                            <!-- <h>AaBb</h3> -->
+                        </div>
+                        <!-- <div class="horizontal-div">
+                            <h3>Znak, které pozorujeme ... AaBb</h3>
+                        </div> -->
+                        <div class="horizontal-div">
+                            <h3>Zvolte barvu Y</h3>
+                            <input type="color" id="colorPicker2" name="colorPicker2" value="#0000FF"  >
+                        </div>
+                        <div class="horizontal-div">
+                            <h3>Navolte počet vrcholů</h3>
+                            <input type="number" style="width: 30px; height: 30px;" id="input2">
+                        </div>
+                        <div class="vertical-div">
+                            <button class="button-generujTvar" onclick="generuj()">Generuj tvar</button>
+                            <canvas id="canvas2" width="400" height="400"></canvas>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+
+            <div style="text-align: center; width: 100%;">
+                <button class="button-krizeni" onclick="kriz()">Křížit</button>
             </div>
         </div>
-        <div class="subjket">   
-            <h1>Subjekt 2</h1>
-            <div class="vertical-div">
-                <div class="horizontal-div">
-                    <h3>Zvolte barvu</h3>
-                    <input type="color" id="colorPicker2" name="colorPicker2">
-                </div>
-                <div class="horizontal-div">
-                    <h3>Navolte počet vrcholů</h3>
-                    <input type="number" style="width: 30px; height: 30px;" id="input2">
-                </div>
-                <div class="vertical-div">
-                    <button class="button-generujTvar" onclick="generuj()">Generuj tvar</button>
-                    <canvas id="canvas2" width="400" height="400"></canvas>
-                </div>
-            </div>
-        </div>  
-        </div>
-        <div style="text-align: center; width: 100%;">
-            <button class="button-krizeni" onclick="kriz()">Křížit</button>
-        </div>
-
     </div>
 
-    </div>
+
+
     <div class="menu-container">
         <div class="vertical-div">
             <h1>Výsledný subjekt</h1>
             <canvas id="canvas3" width="400" height="400"></canvas> 
+        </div>
+    </div>
+
+
+    <!-- <div class="menu-container">
+        <h1>Punnettova tabulka pro barvu a tvar květu</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Gamety rodiče</th>
+                <th>AB</th>
+                <th>Ab</th>
+                <th>aB</th>
+                <th>ab</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>AB</th>
+                <td>Červený kruh</td>
+                <td>Červený ovál</td>
+                <td>Růžový kruh</td>
+                <td>Růžový ovál</td>
+            </tr>
+            <tr>
+                <th>Ab</th>
+                <td>Červený ovál</td>
+                <td>Červený trojúhelník</td>
+                <td>Růžový ovál</td>
+                <td>Růžový trojúhelník</td>
+            </tr>
+            <tr>
+                <th>aB</th>
+                <td>Růžový kruh</td>
+                <td>Růžový ovál</td>
+                <td>Bílý kruh</td>
+                <td>Bílý ovál</td>
+            </tr>
+            <tr>
+                <th>ab</th>
+                <td>Růžový ovál</td>
+                <td>Růžový trojúhelník</td>
+                <td>Bílý ovál</td>
+                <td>Bílý trojúhelník</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>-->
+
+
+
+    <div style="height: 800px;"></div>
+
+    <div> 
+
+    
+<!-- VERZE DVE -->
+
+<div class="select-krizeni">
+    <label>Vyberte typ křížení</label>
+    <select name="krizeniSelect" id="krizeniSelect" >
+        <option value="" disabled selected hidden>Vybrat krížení</option>
+        <option value="neuplnaDominance">Neúplná dominance</option>
+        <option value="uplnaDominance">Úplná dominance</option>
+        <option value="kodokinance">Kodominace</option>
+    </select>
+</div>
+    <div class="menu-container">
+        <div class="vertical-div">
+            <div class="horizontal-div" style="gap: 150px;">
+                <div class="subjekt">
+                    <h1>Subjekt 1</h1>
+                    <div class="vertical-div">
+                        <div class="horizontal-div">
+                            <h2>Alely: AaBb</h2>
+                            <!-- <h3>Znak pro barvu X</h3> -->
+                            <!-- <h>AaBb</h3> -->
+                        </div>
+                        <div class="horizontal-div">
+                            <h3><b>Aa</b> ..... Znak pro barvu X</h3>
+
+                            <!-- <h>AaBb</h3> -->
+                        </div>
+                        <div class="horizontal-div">
+                            <h3><b>Bb</b> ..... Znak pro tvar X</h3>
+
+                            <!-- <h>AaBb</h3> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="subjket">   
+                    <h1>Subjekt 2</h1>
+                    <div class="vertical-div">
+                        <div class="horizontal-div">
+                            <h2>Alely: AaBb</h2>
+                            <!-- <h3>Znak pro barvu X</h3> -->
+                            <!-- <h>AaBb</h3> -->
+                        </div>
+                        <div class="horizontal-div">
+                            <h3><b>Aa</b> ..... Znak pro barvu Y</h3>
+
+                            <!-- <h>AaBb</h3> -->
+                        </div>
+                        <div class="horizontal-div">
+                            <h3  style="margin-bottom: 2em;"><b>Bb</b> ..... Znak pro tvar Y</h3>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+        </div>
+    </div>
+
+    <div class="menu-container">
+        <div class="vertical-div">
+            <div class="horizontal-div">
+                <div class="subjekt">
+                    <h1>Subjekt 1</h1>
+                    <div class="vertical-div">  
+                        <div class="horizontal-div">
+                            <h3>Zvolte barvu X</h3>
+                            <input type="color" id="colorPicker1" name="colorPicker1" value="#FF0000">
+                        </div>
+                        <div class="horizontal-div">
+                            <h3>Navolte počet vrcholů</h3>
+                            <input type="number" style="width: 30px; height: 30px;" id="input1">
+                        </div>
+                        <div class="vertical-div">
+                            <button class="button-generujTvar" onclick="generuj()">Generuj tvar</button>
+                            <canvas id="canvas1" width="400" height="400"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="subjket">   
+                    <h1>Subjekt 2</h1>
+                    <div class="vertical-div">
+                        <div class="horizontal-div">
+                            <h3>Zvolte barvu Y</h3>
+                            <input type="color" id="colorPicker2" name="colorPicker2" value="#0000FF"  >
+                        </div>
+                        <div class="horizontal-div">
+                            <h3>Navolte počet vrcholů</h3>
+                            <input type="number" style="width: 30px; height: 30px;" id="input2">
+                        </div>
+                        <div class="vertical-div">
+                            <button class="button-generujTvar" onclick="generuj()">Generuj tvar</button>
+                            <canvas id="canvas2" width="400" height="400"></canvas>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+
+            <div style="text-align: center; width: 100%;">
+                <button class="button-krizeni" onclick="kriz()">Křížit</button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <div class="menu-container">
+        <div class="vertical-div">
+            <h1>Výsledný subjekt</h1>
+            <canvas id="canvas3" width="400" height="400" style="margin-bottom: 1em;"></canvas> 
         </div>
     </div>
     <div style="height: 800px;"></div>

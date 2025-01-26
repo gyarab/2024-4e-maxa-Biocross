@@ -45,18 +45,66 @@
     border: 1px solid var(--line-clr);
     border-radius: 1em;
     /* margin-right: 10em; */
-    margin-left: 6em;
+    /* margin-left: 6em;
     margin-right: 6em;
     margin-top: 3em;
     margin-bottom: 3em;
- 
+  */
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;    
     display: flex;
+    margin-top: 3em;
 
 
-    background-color: #b3e2b5;
+    background-color: #d5ffd7d1;
     justify-content: center;
 
 }
+
+
+.select-krizeni{
+    background-color: var(--base-clr);
+    border-radius: 2em;
+    width: 30%;
+    height: 100%;
+    margin-left: 35%;
+    margin-top: 2em;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* gap: 20px; */
+    /* justify-content: center; */
+    
+    label {
+        color: white;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        font-size: 20px;
+        font-weight: bold;
+
+    }
+    select {
+        padding: 8px;
+        font-size: 16px;
+        margin-bottom: 1em;
+        border-radius: 5px;
+        width: 50%;
+        /* border: 2px solid #012146; */
+        color: #333;
+        cursor: pointer;
+        font-weight: bold;
+
+        
+    }
+    select:hover {
+        border-color: #356cb1;
+    }
+}
+
+
+
 
 .menu-container h1{
     color: var(--base-clr);
@@ -68,25 +116,27 @@
   }
   
   
-/* .subjekt{
-    margin-right: 10%;
-} */
-/* .sub-container{
-    margin-right: 10%;
-} */
 
+
+
+  option {
+    color: #4e8dd4;
+    background-color: #f4f4f9;
+    font-weight: bold;
+  }
+/* 
 .vl {
   border-left: 6px solid green;
   height: 150px;
-}
+} */
 
-p {
+/* p {
     text-align: center;
     color: #34495e;
     font-size: 1.1em;
-}
+} */
 
-.steps {
+/* .steps {
     list-style-type: decimal;
     padding-left: 20px;
 }
@@ -115,7 +165,7 @@ p {
 ul {
     margin: 10px 0;
     padding-left: 20px;
-}
+} */
 
 .button-krizeni{
     background-color: #4CAF50;
