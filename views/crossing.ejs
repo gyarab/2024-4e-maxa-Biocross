@@ -73,13 +73,15 @@ h1 {
 
     <div class="select-krizeni">
         <label>Vyberte typ křížení</label>
-        <select name="krizeniSelect" id="krizeniSelect" >
+        <select name="krizeniSelect" id="krizeniSelect" onchange="showContent()">
             <option value="" disabled selected hidden>Vybrat krížení</option>
             <option value="neuplnaDominance">Neúplná dominance</option>
             <option value="uplnaDominance">Úplná dominance</option>
             <option value="kodokinance">Kodominace</option>
         </select>
     </div>
+
+<div class="body-crossing" id="uplnaDominance">
     <div class="menu-container">
         <div class="vertical-div">
             <div class="horizontal-div">
@@ -168,7 +170,7 @@ h1 {
         </div>
     </div>
 
-
+</div>
     <!-- <div class="menu-container">
         <h1>Punnettova tabulka pro barvu a tvar květu</h1>
     <table>
@@ -222,16 +224,7 @@ h1 {
 
     
 <!-- VERZE DVE -->
-
-<div class="select-krizeni">
-    <label>Vyberte typ křížení</label>
-    <select name="krizeniSelect" id="krizeniSelect" >
-        <option value="" disabled selected hidden>Vybrat krížení</option>
-        <option value="neuplnaDominance">Neúplná dominance</option>
-        <option value="uplnaDominance">Úplná dominance</option>
-        <option value="kodokinance">Kodominace</option>
-    </select>
-</div>
+<div class="body-crossing" id="neuplnaDominance" style="display: none;">
     <div class="menu-container">
         <div class="vertical-div">
             <div class="horizontal-div" style="gap: 150px;">
@@ -320,22 +313,23 @@ h1 {
                 <button class="button-krizeni" onclick="kriz()">Křížit</button>
             </div>
         </div>
-    </div>
-
-
-
-
-
-
-
-
-
+    </div><!-- <div class="select-krizeni">
+        <label>Vyberte typ křížení</label>
+        <select name="krizeniSelect" id="krizeniSelect" >
+            <option value="" disabled selected hidden>Vybrat krížení</option>
+            <option value="neuplnaDominance">Neúplná dominance</option>
+            <option value="uplnaDominance">Úplná dominance</option>
+            <option value="kodokinance">Kodominace</option>
+        </select>
+    </div> -->
     <div class="menu-container">
         <div class="vertical-div">
             <h1>Výsledný subjekt</h1>
             <canvas id="canvas3" width="400" height="400" style="margin-bottom: 1em;"></canvas> 
         </div>
     </div>
+
+</div>
     <div style="height: 800px;"></div>
 
     <div>
@@ -455,7 +449,21 @@ console.log('Mixed Color:', mixedColor); // Output: Mixed Color: #800080 (Purple
 
 
 // Example usage
+function showContent() {
+    // Hide all content divs
+    var contents = document.querySelectorAll('.body-crossing');
+    contents.forEach(function(content) {
+      content.style.display = 'none';
+    });
 
+    // Get the selected option value
+    var selectedOption = document.getElementById('krizeniSelect').value;
+
+    // Show the corresponding content div if selected
+    if (selectedOption) {
+      document.getElementById(selectedOption).style.display = 'flex';
+    }
+  } 
 
   
 
