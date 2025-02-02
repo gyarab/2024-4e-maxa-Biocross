@@ -3,75 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
     <link rel="stylesheet" href="/stylesheets/body.css">
     <link rel="stylesheet" href="/stylesheets/crossing.css">
-    <!-- Knihovna  --> 
-
-    <style>
-       /* Style the container to control layout */
-.canvas-container {
-    width: 50px; /* Or set a specific width, like '400px' */
-    max-width: 20px; /* Prevents the container from growing too large */
-    height: 50px; /* Maintain aspect ratio */
-    margin: 0 auto; /* Center align */
-    position: relative; /* Ensure proper stacking with other elements */
-    border: 1px solid #ccc;
-    background-color: #f9f9f9;
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Make the canvas responsive */
-.canvas1 {
-    width: 50%; /* Canvas takes full width of the container */
-    height: auto; /* Maintain aspect ratio */
-    display: block; /* Avoid inline-block spaces */
-    border: 1px solid #000; /* Optional border for visibility */
-    border-radius: 5px; /* Rounded corners */
-} 
-
-.canvas2 {
-    width: 100px; /* Canvas takes full width of the container */
-    height: 100px; /* Maintain aspect ratio */
-    display: block; /* Avoid inline-block spaces */
-    border: 1px solid #000; /* Optional border for visibility */
-    border-radius: 5px; /* Rounded corners */
-    margin-bottom: 1em;
-}
-
-h1 {
-            text-align: center;
-            color: #333;
-        }
-        table {
-            width: 100%;
-            max-width: 800px;
-            margin: 20px auto;
-            border-collapse: collapse;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            background-color: #fff;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            text-align: center;
-            padding: 10px;
-            font-size: 16px;
-        }
-        th {
-            background-color: #f4f4f4;
-            font-weight: bold;
-        }
-        td {
-            color: #555;
-        }
-        tr:nth-child(even) td {
-            background-color: #f9f9f9;
-        }
-    </style>
-
     <title>Crossing</title>
 </head>
 <body>
@@ -83,116 +16,94 @@ h1 {
     <div class="select-krizeni">
         <label>Vyberte typ křížení</label>
         <select name="krizeniSelect" id="krizeniSelect" onchange="showContent()">
-            <option value="" disabled selected hidden>Vybrat krížení</option>
-            <option value="neuplnaDominance">Neúplná dominance</option>
             <option value="uplnaDominance">Úplná dominance</option>
+            <option value="neuplnaDominance">Neúplná dominance</option>
             <option value="kodokinance">Kodominace</option>
         </select>
     </div>
 
-<div class="body-crossing" id="uplnaDominance">
-    <div class="menu-container">
-        <div class="vertical-div">
-            <div class="horizontal-div">
-                <div class="subjekt">
-                    <h1>Subjekt 1</h1>
-                    <div class="vertical-div">
-                        <div class="horizontal-div">
-                            <h2>Alely: AaBb</h2>
-                            <!-- <h3>Znak pro barvu X</h3> -->
-                            <!-- <h>AaBb</h3> -->
-                        </div>
-                        <div class="horizontal-div">
-                            <h3><b>Aa</b> ..... Znak pro barvu X</h3>
+<!-- UPLNA DOMINANCE -->
+    <div class="body-crossing" id="uplnaDominance">
+        <div class="menu-container-priprava">
+            <h1 style="margin-top: 1em;">Úplná dominance - Příprava křížení</h1>
+            <p>Pro ilustraci použijeme dihybridní křížení dvou heterozygotů (AaBb × AaBb), kde:</p>
 
-                            <!-- <h>AaBb</h3> -->
-                        </div>
-                        <div class="horizontal-div">
-                            <h3><b>Bb</b> ..... Znak pro tvar X</h3>
+            <div style="border: 1px solid black; border-radius: 10px; width: 30%; justify-self: center; margin: 2em;">
+                <p>A = dominantní alela prvního genu (barva)</p>
+                <p>a = recesivní alela prvního genu (barva)</p> 
+                <p>B = dominantní alela druhého genu (tvar)</p>
+                <p>b = recesivní alela druhého genu (tvar)</p>
+            </div>
+        </div>
+        <div class="menu-container-priprava">
+            <div class="priprava-heterozygotu">
+                <div class="heterozygot-div">
 
-                            <!-- <h>AaBb</h3> -->
-                        </div>
-                        
-                        <div class="horizontal-div">
-                            <h3>Zvolte barvu X</h3>
-                            <input type="color" id="colorPicker1" name="colorPicker1" value="#FF0000">
-                        </div>
-                        <div class="horizontal-div">
-                            <h3>Navolte počet vrcholů</h3>
-                            <input type="number" style="width: 30px; height: 30px;" id="input1">
-                        </div>
-                        <div class="vertical-div">
-                            <button class="button-generujTvar" onclick="generuj()">Generuj tvar</button>
+                    <h1>Heterozygot (AaBb)</h1>
+                    <h2 style="margin-top: 1em;">1) Volba recesivního a dominantního znaku pro barvu</h2>
+                    <div  style="display: flex; justify-content: center; padding: 1em; gap: 1em;">
+                        <h4>A ... Zvolte barvu pro dominantní znak barvy</h4>
+                        <input type="color" class="styled-input" id="colorPicker1" name="colorPicker1" value="#FF0000">
+                    </div>
+                    <div  style="display: flex; justify-content: center; padding: 1em; gap: 1em;">
+                        <h4>a ... Zvolte recesivní znak pro barvu</h4>
+                        <input type="color" class="styled-input" id="colorPicker2" name="colorPicker2" value="#0000FF">
+                    </div>
+
+                    <h2 style="margin-top: 1em;">2) Volba recesivního a dominantního znaku pro tvar</h2>
+                    <div  style="display: flex; justify-content: center; padding: 1em; gap: 1em;">
+                        <h4>B ... Zvolte tvar (počet n-úhelníku) pro dominantní znak tvaru</h4>
+                        <input type="number" class="styled-input" style="width: 50px; height: 30px;" id="input1">
+                    </div>
+                    <div  style="display: flex; justify-content: center; padding: 1em; gap: 1em;">
+                        <h4>b ... Zvolte tvar (počet n-úhelníku) pro recesivní znak tvaru</h4>
+                        <input type="number" class="styled-input" style="width: 50px; height: 30px;" id="input2">
+                    </div>
+
+
+                    <button class="button-generujTvar" onclick="generuj()">Generuj homozygoty</button>
+
+
+                    <div class="heterozygoti-container">
+                        <div>
+                            <h3>Heterozygot AaBb</h3>
                             <canvas class="canvas1" id="canvas1" width="400" height="400"></canvas>
                         </div>
-                    </div>
-                </div>
-                <div class="subjket">   
-                    <h1>Subjekt 2</h1>
-                    <div class="vertical-div">
-                        <div class="horizontal-div">
-                            <h2>Alely: AaBb</h2>
-                            <!-- <h3>Znak pro barvu X</h3> -->
-                            <!-- <h>AaBb</h3> -->
-                        </div>
-                        <div class="horizontal-div">
-                            <h3><b>Aa</b> ..... Znak pro barvu Y</h3>
-
-                            <!-- <h>AaBb</h3> -->
-                        </div>
-                        <div class="horizontal-div">
-                            <h3><b>Bb</b> ..... Znak pro tvar Y</h3>
-
-                            <!-- <h>AaBb</h3> -->
-                        </div>
-                        <!-- <div class="horizontal-div">
-                            <h3>Znak, které pozorujeme ... AaBb</h3>
-                        </div> -->
-                        <div class="horizontal-div">
-                            <h3>Zvolte barvu Y</h3>
-                            <input type="color" id="colorPicker2" name="colorPicker2" value="#0000FF"  >
-                        </div>
-                        <div class="horizontal-div">
-                            <h3>Navolte počet vrcholů</h3>
-                            <input type="number" style="width: 30px; height: 30px;" id="input2">
-                        </div>
-                        <div class="vertical-div">
-                            <button class="button-generujTvar" onclick="generuj()">Generuj tvar</button>
+                        <h1>X</h1>
+                        <div>
+                            <h3>Heterozygot AaBb</h3>
                             <canvas class="canvas1" id="canvas2" width="400" height="400"></canvas>
                         </div>
                     </div>
-                </div>  
+                </div> 
             </div>
 
             <div style="text-align: center; width: 100%;">
                 <button class="button-krizeni" onclick="kriz()">Křížit</button>
             </div>
         </div>
-    </div>
 
-
-
-    <div class="menu-container">
-        <h1>Výsledný subjekt</h1>
-        <br>
-        <p style="text-align: center;"><b>Fenotypový poměr:</b> 9:3:3:1</p>
-        <br>
-        <p style="text-align: center;">9 : dominantní pro oba znaky (A_B_) <br>
-            3 : dominantní pro první znak, recesivní pro druhý (A_bb) <br>
-            3 : recesivní pro první znak, dominantní pro druhý (aaB_) <br>
-            1 : recesivní pro oba znaky (aabb)</p>
-        <div class="horizontal-div">
-            <h1>9x</h1>
-            <canvas class="canvas2" id="canvas3" width="400" height="400"></canvas>
-            <h1>3x</h1>
-            <canvas class="canvas2" id="canvas4" width="400" height="400"></canvas>
-            <h1>3x</h1>
-            <canvas class="canvas2" id="canvas5" width="400" height="400"></canvas> 
-            <h1>1x</h1>
-            <canvas class="canvas2" id="canvas6" width="400" height="400"></canvas> 
+        <div class="menu-container">
+            <h1>Výsledný subjekt</h1>
+            <br>
+            <p><b>Fenotypový poměr:</b> 9:3:3:1</p>
+            <br>
+            <p>9 : dominantní pro oba znaky (A_B_)</p>
+            <p>3 : dominantní pro první znak, recesivní pro druhý (A_bb)</p>
+            <p>3 : recesivní pro první znak, dominantní pro druhý (aaB_)</p>
+            <p>1 : recesivní pro oba znaky (aabb)</p>
+            <div class="vysledny-canvas">
+                <h1>9x</h1>
+                <canvas class="canvas2" id="canvas3" width="400" height="400"></canvas>
+                <h1>3x</h1>
+                <canvas class="canvas2" id="canvas4" width="400" height="400"></canvas>
+                <h1>3x</h1>
+                <canvas class="canvas2" id="canvas5" width="400" height="400"></canvas> 
+                <h1>1x</h1>
+                <canvas class="canvas2" id="canvas6" width="400" height="400"></canvas> 
+            </div>
         </div>
     </div>
-</div>
 
     
 <!-- VERZE DVE neuplnaDominance -->

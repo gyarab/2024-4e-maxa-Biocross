@@ -49,15 +49,142 @@
 .menu-container{
     border: 1px solid var(--line-clr);
     border-radius: 1em;
-
-    width: 60%;
-    margin-left: 20%;
-    margin-right: 20%;    
-    /* display: flex; */
+    width: 80%;
     margin-top: 3em;
-
     background-color: #d5ffd7d1;
-    /* justify-content: center; */
+    justify-content: center;
+    text-align: center;
+}
+
+
+
+
+
+
+.menu-container h1{
+    color: var(--base-clr);
+    font-size: 30px;
+    text-align: center;
+}
+
+.menu-container p {
+    color: var(--line-clr);
+}
+.menu-container-priprava{
+    border: 1px solid var(--line-clr);
+    border-radius: 1em;
+    width: 80%;
+    margin-top: 3em;
+    background-color: #d5ffd7d1;
+    justify-content: center;
+    text-align: center;
+        p {
+            color: var(--line-clr);
+            font-size: large;
+            margin: 1em;
+            text-align: center;
+        }
+}
+.priprava-heterozygotu{
+    display: flex;
+    margin-top: 3em;
+    /* gap: 3em; */
+}
+
+
+/* Nevim priprava jako proste  */
+.heterozygoti-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Make the canvas responsive */
+.canvas1 {
+    width: 50%; /* Canvas takes full width of the container */
+    /* height:; Maintain aspect ratio */
+    /* display: block; Avoid inline-block spaces */
+    border: 1px solid #000; /* Optional border for visibility */
+    border-radius: 5px; /* Rounded corners */
+} 
+
+
+
+.heterozygot-div{
+    width: 100%;
+    justify-content: center;
+    /* gap: 3em; */
+}
+
+
+option {
+    color: #4e8dd4;
+    background-color: #f4f4f9;
+    font-weight: bold;
+}
+
+.button-krizeni{
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 19px;
+    font-weight: bold;
+    margin: 10px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: background-color 0.6s ease;
+}
+.button-generujTvar{
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 7px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 10px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: background-color 0.6s ease;
+}
+
+/* Style the container to control layout */
+.canvas-container {
+    width: 50px; /* Or set a specific width, like '400px' */
+    max-width: 20px; /* Prevents the container from growing too large */
+    height: 50px; /* Maintain aspect ratio */
+    margin: 0 auto; /* Center align */
+    position: relative; /* Ensure proper stacking with other elements */
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.canvas2 {
+    width: 15%; /* Canvas takes full width of the container */
+    border: 1px solid #0f0f0f; 
+    border-radius: 5px; /* Rounded corners */
+    margin-right: 1em;
+}
+.vysledny-canvas{
+    display: flex;
+    align-items: center;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    justify-content: center;
+    gap: 10px;
+    
+        h1 {
+            font-size: larger;
+        }
 }
 
 
@@ -99,99 +226,88 @@
     select:hover {
         border-color: #356cb1;
     }
-}
+}   
 
-
-
-
-.menu-container h1{
-    color: var(--base-clr);
-    font-size: 30px;
+/* INPUTS STYLING */
+/* can you style a number input for me please ? Chat GPT */
+ /* Basic Styling */
+ .input-nuhlenik {
+    width: 50px;
+    height: 30px;
+    font-size: 16px;
+    border: 2px solid #007bff;
+    border-radius: 8px;
+    outline: none;
+    transition: 0.3s;
     text-align: center;
-  }
-  .menu-container p {
-    color: var(--line-clr);
-  }
-  
-  
+}
 
+/* Focus Effect */
+.input-nuhlenik:focus {
+    border-color: #0056b3;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
 
+/* Remove Default Spinner (for Chrome, Safari, Edge) */
+.input-nuhlenik::-webkit-inner-spin-button, 
+.input-nuhlenik::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
 
-  option {
-    color: #4e8dd4;
-    background-color: #f4f4f9;
-    font-weight: bold;
-  }
-/* 
-.vl {
-  border-left: 6px solid green;
-  height: 150px;
-} */
+/* Remove Default Spinner (for Firefox) */
+.input-nuhlenik {
+    -moz-appearance: textfield;
+}
 
-/* p {
+/* General styling for both inputs */
+.styled-input {
+    width: 120px;
+    height: 40px;
+    padding: 8px;
+    font-size: 16px;
+    border: 2px solid #007bff;
+    border-radius: 8px;
+    outline: none;
+    transition: 0.3s;
     text-align: center;
-    color: #34495e;
-    font-size: 1.1em;
-} */
-
-/* .steps {
-    list-style-type: decimal;
-    padding-left: 20px;
-}
-
-.steps li {
-    background-color: #ecf0f1;
-    margin: 15px 0;
-    padding: 15px;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-.steps li:hover {
-    background-color: #bdc3c7;
-}
-
-.steps h2 {
-    color: #2980b9;
-    margin-top: 0;
-}
-
-.steps p {
-    margin: 10px 0;
-}
-
-ul {
-    margin: 10px 0;
-    padding-left: 20px;
-} */
-
-.button-krizeni{
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 19px;
-    font-weight: bold;
-    margin: 10px 2px;
     cursor: pointer;
-    border-radius: 12px;
-    transition: background-color 0.6s ease;
 }
-.button-generujTvar{
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 7px 16px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 15px;
-    font-weight: bold;
-    margin: 10px 2px;
+
+/* Focus effect */
+.styled-input:focus {
+    border-color: #0056b3;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Remove default number arrows (Chrome, Safari, Edge) */
+.styled-input[type="number"]::-webkit-inner-spin-button, 
+.styled-input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Remove number arrows in Firefox */
+.styled-input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+/* Color input styling */
+.styled-input[type="color"] {
+    padding: 0;
+    width: 50px; /* Adjusted for consistency */
+    height: 40px;
+    border: 2px solid #007bff;
+    background: none;
     cursor: pointer;
-    border-radius: 12px;
-    transition: background-color 0.6s ease;
+}
+
+/* Remove default styling for color input (Chrome, Safari) */
+.styled-input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+.styled-input[type="color"]::-webkit-color-swatch {
+    border-radius: 6px;
+    border: none;
 }
