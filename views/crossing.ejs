@@ -108,124 +108,120 @@
     
 <!-- VERZE DVE neuplnaDominance -->
 <div class="body-crossing" id="neuplnaDominance" style="display: none;">
-    <div class="menu-container">
-        <div class="vertical-div">
-            <div class="horizontal-div" style="gap: 150px;">
-                <div class="subjekt">
-                    <h1>Subjekt 1</h1>
-                    <div class="vertical-div">
-                        <div class="horizontal-div">
-                            <h2>Alely: AaBb</h2>
-                            <!-- <h3>Znak pro barvu X</h3> -->
-                            <!-- <h>AaBb</h3> -->
-                        </div>
-                        <div class="horizontal-div">
-                            <h3><b>Aa</b> ..... Znak pro barvu X</h3>
 
-                            <!-- <h>AaBb</h3> -->
-                        </div>
-                        <div class="horizontal-div">
-                            <h3><b>Bb</b> ..... Znak pro tvar X</h3>
+    <div class="menu-container-priprava">
+        <h1 style="margin-top: 1em;">Neúplná dominance - Příprava křížení</h1>
+        <p>Pro ilustraci použijeme dihybridní křížení dvou heterozygotů (AaBb × AaBb), kde:</p>
 
-                            <!-- <h>AaBb</h3> -->
-                        </div>
-                    </div>
-                </div>
-                <div class="subjket">   
-                    <h1>Subjekt 2</h1>
-                    <div class="vertical-div">
-                        <div class="horizontal-div">
-                            <h2>Alely: AaBb</h2>
-                            <!-- <h3>Znak pro barvu X</h3> -->
-                            <!-- <h>AaBb</h3> -->
-                        </div>
-                        <div class="horizontal-div">
-                            <h3><b>Aa</b> ..... Znak pro barvu Y</h3>
-
-                            <!-- <h>AaBb</h3> -->
-                        </div>
-                        <div class="horizontal-div">
-                            <h3 style="margin-bottom: 2em;"><b>Bb</b> ..... Znak pro tvar Y</h3>
-                        </div>
-                    </div>
-                </div>  
-            </div>
+        <div style="border: 1px solid black; border-radius: 10px; width: 30%; justify-self: center; margin: 2em;">
+            <p>A = dominantní alela prvního genu (barva)</p>
+            <p>a = recesivní alela prvního genu (barva)</p> 
+            <p>B = dominantní alela druhého genu (tvar)</p>
+            <p>b = recesivní alela druhého genu (tvar)</p>
         </div>
     </div>
 
-    <div class="menu-container">
-        <div class="vertical-div">
-            <div class="horizontal-div">
-                <div class="subjekt">
-                    <h1>Subjekt 1</h1>
-                    <div class="vertical-div">  
-                        <div class="horizontal-div">
-                            <h3>Zvolte barvu X</h3>
-                            <input type="color" id="colorPicker1" name="colorPicker1" value="#FF0000">
-                        </div>
-                        <div class="horizontal-div">
-                            <h3>Navolte počet vrcholů</h3>
-                            <input type="number" style="width: 30px; height: 30px;" id="input1">
-                        </div>
-                        <div class="vertical-div">
-                            <button class="button-generujTvar" onclick="generuj()">Generuj tvar</button>
-                            <canvas class="canvas1" id="canvas11" width="400" height="400"></canvas>
-                        </div>
+    <div class="menu-container-priprava">
+        <div class="priprava-heterozygotu">
+            <div class="heterozygot-div">
+
+                <h1>Heterozygot (AaBb)</h1>
+                <h2 style="margin-top: 1em;">1) Volba recesivního a dominantního znaku pro barvu</h2>
+                <div  style="display: flex; justify-content: center; padding: 1em; gap: 1em;">
+                    <h4>A ... Zvolte barvu pro dominantní znak barvy</h4>
+                    <input type="color" class="styled-input" id="ND_colorPicker1" name="colorPicker1" value="#FF0000">
+                </div>
+                <div  style="display: flex; justify-content: center; padding: 1em; gap: 1em;">
+                    <h4>a ... Zvolte recesivní znak pro barvu</h4>
+                    <input type="color" class="styled-input" id="ND_colorPicker2" name="colorPicker2" value="#0000FF">
+                </div>
+
+                <h2 style="margin-top: 1em;">2) Volba recesivního a dominantního znaku pro tvar</h2>
+                <div  style="display: flex; justify-content: center; padding: 1em; gap: 1em;">
+                    <h4>B ... Zvolte tvar (počet n-úhelníku) pro dominantní znak tvaru</h4>
+                    <input type="number" class="styled-input" style="width: 50px; height: 30px;" id="ND_input1">
+                </div>
+                <div  style="display: flex; justify-content: center; padding: 1em; gap: 1em;">
+                    <h4>b ... Zvolte tvar (počet n-úhelníku) pro recesivní znak tvaru</h4>
+                    <input type="number" class="styled-input" style="width: 50px; height: 30px;" id="ND_input2">
+                </div>
+
+
+                <button class="button-generujTvar" onclick="ND_generuj()">Generuj homozygoty</button>
+
+
+                <div class="heterozygoti-container">
+                    <div>
+                        <h3>Heterozygot AaBb</h3>
+                        <canvas class="canvas1" id="ND_canvas1" width="400" height="400"></canvas>
+                    </div>
+                    <h1>X</h1>
+                    <div>
+                        <h3>Heterozygot AaBb</h3>
+                        <canvas class="canvas1" id="ND_canvas2" width="400" height="400"></canvas>
                     </div>
                 </div>
-                <div class="subjket">   
-                    <h1>Subjekt 2</h1>
-                    <div class="vertical-div">
-                        <div class="horizontal-div">
-                            <h3>Zvolte barvu Y</h3>
-                            <input type="color" id="colorPicker2" name="colorPicker2" value="#0000FF"  >
-                        </div>
-                        <div class="horizontal-div">
-                            <h3>Navolte počet vrcholů</h3>
-                            <input type="number" style="width: 30px; height: 30px;" id="input2">
-                        </div>
-                        <div class="vertical-div">
-                            <button class="button-generujTvar" onclick="generuj()">Generuj tvar</button>
-                            <canvas class="canvas1" id="canvas22" width="400" height="400"></canvas>
-                        </div>
-                    </div>
-                </div>  
-            </div>
-
-            <div style="text-align: center; width: 100%;">
-                <button class="button-krizeni" onclick="kriz()">Křížit</button>
-            </div>
+            </div> 
         </div>
-    </div><!-- <div class="select-krizeni">
-        <label>Vyberte typ křížení</label>
-        <select name="krizeniSelect" id="krizeniSelect" >
-            <option value="" disabled selected hidden>Vybrat krížení</option>
-            <option value="neuplnaDominance">Neúplná dominance</option>
-            <option value="uplnaDominance">Úplná dominance</option>
-            <option value="kodokinance">Kodominace</option>
-        </select>
-    </div> -->
+
+        <div style="text-align: center; width: 100%;">
+            <button class="button-krizeni" onclick="ND_kriz()">Křížit</button>
+        </div>
+    </div>
+
+
     <div class="menu-container">
         <h1>Výsledný subjekt</h1>
         <br>
-        <p style="text-align: center;"><b>Fenotypový poměr:</b> 9:3:3:1</p>
+        <p><b>Fenotypový poměr:</b> 1:2:1:2:4:2:1:2:1</p>
         <br>
-        <p style="text-align: center;">9 : dominantní pro oba znaky (A_B_) <br>
-            3 : dominantní pro první znak, recesivní pro druhý (A_bb) <br>
-            3 : recesivní pro první znak, dominantní pro druhý (aaB_) <br>
-            1 : recesivní pro oba znaky (aabb)</p>
-        <div class="horizontal-div">
-            <h1>9x</h1>
-            <canvas class="canvas2" id="canvas3" width="400" height="400"></canvas>
-            <h1>3x</h1>
-            <canvas class="canvas2" id="canvas4" width="400" height="400"></canvas>
-            <h1>3x</h1>
-            <canvas class="canvas2" id="canvas5" width="400" height="400"></canvas> 
-            <h1>1x</h1>
-            <canvas class="canvas2" id="canvas6" width="400" height="400"></canvas> 
+        <i class="fas fa-angle-double-down"></i>
+
+        <!-- Udelat to po trojcich -->
+        <div class="vysledny-canvas-trojice"> 
+            <p>1 x (AABB)</p>
+            <p>2 x (AaBB)</p>
+            <p>1 x (aaBB)</p>
+        </div>
+        <div class="vysledny-canvas-trojice"> 
+            <p>2 x (AABb)</p>
+            <p>4 x (AaBb)</p>
+            <p>2 x (aaBb)</p>
+        </div>
+        <div class="vysledny-canvas-trojice"> 
+            <p>1 x (AAbb)</p>
+            <p>2 x (Aabb)</p>
+            <p>1 x (aabb)</p>
+        </div>
+
+        <div class="vysledny-canvas-container">
+            <div class="vysledny-canvas">
+                <h1>1x</h1>
+                <canvas class="canvas2" id="ND_canvas3" width="400" height="400"></canvas>
+                <h1>2x</h1>
+                <canvas class="canvas2" id="ND_canvas4" width="400" height="400"></canvas>
+                <h1>1x</h1>
+                <canvas class="canvas2" id="ND_canvas5" width="400" height="400"></canvas> 
+            </div>
+            <div class="vysledny-canvas">
+                <h1>2x</h1>
+                <canvas class="canvas2" id="ND_canvas6" width="400" height="400"></canvas>
+                <h1>4x</h1>
+                <canvas class="canvas2" id="ND_canvas7" width="400" height="400"></canvas> 
+                <h1>2x</h1>
+                <canvas class="canvas2" id="ND_canvas8" width="400" height="400"></canvas>
+            </div>
+            <div class="vysledny-canvas">
+                <h1>1x</h1>
+                <canvas class="canvas2" id="ND_canvas9" width="400" height="400"></canvas>
+                <h1>2x</h1>
+                <canvas class="canvas2" id="ND_canvas10" width="400" height="400"></canvas>
+                <h1>1x</h1>
+                <canvas class="canvas2" id="ND_canvas11" width="400" height="400"></canvas>
+            </div>
         </div>
     </div>
-    </div>
+    
 
 </div>
     <div style="height: 800px;"></div>
@@ -312,6 +308,35 @@ function mixColors(color1, color2) {
         ctx2.fillStyle = selectedColor2;
         ctx2.fill();
     }
+    function ND_generuj(){
+        // Nacte jaky n uhlenik ma vytvorit
+        var N_Uhelnik1 = parseInt(document.getElementById('ND_input1').value);
+        var N_Uhelnik2= parseInt(document.getElementById('ND_input2').value);
+
+        //vymaze to co je v canvasu
+        const canvas1 = document.getElementById('ND_canvas1');
+        const ctx1 = canvas1.getContext('2d');
+        ctx1.clearRect(0, 0, canvas1.width, canvas1.height);
+
+        const canvas2 = document.getElementById('ND_canvas2');
+        const ctx2 = canvas2.getContext('2d');
+        ctx2.clearRect(0, 0, canvas2.width, canvas2.height);
+
+
+        const colorPicker1 = document.getElementById('ND_colorPicker1');
+        const colorPicker2 = document.getElementById('ND_colorPicker2');
+
+        const selectedColor1 = colorPicker1.value;
+        const selectedColor2 = colorPicker2.value;
+
+        drawPolygon(ctx1, 200, 200, 100, N_Uhelnik1); // Nakreslí n-úhelník
+        ctx1.fillStyle = selectedColor1;
+        ctx1.fill();
+
+        drawPolygon(ctx2, 200, 200, 100, N_Uhelnik2); // Nakreslí n-úhelník
+        ctx2.fillStyle = selectedColor2;
+        ctx2.fill();
+    }
 
     function kriz() {
         const colorPicker1 = document.getElementById('colorPicker1');
@@ -368,6 +393,143 @@ function mixColors(color1, color2) {
         drawPolygon(ctx6, 200, 200, 100, N_Uhelnik2); // Nakreslí n-úhelník
         ctx6.fillStyle = selectedColor2;
         ctx6.fill();
+
+    }
+    function ND_kriz() {
+        const colorPicker1 = document.getElementById('ND_colorPicker1');
+        const colorPicker2 = document.getElementById('ND_colorPicker2');
+        console.log(colorPicker1);
+        
+        const selectedColor1 = colorPicker1.value;
+        const selectedColor2 = colorPicker2.value;
+
+        var N_Uhelnik1 = parseInt(document.getElementById('ND_input1').value);
+        var N_Uhelnik2= parseInt(document.getElementById('ND_input2').value);
+
+        //jelikoz pri neuplne dominanci existuje zobrazeni jedince i jako znak ktery lezi "uprostred" potrebujeme prumer mezi 1. N uhelnikem a druhym
+        var smisenyN_Uhelnik = (N_Uhelnik1+N_Uhelnik2)/2;
+        console.log(smisenyN_Uhelnik);
+
+        // const canvas3 = document.getElementById('ND_canvas3');
+        // const ctx3 = canvas3.getContext('2d');
+        // ctx3.clearRect(0, 0, canvas3.width, canvas3.height);
+
+        
+        // const canvas4 = document.getElementById('ND_canvas4');
+        // const ctx4 = canvas4.getContext('2d');
+        // ctx4.clearRect(0, 0, canvas4.width, canvas4.height);
+
+        // const canvas5 = document.getElementById('ND_canvas5');
+        // const ctx5 = canvas5.getContext('2d');
+        // ctx5.clearRect(0, 0, canvas5.width, canvas5.height);
+
+        // const canvas6 = document.getElementById('ND_canvas6');
+        // const ctx6 = canvas6.getContext('2d');
+        // ctx6.clearRect(0, 0, canvas6.width, canvas6.height);
+        const canvas3 = document.getElementById('ND_canvas3');
+        const ctx3 = canvas3.getContext('2d');
+        ctx3.clearRect(0, 0, canvas3.width, canvas3.height);
+
+        const canvas4 = document.getElementById('ND_canvas4');
+        const ctx4 = canvas4.getContext('2d');
+        ctx4.clearRect(0, 0, canvas4.width, canvas4.height);
+
+        const canvas5 = document.getElementById('ND_canvas5');
+        const ctx5 = canvas5.getContext('2d');
+        ctx5.clearRect(0, 0, canvas5.width, canvas5.height);
+
+        const canvas6 = document.getElementById('ND_canvas6');
+        const ctx6 = canvas6.getContext('2d');
+        ctx6.clearRect(0, 0, canvas6.width, canvas6.height);
+
+        const canvas7 = document.getElementById('ND_canvas7');
+        const ctx7 = canvas7.getContext('2d');
+        ctx7.clearRect(0, 0, canvas7.width, canvas7.height);
+
+        const canvas8 = document.getElementById('ND_canvas8');
+        const ctx8 = canvas8.getContext('2d');
+        ctx8.clearRect(0, 0, canvas8.width, canvas8.height);
+
+        const canvas9 = document.getElementById('ND_canvas9');
+        const ctx9 = canvas9.getContext('2d');
+        ctx9.clearRect(0, 0, canvas9.width, canvas9.height);
+
+        const canvas10 = document.getElementById('ND_canvas10');
+        const ctx10 = canvas10.getContext('2d');
+        ctx10.clearRect(0, 0, canvas10.width, canvas10.height);
+
+        const canvas11 = document.getElementById('ND_canvas11');
+        const ctx11 = canvas11.getContext('2d');
+        ctx11.clearRect(0, 0, canvas11.width, canvas11.height);
+
+
+        //smichani barvy 
+
+        const color1 = '#FF0000'; // Red
+        const color2 = '#0000FF'; // Blue
+        const mixedColor = mixColors(selectedColor1, selectedColor2);
+
+        console.log('Mixed Color:', mixedColor); // Output: Mixed Color: #800080 (Purple)
+        //prvni 9
+        // drawPolygon(ctx3, 200, 200, 100, N_Uhelnik1); // Nakreslí n-úhelník
+        // ctx3.fillStyle = selectedColor1;
+        // ctx3.fill();
+        // // pak 3
+        // drawPolygon(ctx4, 200, 200, 100, N_Uhelnik1); // Nakreslí n-úhelník
+        // ctx4.fillStyle = selectedColor2;
+        // ctx4.fill();
+        // //pak 3
+        // drawPolygon(ctx5, 200, 200, 100, N_Uhelnik2); // Nakreslí n-úhelník
+        // ctx5.fillStyle = selectedColor1;
+        // ctx5.fill();
+
+        // //pak 1
+        // drawPolygon(ctx6, 200, 200, 100, N_Uhelnik2); // Nakreslí n-úhelník
+        // ctx6.fillStyle = selectedColor2;
+        // ctx6.fill();
+        drawPolygon(ctx3, 200, 200, 100, N_Uhelnik1); // Nakreslí n-úhelník
+        ctx3.fillStyle = selectedColor1;
+        ctx3.fill();
+
+        // Pak 3
+        drawPolygon(ctx4, 200, 200, 100, smisenyN_Uhelnik); // Nakreslí n-úhelník
+        ctx4.fillStyle = selectedColor1;
+        ctx4.fill();
+
+        // Pak 3
+        drawPolygon(ctx5, 200, 200, 100, N_Uhelnik2); // Nakreslí n-úhelník
+        ctx5.fillStyle = selectedColor1;
+        ctx5.fill();
+
+        // Pak 1
+        drawPolygon(ctx6, 200, 200, 100, N_Uhelnik1); // Nakreslí n-úhelník
+        ctx6.fillStyle = mixedColor;
+        ctx6.fill();
+
+        // Pak 5
+        drawPolygon(ctx7, 200, 200, 100, smisenyN_Uhelnik); // Nakreslí n-úhelník
+        ctx7.fillStyle = mixedColor;
+        ctx7.fill();
+
+        // Pak 4
+        drawPolygon(ctx8, 200, 200, 100, N_Uhelnik2); // Nakreslí n-úhelník
+        ctx8.fillStyle = mixedColor;
+        ctx8.fill();
+
+        // Pak 5
+        drawPolygon(ctx9, 200, 200, 100, N_Uhelnik1); // Nakreslí n-úhelník
+        ctx9.fillStyle = selectedColor2;
+        ctx9.fill();
+
+        // Pak 2
+        drawPolygon(ctx10, 200, 200, 100, smisenyN_Uhelnik); // Nakreslí n-úhelník
+        ctx10.fillStyle = selectedColor2;
+        ctx10.fill();
+
+        // Pak 6
+        drawPolygon(ctx11, 200, 200, 100, N_Uhelnik1); // Nakreslí n-úhelník
+        ctx11.fillStyle = selectedColor2;
+        ctx11.fill();
 
     }
 

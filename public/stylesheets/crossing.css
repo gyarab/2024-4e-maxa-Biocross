@@ -186,6 +186,15 @@ option {
             font-size: larger;
         }
 }
+.vysledny-canvas-container{
+    margin: 3em;
+}
+.vysledny-canvas-trojice{
+    display: flex;
+    margin: 1em;
+    justify-content: center;
+    gap: 10px;
+}
 
 
 .select-krizeni{

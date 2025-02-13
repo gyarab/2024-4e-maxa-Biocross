@@ -3,8 +3,8 @@ var con = mysql.createConnection({
   host: '127.0.0.1', 
   port: '3306',
   user: 'root', 
-  password: 'Br41NR0t4c3K',        
-  database: 'biocross' 
+  password: 'root',        
+  database: 'biocorss' 
 }); 
 con.connect(function(err) {
   if (err) throw err;
