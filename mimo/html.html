@@ -1,45 +1,134 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cs">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Křížení Kodominance</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #eafde4;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            border: 2px solid green;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px;
+            background-color: #d6f5d6;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 600px;
+        }
+        .circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: white;
+            border: 2px solid green;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .dot {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            position: absolute;
+        }
+        .red { background-color: red; }
+        .blue { background-color: blue; }
+        .red-outline {
+            border: 2px solid red;
+            background-color: white;
+        }
+        .label {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: red;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <div class="select-krizeni">
-        <label>Vyberte typ křížení</label>
-        <select name="krizeniSelect" id="krizeniSelect" onchange="showContent()">
-            <option value="" disabled selected hidden>Vybrat krížení</option>
-            <option value="neuplnaDominance">Neúplná dominance</option>
-            <option value="uplnaDominance">Úplná dominance</option>
-            <option value="kodokinance">Kodominace</option>
-        </select>
-    </div>    
+    <div class="container" id="parentContainer">
+        <button onclick="vyrobKolecka()">Vytvoř</button>
+        <div class="circle" id="kruh1">
+            <div class="dot red" style="top: 67px; left: 70px;"></div>
+            <div class="dot red" style="top: 42px; left: 45px;"></div>
+            <div class="dot red" style="top: 111px; left: 34px;"></div>
+            <div class="dot red" style="top: 60px; left: 100px;"></div>
+        </div>
+        <button onclick="krizit()">Křížit</button>
+        <div class="circle" id="kruh2">
+            <div class="dot blue" style="top: 30px; left: 30px;"></div>
+            <div class="dot blue" style="top: 60px; left: 50px;"></div>
+            <div class="dot blue" style="top: 50px; left: 80px;"></div>
+            <div class="dot blue" style="top: 60px; left: 100px;"></div>
 
-    <div id="neuplnaDominance" class="body-flashcard"   >
-        <h1>Ahoj1</h1>
+        </div>
     </div>
-    <div id="uplnaDominance" class="body-flashcard" style="display: none;">
-        <h1>Ahoj 2</h1>
+    <div class="container" id="childContainer">
+        <div class="circle" id="child"></div>
     </div>
-
     <script>
-        function showContent() {
-    // Hide all content divs
-    var contents = document.querySelectorAll('.body-flashcard');
-    contents.forEach(function(content) {
-      content.style.display = 'none';
-    });
+        function krizit() {
+            let child = document.getElementById("child");
+            child.innerHTML = `
+                <div class="dot red" style="top: 25px; left: 54px;"></div>
+                <div class="dot blue" style="top: 60px; left: 20px;"></div>
+                <div class="dot red" style="top: 50px; left: 80px;"></div>
+                <div class="dot blue" style="top: 40px; left: 100px;"></div>
+                <div class="dot red" style="top: 120px; left: 40px;"></div>
+                <div class="dot red" style="top: 25px; left: 32px;"></div>
+                <div class="dot blue" style="top: 90px; left: 90px;"></div>
+                <div class="dot blue" style="top: 90px; left: 55px;"></div>
+            `;
 
-    // Get the selected option value
-    var selectedOption = document.getElementById('krizeniSelect').value;
-
-    // Show the corresponding content div if selected
-    if (selectedOption) {
-      document.getElementById(selectedOption).style.display = 'flex';
-    }
-  }
-
+            // <div class="dot blue" style="top: 60px; left: 20px;"></div>
+            //     <div class="dot red" style="top: 50px; left: 80px;"></div>
+            //     <div class="dot blue" style="top: 40px; left: 90px;"></div>
+            //     <div class="dot red" style="top: 5px; left: 30px;"></div>
+            //     <div class="dot red" style="top: 25px; left: 60px;"></div>
+            //     <div class="dot red" style="top: 100px; left: 80px;"></div>
+            //     <div class="dot blue" style="top: 5px; left: 33px;"></div>
+        }
+        //da do prvnich dvou kolecek nahodne rozmistena kolecka, tak aby se neprekryvala
+        function vyrobKolecka() {
+            let kruh1 = document.getElementById("kruh1");
+            // kruh1.innerHTML = ` <div class="dot red" style="top: 5px; left: 90px;"></div>
+            // <div class="dot red" style="top: 120px; left: 33px;"></div>
+            // <div class="dot red" style="top: 120px; left: 50px;"></div>
+            // <div class="dot red" style="top: 5px; left: 80px;"></div>`;
+             kruh1.innerHTML = ` <div class="dot red" style="top: 67px; left: 70px;"></div>
+            <div class="dot red" style="top: 42px; left: 45px;"></div>
+            <div class="dot red" style="top: 111px; left: 34px;"></div>
+            <div class="dot red" style="top: 60px; left: 100px;"></div>`;
+            let kruh2 = document.getElementById("kruh2");
+            // kruh1.innerHTML = ` <div class="dot red" style="top: 5px; left: 90px;"></div>
+            // <div class="dot red" style="top: 120px; left: 33px;"></div>
+            // <div class="dot red" style="top: 120px; left: 50px;"></div>
+            // <div class="dot red" style="top: 5px; left: 80px;"></div>`;
+             kruh1.innerHTML = ` <div class="dot blue" style="top: 67px; left: 70px;"></div>
+            <div class="dot blue" style="top: 42px; left: 45px;"></div>
+            <div class="dot blue" style="top: 111px; left: 34px;"></div>
+            <div class="dot blue" style="top: 60px; left: 100px;"></div>`;
+        }
     </script>
 </body>
 </html>

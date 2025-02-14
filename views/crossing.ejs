@@ -18,7 +18,7 @@
         <select name="krizeniSelect" id="krizeniSelect" onchange="showContent()">
             <option value="uplnaDominance">Úplná dominance</option>
             <option value="neuplnaDominance">Neúplná dominance</option>
-            <option value="kodokinance">Kodominace</option>
+            <option value="kodominance">Kodominace</option>
         </select>
     </div>
 
@@ -40,23 +40,29 @@
                 <div class="heterozygot-div">
 
                     <h1>Heterozygot (AaBb)</h1>
-                    <h2 style="margin-top: 1em;">1) Volba recesivního a dominantního znaku pro barvu</h2>
+                    <!-- <h2 style="margin-top: 1em;">1) Volba recesivního a dominantního znaku pro barvu</h2> -->
+                    <h2 style="margin-top: 1em;">1) První znak (barva)</h2>
+
                     <div  style="display: flex; justify-content: center; padding: 1em; gap: 1em;">
-                        <h4>A ... Zvolte barvu pro dominantní znak barvy</h4>
+                        <h4>A ... Zvolte barvu pro dominantní alelu</h4>
                         <input type="color" class="styled-input" id="colorPicker1" name="colorPicker1" value="#FF0000">
                     </div>
+
                     <div  style="display: flex; justify-content: center; padding: 1em; gap: 1em;">
-                        <h4>a ... Zvolte recesivní znak pro barvu</h4>
+                        <h4>a ... Zvolte barvu pro recesivní alelu</h4>
                         <input type="color" class="styled-input" id="colorPicker2" name="colorPicker2" value="#0000FF">
                     </div>
 
-                    <h2 style="margin-top: 1em;">2) Volba recesivního a dominantního znaku pro tvar</h2>
+                    <!-- <h2 style="margin-top: 1em;">2) Volba recesivního a dominantního znaku pro tvar</h2> -->
+                    <h2 style="margin-top: 1em;">2) Druhý znak (tvar)</h2>
+
                     <div  style="display: flex; justify-content: center; padding: 1em; gap: 1em;">
-                        <h4>B ... Zvolte tvar (počet n-úhelníku) pro dominantní znak tvaru</h4>
+                        <h4>B ... Vyberte tvar dominantní alely podle počtu n u n-úhelníků.</h4>
                         <input type="number" class="styled-input" style="width: 50px; height: 30px;" id="input1">
                     </div>
+
                     <div  style="display: flex; justify-content: center; padding: 1em; gap: 1em;">
-                        <h4>b ... Zvolte tvar (počet n-úhelníku) pro recesivní znak tvaru</h4>
+                        <h4>b ... Vyberte tvar recesivní alely podle počtu n u n-úhelníků.</h4>
                         <input type="number" class="styled-input" style="width: 50px; height: 30px;" id="input2">
                     </div>
 
@@ -126,23 +132,27 @@
             <div class="heterozygot-div">
 
                 <h1>Heterozygot (AaBb)</h1>
-                <h2 style="margin-top: 1em;">1) Volba recesivního a dominantního znaku pro barvu</h2>
+                <h2 style="margin-top: 1em;">1) První znak (barva)</h2>
+
                 <div  style="display: flex; justify-content: center; padding: 1em; gap: 1em;">
-                    <h4>A ... Zvolte barvu pro dominantní znak barvy</h4>
+                    <h4>A ... Zvolte barvu pro první alelu</h4>
                     <input type="color" class="styled-input" id="ND_colorPicker1" name="colorPicker1" value="#FF0000">
                 </div>
+
                 <div  style="display: flex; justify-content: center; padding: 1em; gap: 1em;">
-                    <h4>a ... Zvolte recesivní znak pro barvu</h4>
+                    <h4>a ... Zvolte barvu pro druhou alelu</h4>
                     <input type="color" class="styled-input" id="ND_colorPicker2" name="colorPicker2" value="#0000FF">
                 </div>
 
-                <h2 style="margin-top: 1em;">2) Volba recesivního a dominantního znaku pro tvar</h2>
+                <h2 style="margin-top: 1em;">2) Druhý znak (tvar)</h2>
+
                 <div  style="display: flex; justify-content: center; padding: 1em; gap: 1em;">
-                    <h4>B ... Zvolte tvar (počet n-úhelníku) pro dominantní znak tvaru</h4>
+                    <h4>B ... Zvolte tvar (počet n-úhelníku) pro první alelu</h4>
                     <input type="number" class="styled-input" style="width: 50px; height: 30px;" id="ND_input1">
                 </div>
+
                 <div  style="display: flex; justify-content: center; padding: 1em; gap: 1em;">
-                    <h4>b ... Zvolte tvar (počet n-úhelníku) pro recesivní znak tvaru</h4>
+                    <h4>b ... Zvolte tvar (počet n-úhelníku) pro druhou alelu</h4>
                     <input type="number" class="styled-input" style="width: 50px; height: 30px;" id="ND_input2">
                 </div>
 
@@ -170,7 +180,7 @@
     </div>
 
 
-    <div class="menu-container">
+    <div class="menu-container">  <!-- Tady by se to melo jmenovat jinak, jina class -->
         <h1>Výsledný subjekt</h1>
         <br>
         <p><b>Fenotypový poměr:</b> 1:2:1:2:4:2:1:2:1</p>
@@ -221,9 +231,48 @@
             </div>
         </div>
     </div>
-    
-
 </div>
+
+
+<!-- KODOMINANCE -->
+
+<div class="body-crossing" id="kodominance" style="display: none;">
+    <!-- <div class="menu-container-priprava"> -->
+        <!-- dva nevim znaky jako dve kolecka a pod tim jedno ktere bude obsahovat kombinaci tech dvou -->
+        <!-- <div class="priprava-heterozygotu"> -->
+
+        <div class="kodominance-container">
+            <div class="kodominance-priprava">
+                <input type="color" class="styled-input" id="Kodominance_ColorPicker1"value="#FF0000">
+                <button onclick="vyrobKolecka()">Vytvoř</button>
+                <h3>I<sup>A</sup>I<sup>A</sup></h3>
+                <div class="kodominance-kruh" id="kruh1">
+                    <div class="dot prvniKolecka" style="top: 67px; left: 70px;"></div>
+                    <div class="dot prvniKolecka" style="top: 42px; left: 45px;"></div>
+                    <div class="dot prvniKolecka" style="top: 111px; left: 34px;"></div>
+                    <div class="dot prvniKolecka" style="top: 60px; left: 100px;"></div>
+                </div>
+            </div>
+            <div class="kodominance-priprava">
+                <input type="color" class="styled-input" id="Kodominance_ColorPicker2"value="#FF0000">
+                <button onclick="krizit()">Křížit</button>
+                <h3>I<sup>A</sup>I<sup>A</sup></h3>
+                <div class="kodominance-kruh" id="kruh2">
+                    <div class="dot druheKolecka" style="top: 30px; left: 30px;"></div>
+                    <div class="dot druheKolecka" style="top: 60px; left: 50px;"></div>
+                    <div class="dot druheKolecka" style="top: 50px; left: 80px;"></div>
+                    <div class="dot druheKolecka" style="top: 60px; left: 100px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="kodominance-container">
+            <div class="kodominance-priprava">
+                <div class="kodominance-kruh" id="vysledek-kodominance"></div>
+            </div>
+            
+        </div>
+</div>    
     <div style="height: 800px;"></div>
 
     <div>
@@ -464,9 +513,6 @@ function mixColors(color1, color2) {
 
 
         //smichani barvy 
-
-        const color1 = '#FF0000'; // Red
-        const color2 = '#0000FF'; // Blue
         const mixedColor = mixColors(selectedColor1, selectedColor2);
 
         console.log('Mixed Color:', mixedColor); // Output: Mixed Color: #800080 (Purple)
@@ -551,7 +597,57 @@ function showContent() {
     }
   } 
 
-  
+//   KODOMINANCE
+var barva1 = document.getElementById("Kodominance_ColorPicker1").value;
+var barva2 = document.getElementById("Kodominance_ColorPicker2").value;
+
+document.getElementById("Kodominance_ColorPicker1").addEventListener("input", function() {
+    document.querySelectorAll(".prvniKolecka").forEach(el => {
+      el.style.backgroundColor = this.value;
+      barva1 = this.value;
+    }); 
+ });
+ document.getElementById("Kodominance_ColorPicker2").addEventListener("input", function() {
+    document.querySelectorAll(".druheKolecka").forEach(el => {
+      el.style.backgroundColor = this.value;
+      barva2 = this.value;
+    }); 
+ });
+function krizit() {
+    barva1 = document.getElementById("Kodominance_ColorPicker1").value;
+    barva2 = document.getElementById("Kodominance_ColorPicker2").value;
+            let child = document.getElementById("vysledek-kodominance");
+            child.innerHTML = `
+               <div class="dot prvniKolecka" style="top: 25px; left: 54px; background-color: ${barva1};"></div>
+            <div class="dot druheKolecka" style="top: 60px; left: 20px; background-color: ${barva2};"></div>
+            <div class="dot prvniKolecka" style="top: 50px; left: 80px; background-color: ${barva1};"></div>
+            <div class="dot druheKolecka" style="top: 40px; left: 100px; background-color: ${barva2};"></div>
+            <div class="dot prvniKolecka" style="top: 120px; left: 40px; background-color: ${barva1};"></div>
+            <div class="dot prvniKolecka" style="top: 25px; left: 32px; background-color: ${barva1};"></div>
+            <div class="dot druheKolecka" style="top: 90px; left: 90px; background-color: ${barva2};"></div>
+            <div class="dot druheKolecka" style="top: 90px; left: 55px; background-color: ${barva2};"></div>
+            `;
+        }
+function vyrobKolecka() {
+    let kruh1 = document.getElementById("kruh1");
+    // kruh1.innerHTML = ` <div class="dot red" style="top: 5px; left: 90px;"></div>
+    // <div class="dot red" style="top: 120px; left: 33px;"></div>
+    // <div class="dot red" style="top: 120px; left: 50px;"></div>
+    // <div class="dot red" style="top: 5px; left: 80px;"></div>`;
+        kruh1.innerHTML = ` <div class="dot prvniKolecko" style="top: 67px; left: 70px;"></div>
+    <div class="dot prvniKolecko" style="top: 42px; left: 45px;"></div>
+    <div class="dot prvniKolecko" style="top: 111px; left: 34px;"></div>
+    <div class="dot prvniKolecko" style="top: 60px; left: 100px;"></div>`;
+    let kruh2 = document.getElementById("kruh2");
+    // kruh1.innerHTML = ` <div class="dot red" style="top: 5px; left: 90px;"></div>
+    // <div class="dot red" style="top: 120px; left: 33px;"></div>
+    // <div class="dot red" style="top: 120px; left: 50px;"></div>
+    // <div class="dot red" style="top: 5px; left: 80px;"></div>`;
+        kruh1.innerHTML = ` <div class="dot druheKolecko" style="top: 67px; left: 70px;"></div>
+    <div class="dot druheKolecko" style="top: 42px; left: 45px;"></div>
+    <div class="dot druheKolecko" style="top: 111px; left: 34px;"></div>
+    <div class="dot druheKolecko" style="top: 60px; left: 100px;"></div>`;
+}
 
     </script>
     
