@@ -13,7 +13,7 @@ function displayCurses(curses) {
     curses.forEach(result => {
         const listOfCurses = document.createElement('div');
             
-        listOfCurses.innerHTML = '<li><a href="#">'+result.course_className+" "+ result.course_year+'</a></li>';
+        listOfCurses.innerHTML = '<li><a href="#">'+result.course_className+" "+ result.course_teacherName+" "+ result.course_year+'</a></li>';
         divCurses.appendChild(listOfCurses);
         
       });

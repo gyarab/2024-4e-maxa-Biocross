@@ -4,7 +4,7 @@ var con = mysql.createConnection({
   port: '3306',
   user: 'root', 
   password: 'root',        
-  database: 'biocorss' 
+  database: 'biocross' 
 }); 
 con.connect(function(err) {
   if (err) throw err;
