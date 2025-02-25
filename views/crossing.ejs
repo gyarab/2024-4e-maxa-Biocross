@@ -467,22 +467,6 @@ function mixColors(color1, color2) {
         var smisenyN_Uhelnik = (N_Uhelnik1+N_Uhelnik2)/2;
         console.log(smisenyN_Uhelnik);
 
-        // const canvas3 = document.getElementById('ND_canvas3');
-        // const ctx3 = canvas3.getContext('2d');
-        // ctx3.clearRect(0, 0, canvas3.width, canvas3.height);
-
-        
-        // const canvas4 = document.getElementById('ND_canvas4');
-        // const ctx4 = canvas4.getContext('2d');
-        // ctx4.clearRect(0, 0, canvas4.width, canvas4.height);
-
-        // const canvas5 = document.getElementById('ND_canvas5');
-        // const ctx5 = canvas5.getContext('2d');
-        // ctx5.clearRect(0, 0, canvas5.width, canvas5.height);
-
-        // const canvas6 = document.getElementById('ND_canvas6');
-        // const ctx6 = canvas6.getContext('2d');
-        // ctx6.clearRect(0, 0, canvas6.width, canvas6.height);
         const canvas3 = document.getElementById('ND_canvas3');
         const ctx3 = canvas3.getContext('2d');
         ctx3.clearRect(0, 0, canvas3.width, canvas3.height);
@@ -524,23 +508,7 @@ function mixColors(color1, color2) {
         const mixedColor = mixColors(selectedColor1, selectedColor2);
 
         console.log('Mixed Color:', mixedColor); // Output: Mixed Color: #800080 (Purple)
-        //prvni 9
-        // drawPolygon(ctx3, 200, 200, 100, N_Uhelnik1); // Nakreslí n-úhelník
-        // ctx3.fillStyle = selectedColor1;
-        // ctx3.fill();
-        // // pak 3
-        // drawPolygon(ctx4, 200, 200, 100, N_Uhelnik1); // Nakreslí n-úhelník
-        // ctx4.fillStyle = selectedColor2;
-        // ctx4.fill();
-        // //pak 3
-        // drawPolygon(ctx5, 200, 200, 100, N_Uhelnik2); // Nakreslí n-úhelník
-        // ctx5.fillStyle = selectedColor1;
-        // ctx5.fill();
-
-        // //pak 1
-        // drawPolygon(ctx6, 200, 200, 100, N_Uhelnik2); // Nakreslí n-úhelník
-        // ctx6.fillStyle = selectedColor2;
-        // ctx6.fill();
+       
         drawPolygon(ctx3, 200, 200, 100, N_Uhelnik1); // Nakreslí n-úhelník
         ctx3.fillStyle = selectedColor1;
         ctx3.fill();
@@ -581,7 +549,7 @@ function mixColors(color1, color2) {
         ctx10.fill();
 
         // Pak 6
-        drawPolygon(ctx11, 200, 200, 100, N_Uhelnik1); // Nakreslí n-úhelník
+        drawPolygon(ctx11, 200, 200, 100, N_Uhelnik2); // Nakreslí n-úhelník
         ctx11.fillStyle = selectedColor2;
         ctx11.fill();
 
