@@ -27,7 +27,7 @@ app.get("/login",(req,res)=>{
 //Domovska stranka
 //gets
 //Domovska stranka
-app.get("/home",(req,res)=>{
+app.get("/",(req,res)=>{
   res.render("homepage")
 })
 
