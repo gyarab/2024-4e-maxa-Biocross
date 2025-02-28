@@ -7,12 +7,14 @@ var app = express();
 app.set('views','views')
 app.set('view engine', 'ejs');  // or 'ejs', 'hbs', etc.
 
+// Middleware pro praci s JSON a URL daty
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Nastavení statickych souboru
 app.use(express.static('public'));
 
-
-// Set the port 
+// Nastaveni portu
 const PORT = process.env.PORT || 3000;
 
 //LOGIN stranka
@@ -43,11 +45,11 @@ app.get("/literatura",(req,res)=>{
 //Classroom stranka
 //gets
 
-const getCurses = require('./routes/methods/getCurses')
+// const getCurses = require('./routes/methods/getCurses')
 
 // if(id=ucitel){classroomUcitel} if student classroom student
 app.get("/classroom", async(req,res)=>{
-  //nactu existujici kurzy uzivatele
+  // nactu existujici kurzy uzivatele
   var arrCurses = await getCurses.getCurses()
 
   try {
@@ -64,7 +66,7 @@ app.get("/classroom", async(req,res)=>{
     res.status(500).send('Server Error');
   }
   
-    // res.render("classroom")
+    res.render("classroom")
 });
 
 
