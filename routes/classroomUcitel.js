@@ -39,7 +39,8 @@ router.post("/ukoly", (req,res)=>{
 });
 
 router.post("/novyKurz", (req,res)=>{
-
+    console.log("Post probehl");
+    
     const inputData = {
         course_name: req.body.courseName,
         course_teacherName:  req.body.teachersName,

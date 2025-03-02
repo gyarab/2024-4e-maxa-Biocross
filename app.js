@@ -38,7 +38,7 @@ app.get("/crossing",(req,res)=>{
 })
 //Literatura stranka
 //gets
-app.get("/literatura",(req,res)=>{
+app.get("/pojmy",(req,res)=>{
   res.render("literatura")
 })
 
@@ -66,7 +66,7 @@ app.get("/classroom", async(req,res)=>{
     res.status(500).send('Server Error');
   }
   
-    res.render("classroom")
+    // res.render("classroom")
 });
 
 
@@ -80,13 +80,13 @@ app.get("/classroomUcitel",(req,res)=>{
 
 
 //DEVELOPMENT HTML
-app.get("/navbar",(req,res)=>{
-  res.render("navbar")
-})
+// app.get("/navbar",(req,res)=>{
+//   res.render("navbar")
+// })
 
-app.get("/footer",(req,res)=>{
-  res.render("footer")
-})
+// app.get("/footer",(req,res)=>{
+//   res.render("footer")
+// })
 //routers
 // const registerRouter = require("./routes/register")
 // app.use('/register', registerRouter)

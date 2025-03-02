@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
+const db = require('../database');
+
 //Ukoly
 router.get("/ukoly", (req,res)=>{
     res.render('classroomUkoly');
@@ -17,6 +19,7 @@ router.post("/", (req,res)=>{
             if (err) throw err;                
             else {
                 console.log("Kurz pridan");
+                res.redirect("/classroom");
             }
         });
     });
