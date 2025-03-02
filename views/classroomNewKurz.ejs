@@ -23,7 +23,8 @@
         </div>
             <div class="container">
                 <h1>Vytvořit nový kurz</h1>
-                <form action="/classroomUcitel/novyKurz" method="POST">
+                <!-- Dulezite je abu to nebyla absolutni cesta ale relativni -->
+                <form action="novyKurz" method="POST">
                     <input name="courseName" type="text" placeholder="Název kurzu">
                     <input name="teachersName" type="text" placeholder="Celé jméno vyučujícího">
                     <input name="className" type="text" placeholder="Třída">
@@ -40,17 +41,7 @@
         <%- include('../views/footer.ejs') %>
     </div>
     <script>
-        document.querySelector("form").addEventListener("submit", function(event) {
-            event.preventDefault(); // Zabrání odeslání formuláře (pokud chceš AJAX, zde přidej požadavek)
-            
-            const successMessage = document.querySelector(".success-message");
-            successMessage.style.display = "block";
-
-            // Po 3 sekundách skryje zprávu
-            setTimeout(() => {
-                successMessage.style.display = "none";
-            }, 6000);
-        });
+   
     </script>
     <!-- <script src="/javascripts/classroom.js"></script> -->
 </body>
