@@ -24,6 +24,8 @@ main p{
 }
 .container{
     border: 1px solid var(--line-clr);
+    width: 80%;
+    margin-left: 10%;
     border-radius: 1em;
     margin-bottom: 20px;
     padding: min(3em,15%);
@@ -45,10 +47,160 @@ main p{
 
 } */
 
-
 @media(max-width: 987px){
   .container{
     margin-left: 60px;
   }
 }
-  
+
+
+/* CSS pro formulare */
+form {
+  width: 90%;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+input {
+  width: calc(50% - 5px);
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+@media (max-width: 500px) {
+  input {
+      width: 100%;
+  }
+}
+
+input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+button.submit {
+  width: 100%;
+  padding: 10px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button.submit:hover {
+  background: #0056b3;
+}
+
+.success-message {
+  display: none;
+  margin-top: 10px;
+  padding: 10px;
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  border-radius: 5px;
+  text-align: center;
+}
+
+/* ZAPSANI DO KURZU  FORM*/
+form.zapis-form {
+  width: 90%;
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 15px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+form.zapis-form input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+form.zapis-form input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+form.zapis-form button.submit {
+  width: 100%;
+  padding: 8px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+form.zapis-form button.submit:hover {
+  background: #0056b3;
+}
+
+form.zapis-form .success-message {
+  display: none;
+  margin-top: 10px;
+  padding: 5px 10px;
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 12px;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* VYTVORENI UKOLU FORM */
+.assignment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.assignment-form input, 
+.assignment-form textarea, 
+.assignment-form select, 
+.assignment-form button {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.assignment-form button {
+  background: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.assignment-form button:hover {
+  background: #0056b3;
+}

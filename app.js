@@ -45,7 +45,7 @@ app.get("/literatura",(req,res)=>{
 //Classroom stranka
 //gets
 
-// const getCurses = require('./routes/methods/getCurses')
+const getCurses = require('./routes/methods/getCurses')
 
 // if(id=ucitel){classroomUcitel} if student classroom student
 app.get("/classroom", async(req,res)=>{

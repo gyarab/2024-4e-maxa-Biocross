@@ -13,8 +13,8 @@ function getCurses(){
            }
            resolve(result);
           //  console.log(result);
-         });
-       });
+        });
+    });
 }
 
 //nacte poslednich sest aktivit frienda, pouzivame v sekcich last Six

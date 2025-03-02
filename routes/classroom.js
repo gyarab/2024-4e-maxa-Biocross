@@ -6,6 +6,7 @@ router.get("/ukoly", (req,res)=>{
     res.render('classroomUkoly');
 });
 
+//zapsat se jako student do kurzu
 router.post("/", (req,res)=>{
     course_code = req.body.input_course;
 

@@ -29,3 +29,8 @@ function closeAllSubMenus(){
     ul.previousElementSibling.classList.remove('rotate')
   })
 }
+
+// document.querySelector("form").addEventListener("submit", function(event) {
+//   event.preventDefault(); // Zabrání odeslání formuláře (pokud chceš AJAX, zde přidej požadavek)
+//   document.querySelector(".success-message").style.display = "block";
+// });

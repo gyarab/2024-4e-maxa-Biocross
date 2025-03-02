@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/body.css">
+    <link rel="stylesheet" href="/stylesheets/classroom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Classroom</title>
+</head>
+<body>
+    <div>
+        <%- include('../views/navbar.ejs') %>
+    </div>
+    <div class="main-body">
+        <div>
+            <%- include('../views/sidebarUcitel.ejs') %>
+        </div>
+       <main>
+        <div class="container">
+            <h1>Úkoly</h1>
+            <p>V této sekci naleznete všechny úkoly přiřazené k vašim kurzům. Můžete si prohlédnout jejich zadání, termíny odevzdání a případně je odevzdat podle pokynů vyučujícího.</p>
+    
+        </div>
+        <div class="container">
+            <h1>Nový úkol</h1>
+        <p>Vytvářejte nové úkoly pro své studenty. Stačí zadat název úkolu, popis, termín odevzdání a vybrat kurz, ke kterému úkol patří.</p>
+
+        </div>
+        <div class="container">
+            <h1>Vytvoření nového úkolu</h1>
+            <p>Classroom je místo, kde studenti najdou všechna zadání úkolů a materiály ke studiu na jednom místě. Umožňuje snadný přístup k zadání úkolů, což usnadňuje orientaci a pomáhá studentům lépe si organizovat studium. Každý student zde může jednoduše odevzdat svůj vypracovaný úkol ve formátu PDF, a mít tak přehled o všech odevzdaných pracích.</p>
+            <form action="/classroomUcitel/ukoly" method="post" class="assignment-form">
+                <label for="assignmentName">Název úkolu:</label>
+                <input name="jmenoUkolu" type="text" placeholder="Zadejte název úkolu" required>
+    
+                <label for="assignmentDescription">Popis úkolu:</label>
+                <textarea name="popisUkolu" placeholder="Zadejte popis úkolu" required></textarea>
+    
+                <label for="dueDate">Termín odevzdání:</label>
+                <input name="datumOdevzdaniUkolu" type="date" required>
+    
+                <label for="course">Přiřadit do kurzu:</label>
+                <select name="jmenoKurzu" required>
+                    <option value="" disabled selected>Vyberte kurz</option>
+                    <option value="math101">Matematika 101</option>
+                    <option value="physics202">Fyzika 202</option>
+                    <option value="history303">Dějepis 303</option>
+                </select>
+    
+                <button class="submit" type="submit">Vytvořit úkol</button>
+            </form>
+    
+            <div class="success-message">Úkol byl úspěšně vytvořen!</div>
+        </div>
+        </main>
+    </div>
+    <div>
+        <%- include('../views/footer.ejs') %>
+    </div>
+    <script>
+         document.querySelector(".submit").addEventListener("click", function(event) {
+            event.preventDefault(); // Zabrání odeslání formuláře
+
+            const successMessage = document.querySelector(".success-message");
+            successMessage.style.display = "block";
+
+            // Po 3 sekundách skryje zprávu
+            setTimeout(() => {
+                successMessage.style.display = "none";
+            }, 6000);
+        });
+    </script>
+    <script src="/javascripts/handlers/sidebarHandler.js"></script>
+</body>
+</html>

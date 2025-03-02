@@ -18,28 +18,40 @@
         </div>
        <main>
         <div class="container">
-          <h1>Jak vytvorit novy kurz</h1>
-          <p>Classroom je místo, kde studenti najdou všechna zadání úkolů a materiály ke studiu na jednom místě. Umožňuje snadný přístup k zadání úkolů, což usnadňuje orientaci a pomáhá studentům lépe si organizovat studium. Každý student zde může jednoduše odevzdat svůj vypracovaný úkol ve formátu PDF, a mít tak přehled o všech odevzdaných pracích.</p>
+          <h1>Jak vytvořit nový kurz</h1>
+          <p>Jako učitel nyní můžete vytvořit nový kurz vyplněním názvu kurzu, jména vyučujícího, třídy a akademického roku do formuláře, následně kliknete na tlačítko „Vytvořit kurz“, čímž se data odešlou ke zpracování a uloží do systému, a obdržíte potvrzení o úspěšném vytvoření kurzu.</p>
         </div>
             <div class="container">
-                <h1>Vytvorit novy kurz</h1>
-                <p>Zde napiste kod kurzu</p>   
+                <h1>Vytvořit nový kurz</h1>
                 <form action="/classroomUcitel/novyKurz" method="post">
-                    <input name="courseName" type="text" placeholder="Jmeno Kurzu">
-                    <input name="teachersName" type="text" placeholder="Jmeno vyucujiciho">
-                    <input name="className" type="text" placeholder="Trida">
+                    <input name="courseName" type="text" placeholder="Název kurzu">
+                    <input name="teachersName" type="text" placeholder="Celé jméno vyučujícího">
+                    <input name="className" type="text" placeholder="Třída">
                     <input name="courseYear" type="text" placeholder="Rok">
 
-                    <button class="submit" type="submit">Vytvorit kurz</button>
-
+                    <button class="submit" type="submit">Vytvořit kurz</button>
                 </form>
-             
+                <div class="success-message">Kurz byl úspěšně vytvořen!</div>
+
             </div>
       </main>
     </div>
     <div>
         <%- include('../views/footer.ejs') %>
     </div>
+    <script>
+        document.querySelector("form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Zabrání odeslání formuláře (pokud chceš AJAX, zde přidej požadavek)
+            
+            const successMessage = document.querySelector(".success-message");
+            successMessage.style.display = "block";
+
+            // Po 3 sekundách skryje zprávu
+            setTimeout(() => {
+                successMessage.style.display = "none";
+            }, 6000);
+        });
+    </script>
     <!-- <script src="/javascripts/classroom.js"></script> -->
 </body>
 </html>
