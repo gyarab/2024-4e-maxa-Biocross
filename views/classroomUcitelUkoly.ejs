@@ -30,13 +30,16 @@
         <div class="container">
             <h1>Vytvoření nového úkolu</h1>
             <p>Classroom je místo, kde studenti najdou všechna zadání úkolů a materiály ke studiu na jednom místě. Umožňuje snadný přístup k zadání úkolů, což usnadňuje orientaci a pomáhá studentům lépe si organizovat studium. Každý student zde může jednoduše odevzdat svůj vypracovaný úkol ve formátu PDF, a mít tak přehled o všech odevzdaných pracích.</p>
-            <form action="/classroomUcitel/ukoly" method="post" class="assignment-form">
+            <form action="ukoly" method="POST" class="assignment-form">
                 <label for="assignmentName">Název úkolu:</label>
                 <input name="jmenoUkolu" type="text" placeholder="Zadejte název úkolu" required>
     
                 <label for="assignmentDescription">Popis úkolu:</label>
                 <textarea name="popisUkolu" placeholder="Zadejte popis úkolu" required></textarea>
-    
+
+                <label for="dueDate">Termín zadání:</label>
+                <input id="inputDatumZadani" name="datumZadaniUkolu" type="date" required>
+
                 <label for="dueDate">Termín odevzdání:</label>
                 <input name="datumOdevzdaniUkolu" type="date" required>
     
@@ -48,10 +51,14 @@
                     <option value="history303">Dějepis 303</option>
                 </select>
     
-                <button class="submit" type="submit">Vytvořit úkol</button>
+                <button class="submit" type="submit" onclick="success_message()">Vytvořit úkol</button>
             </form>
     
-            <div class="success-message">Úkol byl úspěšně vytvořen!</div>
+            <% if (message) { %> 
+                <div class="message-box <%= message.success ? 'message-success' : 'message-error' %>">
+                    <%= message.text %>
+                </div>
+            <% } %>        
         </div>
         </main>
     </div>
@@ -59,18 +66,14 @@
         <%- include('../views/footer.ejs') %>
     </div>
     <script>
-         document.querySelector(".submit").addEventListener("click", function(event) {
-            event.preventDefault(); // Zabrání odeslání formuláře
-
-            const successMessage = document.querySelector(".success-message");
-            successMessage.style.display = "block";
-
-            // Po 3 sekundách skryje zprávu
-            setTimeout(() => {
-                successMessage.style.display = "none";
-            }, 6000);
+        // Zajistuje ze doplni do formu aktualni datum
+        document.addEventListener("DOMContentLoaded", function() {
+        let today = new Date().toISOString().split('T')[0];
+        document.getElementById("inputDatumZadani").value = today;
         });
+
+       
     </script>
-    <script src="/javascripts/handlers/sidebarHandler.js"></script>
+<script src="/javascripts/handlers/classroomUcitelHandlerUkol.js"></script>
 </body>
 </html>

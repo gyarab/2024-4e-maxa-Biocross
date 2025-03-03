@@ -101,7 +101,7 @@
   }
 @media(max-width: 987px){
   #sidebar{
-    position: absolute;
+    position: static;
     top: 80px;
   }
 }

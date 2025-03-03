@@ -5,71 +5,113 @@ const db = require('../database');
 // LOGIN // REGISTER
 
 router.post('/', (req, res) => {
+    var user_role = req.body.role; // Přidáme roli z formuláře (student nebo teacher)
+    var user_email = req.body.log_email;
+    var user_password = req.body.log_password;
+
     //napad na vyreseni login a registrace pri stejnem HTTP req.(POST) 
     // https://stackoverflow.com/questions/66640958/having-login-and-register-on-the-same-page-nodejs
     if ('login' === req.body.formType) {
-        console.log("LOGIN");
-        //nactu si informace = vyplnene pole uzivatelem
-        var student_email = req.body.log_email;
-        var student_password = req.body.log_password;
-        console.log( "email:" + student_email + student_password);
-        
-        
-        var selectPassSQL = "SELECT student_password FROM student WHERE student_email = ?";
-        db.connect(function (err) {
-            if (err) throw err;
-            console.log("Connected!");
-            db.query(selectPassSQL,[student_email], function (err, results) {
-                if (err) throw err;                
-                if(student_password==results[0].student_password){
-                    res.redirect("/")
-                    console.log("Prihlaseni probehlo uspesne -> Jste prihlasen");
-                }else{
-                    console.log("Prihlaseni neprobehlo uspesne -> Chybne heslo");
-                    res.redirect("/login")
+        if (user_role === "student") {
+            var selectPassSQL = "SELECT student_id, student_password FROM student WHERE student_email = ?";
+            db.query(selectPassSQL, [user_email], function (err, results) {
+                if (err) console.log();
+                ;
+                
+                if ( results.length > 0 && user_password == results[0].student_password) {
+                    console.log("Přihlášení studenta proběhlo úspěšně");
+                    req.session.user_id = results[0].student_id;
+                    req.session.role = "student"; // Uložíme roli
+                    req.session.user_email = user_email;
+                    req.session.message = null;
+                    res.redirect("/");
+                } else {
+                    console.log("Neplatný email nebo heslo pro studenta");
+                    req.session.message = { text: "Neplatný email nebo heslo!", success: false };
+                    res.redirect("/login");
                 }
             });
-        });
-        
-      // Server-sided sign-up logic can go here...
-    } else if ('register' === req.body.formType) {
-        console.log("REGISTER");
-        //nactu si informace = vyplnene pole uzivatelem
-        var student_email = req.body.reg_email;
-        var student_firstname = req.body.reg_firstname;
-        var student_lastname = req.body.reg_lastname;
-        var student_role = req.body.reg_role;
-        var student_password = req.body.reg_password;
-
-        //PODMINKY
-        // Existuje uz takovy to uzivatel?
-        var emailExistsSQL ='SELECT student_email FROM student WHERE student_email = ?;';
-        db.connect(function (err) {
-            if (err) throw err;
-            console.log("Connected!");
-            db.query(emailExistsSQL,[student_email], function (err, results) {
+        } else if (user_role === "teacher") {
+            var selectPassSQL = "SELECT teacher_id, teacher_password FROM teacher WHERE teacher_email = ?";
+            db.query(selectPassSQL, [user_email], function (err, results) {
                 if (err) throw err;
-                if (results.length>0) {
-                    console.log("Registrace neprobehla uspesne -> uzivatel existuje");
-                }else{
-                    console.log("Uzivatel neexistuje");
-                    var insertUserSQL = "INSERT INTO student (student_email,student_firstname,student_lastname,student_role,student_password) VALUES (?,?,?,?,?)";
-                    db.query(insertUserSQL,[student_email,student_firstname,student_lastname,student_role,student_password], function(err){
-                        if (err) throw err;
-                        console.log(`Registrace probehla uspesne -> uzivatel ${student_email} pridan do DB`);
-                        res.redirect("/");
-                    });
+
+                if ( results.length > 0 && user_password == results[0].teacher_password) {
+                    console.log("Přihlášení učitele proběhlo úspěšně");
+                    req.session.user_id = results[0].teacher_id;
+                    req.session.role = "teacher"; // Uložíme roli
+                    req.session.user_email = user_email;
+                    req.session.message = null;
+                    res.redirect("/");
+                } else {
+                    console.log("Neplatný email nebo heslo pro učitele");
+                    req.session.message = { text: "Neplatný email nebo heslo!", success: false };
+                    res.redirect("/login");
                 }
             });
-        });
-        // KONTROLA HESLA ATD BUDOU VE SCRIPTU PRO LOGIN
-
+        }
         
-    } else {
-      // Something/someone has submitted an invalid form?
-    }
-});
+    } else if ('register' === req.body.formType) {
+        var user_email = req.body.reg_email;
+        var user_firstname = req.body.reg_firstname;
+        var user_lastname = req.body.reg_lastname;
+        var user_role = req.body.role_register; // Student nebo Teacher
+        var user_password = req.body.reg_password;
 
+        if (user_role === "student") {
+            //kontrola jestli uzivatel uz existuje
+            var kontrolaUzivateleSQL = "SELECT * FROM student WHERE student_email = ?";
+            
+            db.query(kontrolaUzivateleSQL, [user_email], function (err, results) {
+                if (err) throw err;
+        
+                if (results.length > 0) {
+                    req.session.message = { text: "Tento e-mail je již registrován!", success: false };
+                    return res.redirect("/login");
+                }
+        
+                var insertUserSQL = "INSERT INTO student (student_email, student_firstname, student_lastname, student_password) VALUES (?,?,?,?)";
+        
+                db.query(insertUserSQL, [user_email, user_firstname, user_lastname, user_password], function (err, result) {
+                    if (err) throw err;
+        
+                    console.log(`Registrace studenta proběhla úspěšně -> ${user_email}`);
+                    // req.session.user_id = result.insertId; // ID nového studenta
+                    // req.session.role = "student"; // Nastavíme roli
+                    req.session.message = { text: "Registrace proběhla úspěšně!", success: true };
+        
+                    res.redirect("/login");
+                });
+            });
+        
+        } else if (user_role === "teacher") {
+            var checkUserSQL = "SELECT * FROM teacher WHERE teacher_email = ?";
+            
+            db.query(checkUserSQL, [user_email], function (err, results) {
+                if (err) throw err;
+        
+                if (results.length > 0) {
+                    req.session.message = { text: "Tento e-mail je již registrován!", success: false };
+                    return res.redirect("/login");
+                }
+        
+                var insertUserSQL = "INSERT INTO teacher (teacher_firstname, teacher_lastname, teacher_email, teacher_password) VALUES (?,?,?,?)";
+        
+                db.query(insertUserSQL, [user_firstname, user_lastname, user_email, user_password], function (err, result) {
+                    if (err) throw err;
+        
+                    console.log(`Registrace učitele proběhla úspěšně -> ${user_email}`);
+                    // req.session.user_id = result.insertId; // ID učitele
+                    // req.session.role = "teacher"; // Nastavíme roli
+                    req.session.message = { text: "Registrace proběhla úspěšně!", success: true };
+        
+                    res.redirect("/login");
+                });
+            });
+        }
+    } 
+});
+ 
 
 
 

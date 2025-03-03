@@ -2,7 +2,7 @@
     --base-clr: #11121a;
     --line-clr: #42434a;
     --hover-clr: #222533;
-    --text-clr: #e6e6ef;
+    --text-clr: #d4edda;
     --accent-clr: #5e63ff;
     --secondary-text-clr: #b0b3c1;
 }
@@ -203,4 +203,26 @@ form.zapis-form .success-message {
 
 .assignment-form button:hover {
   background: #0056b3;
+}
+
+/* ZPRAVA JESTLI TO PROBEHLO DOBRE NEBO NE */
+.message-box {
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 16px;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 15px;
+  width: 50%;
+  justify-self: center;
+}
+
+.message-success {
+  background-color: #28a745;
+  color: white;
+}
+
+.message-error {
+  background-color: #dc3545;
+  color: white;
 }

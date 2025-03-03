@@ -11,23 +11,49 @@
         <div class="navbar">
             <div class="logo"><a href="#">BIOCROSS</a></div>
             <ul class="links">
-                <li><a class="nav-prepinace" href="http://localhost:3000/">Domovská stránka</a></li>
-                <li><a class="nav-prepinace" href="http://localhost:3000/crossing">Crossing</a></li>
-                <li><a class="nav-prepinace" href="http://localhost:3000/literatura">Literatura</a></li>
-                <li><a class="nav-prepinace" href="http://localhost:3000/classroom">Classroom</a></li>
+                <li><a class="nav-prepinace" href="/">Domovská stránka</a></li>
+                <li><a class="nav-prepinace" href="/crossing">Crossing</a></li>
+                <li><a class="nav-prepinace" href="/pojmy">Literatura</a></li>
+                <li><% if (session.role === "student") { %>
+                    <a class="nav-prepinace" href="/classroom">Classroom</a>
+                  <% } else if (session.role === "teacher") { %>
+                    <a class="nav-prepinace" href="/classroomUcitel">Classroom</a>
+                  <% } else { %>
+                    <a class="nav-prepinace" href="/login">Classroom</a> <!-- Pokud není přihlášen -->
+                  <% } %></li>
             </ul>
-            <a href="login" class="action_btn">Přihlásit se</a>
+            
+            <% if (session.user_email) { %>
+              <p><%= session.user_email %></p>
+              <a href="/logout" class="action_btn">Odhlásit se</a>
+              <div class="toggle_btn">
+                  <i class="fa-solid fa-bars"></i>
+              </div>
+          <% } else { %>
+            <a href="/login" class="action_btn">Přihlásit se</a>
             <div class="toggle_btn">
                 <i class="fa-solid fa-bars"></i>
             </div>
+          <% } %>
         </div>
 
         <div class="dropdown_menu">
-                <li><a href="home">Domovská stránka</a></li>
-                <li><a href="crossing">Crossing</a></li>
-                <li><a href="literatura">Literatura</a></li>
-                <li><a href="classroom">Classroom</a></li>
-                <li><a href="login" class="action_btn">Přihlásit se</a></li>
+                <li><a href="/">Domovská stránka</a></li>
+                <li><a href="/crossing">Crossing</a></li>
+                <li><a href="/pojmy">Literatura</a></li>
+                <li><% if (session.role === "student") { %>
+                    <a href="/classroom">Classroom</a>
+                  <% } else if (session.role === "teacher") { %>
+                    <a  href="/classroomUcitel">Classroom</a>
+                  <% } else { %>
+                    <a  href="/login">Classroom</a> <!-- Pokud není přihlášen -->
+                  <% } %></li>
+                <li><% if (session.user_email) { %>
+              <span><%= session.user_email %></span>
+              <a href="/logout" class="action_btn">Odhlásit se</a>
+          <% } else { %>
+            <a href="/login" class="action_btn">Přihlásit se</a>
+          <% } %></li>
         </div>
     </header>
 <script src="/javascripts/navbar.js"></script>

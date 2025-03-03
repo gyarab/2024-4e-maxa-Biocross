@@ -8,6 +8,7 @@
 </head>
 <body>
 <!-- ZDROJ: https://www.youtube.com/watch?v=NItTR0iBrls&t=1090s -->
+    
     <div class="form-container">
         <div class="form-col">
             <div class="btn-box">
@@ -19,6 +20,13 @@
             <form  class="form-box login-form" action="/login" method="POST">
                 <div class="form-title">
                     <span>Přihlásit se</span>
+                </div>
+                <div class="custom-select">
+                    <select name="role">
+                        <option value="" disabled selected>Vyberte roli</option>
+                        <option value="student">Student</option>
+                        <option value="teacher">Učitel</option>
+                    </select>
                 </div>
                 <div class="form-inputs">
                     <div class="input-box">
@@ -39,15 +47,19 @@
                         </button>
                     </div>
                 </div>
-                <div class="social-login">
+                <!-- <div class="social-login">
                     <div class="social-login-box">
                         <ion-icon name="logo-google" class="social-login-icon"></ion-icon>
                     </div>
                     <div class="social-login-box">
                         <ion-icon name="logo-github" class="social-login-icon"></ion-icon>
                     </div>
-                    
-                </div>
+                </div> -->
+                <% if (message) { %>
+                    <div class="alert <%= message.success ? 'alert-success' : 'alert-error' %>">
+                        <%= message.text %>
+                    </div>
+                <% } %>
             </form>
             <!-- REGISTER -->
             <form  class="form-box register-form" action="/login" method="POST">
@@ -68,25 +80,33 @@
                         <input name="reg_lastname" type="text" class="inputs input-field" placeholder="Příjmení">
                         <ion-icon name="person-outline" class="icon"></ion-icon>
                     </div>
-                    <select name="reg_role" class="inputs input-field">
-                        <option style="color: black;" value="Student">Student</option>
-                        <option style="color: black;" value="Teacher">Ucitel</option>
-                    </select>
+                    <div class="custom-select">
+                        <select name="role_register">
+                            <option value="" disabled selected>Vyberte roli</option>
+                            <option value="student">Student</option>
+                            <option value="teacher">Učitel</option>
+                        </select>
+                    </div>
                     <div class="input-box">
                         <input name="reg_password" type="password" oninput="changeIcon(this.value)" id="regPassword" class="inputs input-field" placeholder="Heslo">
                         <ion-icon name="lock-closed-outline" class="icon" id="reg-pass-icon" onclick="myRegPassword()"></ion-icon>
                     </div>
-                    <div class="remember-me">
+                    <!-- <div class="remember-me">
                         <input type="checkbox" id="remember-me-check">
                         <label for="remember-me-check">Zapamatuj si mě</label>
-                    </div>
+                    </div> -->
                     <div class="input-box">
                         <button class="inputs submit-btn">
                             <span>Zaregistrovat se</span>
                         </button>
                     </div>
+                    <% if (message) { %>
+                        <div class="alert <%= message.success ? 'alert-success' : 'alert-error' %>">
+                            <%= message.text %>
+                        </div>
+                    <% } %>
                 </div>
-                <div class="social-login">
+                <!-- <div class="social-login">
                     <div class="social-login-box">
                         <ion-icon name="logo-google" class="social-login-icon"></ion-icon>
                     </div>
@@ -94,7 +114,7 @@
                         <ion-icon name="logo-github" class="social-login-icon"></ion-icon>
                     </div>
                     
-                </div>
+                </div> -->
             </form>
         </div>
     </div>

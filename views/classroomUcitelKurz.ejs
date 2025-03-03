@@ -25,21 +25,26 @@
                 <h1>Vytvořit nový kurz</h1>
                 <!-- Dulezite je abu to nebyla absolutni cesta ale relativni -->
                 <form action="novyKurz" method="POST">
-                    <input name="courseName" type="text" placeholder="Název kurzu">
-                    <input name="teachersName" type="text" placeholder="Celé jméno vyučujícího">
-                    <input name="className" type="text" placeholder="Třída">
-                    <input name="courseYear" type="text" placeholder="Rok">
+                    <input name="courseName" type="text" placeholder="Název kurzu" required>
+                    <input name="teachersName" type="text" placeholder="Celé jméno vyučujícího" required>
+                    <input name="className" type="text" placeholder="Třída" required>
+                    <input name="courseYear" type="text" placeholder="Rok" required>
 
                     <button class="submit" type="submit">Vytvořit kurz</button>
                 </form>
-                <div class="success-message">Kurz byl úspěšně vytvořen!</div>
-
+                <% if (message) { %> 
+                    <div class="message-box <%= message.success ? 'message-success' : 'message-error' %>">
+                        <%= message.text %>
+                    </div>
+                <% } %>
             </div>
       </main>
     </div>
     <div>
         <%- include('../views/footer.ejs') %>
     </div>
+    <script src="/javascripts/handlers/classroomUcitelHandlerKurz.js"></script></body>
+
     <script>
    
     </script>

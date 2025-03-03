@@ -27,15 +27,23 @@
                 <form class="zapis-form" action="/classroom" method="post">
                     <input name="input_course" type="number" placeholder="Kód kurzu" required>
                     <button class="submit" type="submit">Zapsat se</button>
+                    <p id="message" style="display:none;"></p>
                 </form>
-            </div>
 
+                <% if (message) { %>
+                    <div style="padding: 10px; background: <%= message.success ? 'green' : 'red' %>; color: white;">
+                        <%= message.text %>
+                    </div>
+                <% } %>
+            </div>
         </div>
+        
       </main>
     </div>
     <div>
         <%- include('../views/footer.ejs') %>
     </div>
     <script src="/javascripts/handlers/sidebarHandler.js"></script>
+ 
 </body>
 </html>

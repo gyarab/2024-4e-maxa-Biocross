@@ -1,7 +1,6 @@
-
 var divCurses = document.getElementById("div-curses");
 
-fetch(`/classroom`+location.search, {headers: {
+fetch(`/classroom/ukoly`+location.search, {headers: {
     'Accept': 'application/json'
 }})
     .then(response => response.json())
@@ -18,4 +17,3 @@ function displayCurses(curses) {
         
       });
 }
-

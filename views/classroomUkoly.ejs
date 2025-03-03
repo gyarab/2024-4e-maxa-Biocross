@@ -5,9 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/stylesheets/body.css">
     <link rel="stylesheet" href="/stylesheets/classroom.css">
+    <link rel="stylesheet" href="/stylesheets/classroomStudent.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Classroom</title>
 </head>
+<style>
+     
+</style>
 <body>
     <div>
         <%- include('../views/navbar.ejs') %>
@@ -23,10 +28,206 @@
 
             Stačí vybrat úkol, na kterém chcete pracovat, přidat svoji odpověď a odeslat ji ke kontrole. Učitel si ji následně zkontroluje a případně vám poskytne zpětnou vazbu.</p>
         </div>
+
+        <div class="task-container">
+            <div class="task-card" onclick="toggleTask(this)">
+                <div class="task-header">
+                    <h2>Název úkolu</h2>
+                </div>
+                <div class="task-body">
+                    <p><strong>Kurz:</strong> Název kurzu</p>
+                    <p><strong>Učitel:</strong> Jméno učitele</p>
+                </div>
+                <div class="task-details">
+                    <p><strong>Popis úkolu:</strong> Toto je podrobný popis úkolu, který se zobrazí po kliknutí.</p>
+                </div>
+            </div>
+        
+            <div class="task-card" onclick="toggleTask(this)">
+                <div class="task-header">
+                    <h2>Další úkol</h2>
+                </div>
+                <div class="task-body">
+                    <p><strong>Kurz:</strong> Jiný kurz</p>
+                    <p><strong>Učitel:</strong> Další učitel</p>
+                </div>
+                <div class="task-details">
+                    <p><strong>Popis úkolu:</strong> Další podrobný popis úkolu.</p>
+                </div>
+            </div>
+            <div class="task-card" onclick="toggleTask(this)">
+                <div class="task-header">
+                    <h2>Název úkolu</h2>
+                </div>
+                <div class="task-body">
+                    <p><strong>Kurz:</strong> Název kurzu</p>
+                    <p><strong>Učitel:</strong> Jméno učitele</p>
+                </div>
+                <div class="task-details">
+                    <p><strong>Popis úkolu:</strong> Toto je podrobný popis úkolu, který se zobrazí po kliknutí.</p>
+                </div>
+            </div>
+        
+            <div class="task-card" onclick="toggleTask(this)">
+                <div class="task-header">
+                    <h2>Další úkol</h2>
+                </div>
+                <div class="task-body">
+                    <p><strong>Kurz:</strong> Jiný kurz</p>
+                    <p><strong>Učitel:</strong> Další učitel</p>
+                </div>
+                <div class="task-details">
+                    <p><strong>Popis úkolu:</strong> Další podrobný popis úkolu.</p>
+                </div>
+            </div>
+            <div class="task-card" onclick="toggleTask(this)">
+                <div class="task-header">
+                    <h2>Název úkolu</h2>
+                </div>
+                <div class="task-body">
+                    <p><strong>Kurz:</strong> Název kurzu</p>
+                    <p><strong>Učitel:</strong> Jméno učitele</p>
+                </div>
+                <div class="task-details">
+                    <p><strong>Popis úkolu:</strong> Toto je podrobný popis úkolu, který se zobrazí po kliknutí.</p>
+                </div>
+            </div>
+        
+            <div class="task-card" onclick="toggleTask(this)">
+                <div class="task-header">
+                    <h2>Další úkol</h2>
+                </div>
+                <div class="task-body">
+                    <p><strong>Kurz:</strong> Jiný kurz</p>
+                    <p><strong>Učitel:</strong> Další učitel</p>
+                </div>
+                <div class="task-details">
+                    <p><strong>Popis úkolu:</strong> Další podrobný popis úkolu.</p>
+                </div>
+            </div>
+            <div class="task-card" onclick="toggleTask(this)">
+                <div class="task-header">
+                    <h2>Název úkolu</h2>
+                </div>
+                <div class="task-body">
+                    <p><strong>Kurz:</strong> Název kurzu</p>
+                    <p><strong>Učitel:</strong> Jméno učitele</p>
+                </div>
+                <div class="task-details">
+                    <p><strong>Popis úkolu:</strong> Toto je podrobný popis úkolu, který se zobrazí po kliknutí.</p>
+                </div>
+            </div>
+        
+            <div class="task-card" onclick="toggleTask(this)">
+                <div class="task-header">
+                    <h2>Další úkol</h2>
+                </div>
+                <div class="task-body">
+                    <p><strong>Kurz:</strong> Jiný kurz</p>
+                    <p><strong>Učitel:</strong> Další učitel</p>
+                </div>
+                <div class="task-details">
+                    <p><strong>Popis úkolu:</strong> Další podrobný popis úkolu.</p>
+                </div>
+            </div>
+            <div class="task-card" onclick="toggleTask(this)">
+                <div class="task-header">
+                    <h2>Název úkolu</h2>
+                </div>
+                <div class="task-body">
+                    <p><strong>Kurz:</strong> Název kurzu</p>
+                    <p><strong>Učitel:</strong> Jméno učitele</p>
+                </div>
+                <div class="task-details">
+                    <p><strong>Popis úkolu:</strong> Toto je podrobný popis úkolu, který se zobrazí po kliknutí.</p>
+                </div>
+            </div>
+        
+            <div class="task-card" onclick="toggleTask(this)">
+                <div class="task-header">
+                    <h2>Další úkol</h2>
+                </div>
+                <div class="task-body">
+                    <p><strong>Kurz:</strong> Jiný kurz</p>
+                    <p><strong>Učitel:</strong> Další učitel</p>
+                </div>
+                <div class="task-details">
+                    <p><strong>Popis úkolu:</strong> Další podrobný popis úkolu.</p>
+                </div>
+            </div>
+            <div class="task-card" onclick="toggleTask(this)">
+                <div class="task-header">
+                    <h2>Název úkolu</h2>
+                </div>
+                <div class="task-body">
+                    <p><strong>Kurz:</strong> Název kurzu</p>
+                    <p><strong>Učitel:</strong> Jméno učitele</p>
+                </div>
+                <div class="task-details">
+                    <p><strong>Popis úkolu:</strong> Toto je podrobný popis úkolu, který se zobrazí po kliknutí.</p>
+                </div>
+            </div>
+        
+            <div class="task-card" onclick="toggleTask(this)">
+                <div class="task-header">
+                    <h2>Další úkol</h2>
+                </div>
+                <div class="task-body">
+                    <p><strong>Kurz:</strong> Jiný kurz</p>
+                    <p><strong>Učitel:</strong> Další učitel</p>
+                </div>
+                <div class="task-details">
+                    <p><strong>Popis úkolu:</strong> Další podrobný popis úkolu.</p>
+                </div>
+            </div>
+            <div class="task-card" onclick="toggleTask(this)">
+                <div class="task-header">
+                    <h2>Název úkolu</h2>
+                </div>
+                <div class="task-body">
+                    <p><strong>Kurz:</strong> Název kurzu</p>
+                    <p><strong>Učitel:</strong> Jméno učitele</p>
+                </div>
+                <div class="task-details">
+                    <p><strong>Popis úkolu:</strong> Toto je podrobný popis úkolu, který se zobrazí po kliknutí.</p>
+                </div>
+            </div>
+        
+            <div class="task-card" onclick="toggleTask(this)">
+                <div class="task-header">
+                    <h2>Další úkol</h2>
+                </div>
+                <div class="task-body">
+                    <p><strong>Kurz:</strong> Jiný kurz</p>
+                    <p><strong>Učitel:</strong> Další učitel</p>
+                </div>
+                <div class="task-details">
+                    <p><strong>Popis úkolu:</strong> Další podrobný popis úkolu. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque optio nulla, non, fugiat voluptatum repellat assumenda, porro ratione laboriosam nemo molestiae sint iusto architecto itaque illo eius? Sapiente, quisquam soluta!</p>
+                </div>
+            </div>
+        </div>
+        
+
+
       </main>
     </div>
     <div>
         <%- include('../views/footer.ejs') %>
     </div>
+    <script src="/javascripts/handlers/classroomUkolSidebarHandler.js"></script>
+
+    <script>
+     function toggleTask(element) {
+        // Zavře všechny ostatní
+        document.querySelectorAll(".task-card").forEach(card => {
+            if (card !== element) {
+                card.classList.remove("active");
+            }
+        });
+
+        // Přepne aktivní třídu pro kliknutý úkol
+        element.classList.toggle("active");
+    }
+    </script>
 </body>
 </html>
