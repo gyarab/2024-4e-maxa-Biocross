@@ -3,26 +3,56 @@ const router = express.Router();
 const {requireRole} = require("../middleware/auth");
 const db = require('../database');
 
-const getCurses = require('./methods/getCurses')
+const getCourses = require('./methods/getCourses')
+const getTasks = require('./methods/getTasks')
+
 
 //Ukoly
 router.get("/ukoly",requireRole("student"), async(req,res)=>{
+    let student_id = req.session.user_id; // 💡 Tady bereme student_id ze session
+
+    var arrCourses = await getCourses.getCourses(student_id)
+    var arrTasks = await getTasks.getTasks(student_id);
+    console.log(arrTasks);
     
-     var arrCurses = await getCurses.getCurses()
+    try {
+      res.format({
+        html: async () => {
+          res.render("classroomUkoly");
+        },
+        json: () => {   
+          res.json({ tasks: arrTasks, courses: arrCourses });
+        }
+      }); 
+    } catch (err){
+      console.error(err);
+      res.status(500).send('Server Error');
+    }
+});
+
+//Ukoly
+router.get("/kurz",requireRole("student"), async(req,res)=>{
+  let student_id = req.session.user_id; // 💡 Tady bereme student_id ze session
+
+  var arrCourses = await getCourses.getCourses(student_id)
+  // var arrTasks = await getTasks.getTasks(student_id);
+  var course_id = req.query.id;
+  var arrTasksKurz = await getTasks.getTasksKurz(course_id);
+  console.log(arrTasksKurz);
     
-      try {
-        res.format({
-          html: async () => {
-            res.render("classroomUkoly");
-          },
-          json: () => {   
-            res.json(arrCurses);
-          }
-        }); 
-      } catch (err){
-        console.error(err);
-        res.status(500).send('Server Error');
+  try {
+    res.format({
+      html: async () => {
+        res.render("classroomKurz");
+      },
+      json: () => {   
+        res.json({ tasks: arrTasksKurz, courses: arrCourses });
       }
+    }); 
+  } catch (err){
+    console.error(err);
+    res.status(500).send('Server Error');
+  }
 });
 
 //zapsat se jako student do kurzu

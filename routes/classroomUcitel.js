@@ -3,7 +3,9 @@ const router = express.Router();
 const db = require('../database.js');
 const {requireRole} = require("../middleware/auth");
 
-const getCursesTeacher = require('./methods/getCoursesTeacher.js')
+const getCoursesTeacher = require('./methods/getCoursesTeacher.js')
+const getTasksTeacher = require('./methods/getTasksTeacher.js')
+
 
 //Ukoly
 router.get("/novyKurz",requireRole("teacher"), async(req,res)=>{
@@ -13,13 +15,14 @@ router.get("/novyKurz",requireRole("teacher"), async(req,res)=>{
     var user_id = req.session.user_id;
 
     // nejdriv si nactu vsechny kurzy ktere mam k tomuto uciteli
-    var arrCurses = await getCursesTeacher.getCursesTeacher(user_id);
+    var arrCourses = await getCoursesTeacher.getCoursesTeacher(user_id);
+
     try {
         res.format({
           html: async () => {
             res.render('classroomUcitelKurz', {message}); //new kurz          
         },json: () => {   
-            res.json(arrCurses);
+            res.json(arrCourses);
           }
         }); 
       } catch (err){
@@ -27,6 +30,29 @@ router.get("/novyKurz",requireRole("teacher"), async(req,res)=>{
         res.status(500).send('Server Error');
       }
     
+});
+
+router.get("/kurz",requireRole("teacher"), async(req,res)=>{
+  var user_id = req.session.user_id;
+  var course_id = req.query.id;
+
+
+  // nejdriv si nactu vsechny kurzy ktere mam k tomuto uciteli
+  var arrCourses = await getCoursesTeacher.getCoursesTeacher(user_id);
+  var arrKurzTask = await getCoursesTeacher.getKurzTask( user_id, course_id);
+  try {
+      res.format({
+        html: async () => {
+          res.render('classroomUcitelKurzLegit'); //new kurz          
+      },json: () => {   
+          res.json({courses:arrCourses, tasks: arrKurzTask});
+        }
+      }); 
+    } catch (err){
+      console.error(err);
+      res.status(500).send('Server Error');
+    }
+  
 });
 
 
@@ -40,9 +66,10 @@ router.get("/ukoly",requireRole("teacher"), async(req,res)=>{
     var user_id = req.session.user_id;
 
     // nejdriv si nactu vsechny kurzy ktere mam k tomuto uciteli
-    var arrCurses = await getCursesTeacher.getCursesTeacher(user_id);
+    var arrCourses = await getCoursesTeacher.getCoursesTeacher(user_id);
+    var arrTasks = await getTasksTeacher.getTasksTeacher(user_id);
 
-    console.log(arrCurses);
+    // console.log(arrCourses, arrTasks);
     
     try {
         res.format({
@@ -50,7 +77,7 @@ router.get("/ukoly",requireRole("teacher"), async(req,res)=>{
             res.render('classroomUcitelUkoly', {message});
           },
           json: () => {   
-            res.json(arrCurses);
+            res.json({courses:arrCourses, tasks:arrTasks});
           }
         }); 
       } catch (err){
@@ -69,8 +96,15 @@ router.post("/ukoly", (req,res)=>{
     
     //ID ucitele
     var teacher_id = req.session.user_id;
-    //nacteni info 
+
+    //nacteni info
+    var course_id = req.body.idKurz;
+    const extractedNumber = extractNumber(course_id);
+    course_id = extractedNumber;
+    console.log("kurz" + course_id);
+
     var task_name = req.body.jmenoUkolu;
+    
     var task_description = req.body.popisUkolu;
     var task_dateEntered = req.body.datumOdevzdaniUkolu;
     var task_deadline = req.body.datumOdevzdaniUkolu;
@@ -139,6 +173,11 @@ function createCode() {
             }
         });
     });
+}
+
+function extractNumber(input) {
+  const match = input.match(/\((\d+)\)/); // Hledá číslo v závorce
+  return match ? parseInt(match[1], 10) : null; // Vrátí číslo nebo null, pokud není nalezeno
 }
 //Kurzy
 module.exports = router;

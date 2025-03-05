@@ -61,15 +61,15 @@ app.get("/pojmy",(req,res)=>{
 //Classroom stranka
 //gets
 
-const getCurses = require('./routes/methods/getCurses')
+const getCourses = require('./routes/methods/getCourses')
 
 // if(id=ucitel){classroomUcitel} if student classroom student
 app.get("/classroom",requireRole("student"), async(req,res)=>{
   let message = req.session.message;
   req.session.message = null; // Vyčistíme zprávu po zobrazení
-  
+  var student_id = req.session.user_id;
   // nactu existujici kurzy uzivatele
-  var arrCurses = await getCurses.getCurses()
+  var arrCourses = await getCourses.getCourses(student_id)
 
   try {
     res.format({
@@ -77,7 +77,7 @@ app.get("/classroom",requireRole("student"), async(req,res)=>{
         res.render("classroom", { message });
       },
       json: () => {   
-        res.json(arrCurses);
+        res.json(arrCourses);
       }
     }); 
   } catch (err){
@@ -90,7 +90,7 @@ app.get("/classroom",requireRole("student"), async(req,res)=>{
 
 
 //ClassroomUcitel stranka
-const getCursesTeacher = require('./routes/methods/getCoursesTeacher')
+const getCoursesTeacher = require('./routes/methods/getCoursesTeacher')
 
 //gets
 app.get("/classroomUcitel",requireRole("teacher"), async(req,res)=>{
@@ -99,13 +99,13 @@ app.get("/classroomUcitel",requireRole("teacher"), async(req,res)=>{
   var user_id = req.session.user_id;
   
       // nejdriv si nactu vsechny kurzy ktere mam k tomuto uciteli
-      var arrCurses = await getCursesTeacher.getCursesTeacher(user_id);
+      var arrCourses = await getCoursesTeacher.getCoursesTeacher(user_id);
       try {
           res.format({
             html: async () => {
               res.render('classroomUcitel', {message}); //new kurz          
           },json: () => {   
-              res.json(arrCurses);
+              res.json(arrCourses);
             }
           }); 
         } catch (err){
@@ -116,9 +116,11 @@ app.get("/classroomUcitel",requireRole("teacher"), async(req,res)=>{
 
 app.get('/logout', (req, res) => {
   req.session.destroy(err => {
-      if (err) return res.status(500).json({ success: false });
-      res.json({ success: true });
-  });
+    if (err) {
+        return res.status(500).json({ success: false, message: "Chyba při odhlašování" });
+    }
+    res.redirect("/login"); // Přesměrování na login stránku
+});
 });
 
 

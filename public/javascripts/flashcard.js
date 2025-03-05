@@ -85,9 +85,11 @@ function showContent() {
 
     // Get the selected option value
     var selectedOption = document.getElementById('mendelSelect').value;
-
+    console.log(selectedOption);
+    
     // Show the corresponding content div if selected
     if (selectedOption) {
       document.getElementById(selectedOption).style.display = 'flex';
     }
   }
+  

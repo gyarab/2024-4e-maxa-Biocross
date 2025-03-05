@@ -1,3 +1,8 @@
+:root{
+    --zelena-clr: #d4edda;
+
+}
+
 .body-flashcard {
     display: flex;
     flex-direction: column;
@@ -11,7 +16,27 @@
     padding: 20px;
 }
 
+.body-flashcard-3mendel{
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    padding: 20px;
+}
+
 .flashcard {
+    background-color: #FEF9FA;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px 0;
+    width: 100%; 
+    max-width: 50rem; /* Maximum width for larger screens */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    text-align: center;
+    color: #060D0D;
+}
+.flashcard-3mendel{
     background-color: #FEF9FA;
     border: 1px solid #ccc;
     border-radius: 10px;
@@ -27,6 +52,25 @@
 
 .flashcard:hover {
     transform: scale(1.01);
+}
+
+.flashcard-genotyp-trojice{
+    display: flex;
+    margin: 1em;
+    justify-content: center;
+    gap: 10px;
+}
+
+.div-popis {
+    max-width: 700px;
+    padding: 15px;
+    margin: 0 auto; /* Vycentrování */
+}
+.div-popis p {
+    font-size: 16px;
+    margin-bottom: 10px;
+    text-align: center; /* Zarovná text do bloku */
+    line-height: 1.6; /* Zvýší čitelnost textu */
 }
 
 img {
@@ -84,6 +128,25 @@ img {
     
 }
 
+
+.a-flashcard {
+    color: #3498db; /* Barva textu odkazu */
+    text-decoration: none; /* Zrušení podtržení */
+    font-weight: bold; /* Tučný text */
+    transition: color 0.3s, transform 0.3s; /* Přechody pro barvu a transformace */
+  }
+  
+  /* Styl pro odkaz při najetí myší */
+.a-flashcard :hover {
+    color: #1abc9c; /* Změna barvy při najetí */
+    transform: scale(1.1); /* Mírné zvětšení odkazu při najetí */
+  }
+  
+  /* Styl pro odkaz při aktivním kliknutí */
+.a-flashcard :active {
+    color: #e74c3c; /* Barva při kliknutí */
+    transform: scale(1.05); /* Mírné zmenšení při kliknutí */
+  }
 /* TABLE  */
 table {
     width: auto; /* Set table width */
@@ -146,6 +209,8 @@ th {
   option[value="mendel1"] { color: #d35d6e; }
   option[value="mendel2"] { color: #6d9eeb; }
   option[value="mendel3"] { color: #76c7c0; }
+   
+
 
 /* pro tablety a větší obrazovky */
 @media (min-width: 768px) {

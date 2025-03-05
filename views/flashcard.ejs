@@ -7,7 +7,7 @@
 </head>
 <body>
     <div class="body-flashcard-select">
-        <div class="flashcard">
+        <div class="flashcard" style="background-color: var(--zelena-clr);">
             <select id="mendelSelect" onchange="showContent()">
             <option value="mendel1">1. Mendelův zákon</option>
             <option value="mendel2">2. Mendelův zákon</option>
@@ -18,40 +18,32 @@
     <!-- FLASHCARDS - pro hezci vizualizaci postupu -->
     <div id="mendel1" class="body-flashcard">
 
-        <!-- VYBRANI TYPU KRIZENI -->
-        <!-- <div class="flashcard">
-            <div class="select-dropdown">
-                <div class="select">
-                    <span class="select-selected">Typ KRIZENI</span>
-                    <div class="caret"></div>
-                </div>
-                <ul class="menu">
-                    <li>Dominantni</li>
-                    <li>Recesivni</li>
-                    <li>Zpetne krizeni</li>
-                    <li class="active">Typ KRIZENI</li>
-                    <li>ADOBE xs</li>
-                </ul>
-            </div>  https://www.youtube.com/watch?v=hBbrGFCszU4 
-        </div> -->
-        <!-- NEBO SI HEZKY VYBERU JAKY MENDELUV ZAKON CHCI -->
-        <!-- <div class="flashcard">
-            <select id="mendelSelect" onchange="showContent()">
-             <option value="">Vyberte mendelův zákon</option>
-             <option value="mendel1">1. Mendelův zákon</option>
-             <option value="mendel2">2. Mendelův zákon</option>
-             <option value="mendel3">3. Mendelův zákon</option>
-            </select>
-         </div>  -->
 
 
 <!-- VYBRAT HROZINKA -->
-
-            <!-- UVOD k vybrani alel -->
+<!-- UVOD k vybrani alel -->
             <div class="flashcard">
                 <h1 class="h-flashcard">1. zákon – uniformity</h1>
-                <p>Při vzájemném křížení 2 <a href="http://localhost:3000/literatura#homozygot">homozygotů</a> vznikají potomci genotypově i fenotypově jednotní. Pokud jde o 2 různé homozygoty jsou potomci vždy heterozygotními hybridy</p>
+                <p style="margin-top: 1em;">Zákon o uniformitě F1 (první filiální generace) říká, že při vzájemném křížení dvou <a class="a-flashcard" href="/pojmy#homozygot">homozygotů</a> vznikají potomci, kteří jsou <a class="a-flashcard" href="/pojmy#genotyp">genotypově</a> i <a class="a-flashcard" href="/pojmy#fenotyp">fenotypově</a> jednotní.</p>
 
+                <div class="horizontal-div">
+                    <div class="verical-div">
+                        <p style="font-weight: 600; font-size: larger;">Homozygot <b>(AA)</b></p>
+                        <img src="/images/KytkaAA.png" alt="">
+                    </div>
+                    <h1 style="align-content: center;"><ion-icon name="close-outline"></ion-icon></h1>
+                    <div class="verical-div">
+                        <p style="font-weight: 600; font-size: larger;">Homozygot <b>(aa)</b></p>
+                        <img src="/images/MKytkaaa.png" alt="">
+                        
+                    </div> 
+                </div>
+            </div>
+            <!-- UVOD k vybrani alel -->
+            <!-- <div class="flashcard">
+                <h1 class="h-flashcard">Křížení F1 generace</h1>
+                <p  style="margin-top: 1em;">Při křížení dvou homozygotů – dominantního (AA) a recesivního (aa) – vzniká jednotná generace potomků, kteří jsou heterozygotní (Aa) a mají stejný genotyp i fenotyp.</p> <br>
+              
                 
                 <div class="horizontal-div">
                     <div class="verical-div">
@@ -64,34 +56,21 @@
                         <img src="/images/MKytkaaa.png" alt="MKytkaaa">
                     </div>
                 </div>
-            </div>
+            </div> -->
 <!-- VYBRAT HROZINKA -->
 
-            <!-- UVOD k vybrani alel -->
-            <div class="flashcard">
-                <h1 class="h-flashcard">1. zákon – uniformity</h1>
-                <p>Při vzájemném křížení 2 homozygotů vznikají potomci genotypově i fenotypově jednotní. Pokud jde o 2 různé homozygoty jsou potomci vždy heterozygotními hybridy</p>
-
-                <div class="horizontal-div">
-                    <div class="verical-div">
-                        <img src="/images/KytkaAA.png" alt="">
-                        <p style="font-weight: 600; font-size: larger;">Homozygot s alelou <b>AA</b></p>
-                    </div>
-                    <div class="verical-div">
-                        <img src="/images/MKytkaaa.png" alt="">
-                        <p style="font-weight: 600; font-size: larger;">Homozygot s alelou <b>aa</b></p>
-                    </div> 
-                </div>
-            </div>
+            
             <!-- Prvni Generace -->
             <!-- PRVNI FLASHCARD -->
             <div class="flashcard">
-                <h2>Náhodné zvolení otcovy a matčiny alely</h2>
-                <p>Výběr té alely, která putuje z otce nebo matky je čistě náhodný. <br>Šance jsou tedy rozděleny 1:1, neboli 50% a 50%</p>
-
-                <Button class="button-vyberAlel" onclick="volbaAlelyRodic()">Spustit náhodný výběr</Button>
-
-                <!-- HORIZNOTAL DIV + VERTICAL DIV - zobrazime alelu otce a matky -->
+                <h2>Předání alel od rodičů</h2>
+                <p>Při dědičnosti potomek získává jednu <a class="a-flashcard" href="/pojmy#alela">alelu</a> od otce a jednu od matky. 
+                   Tento proces je náhodný a každá alela má stejnou pravděpodobnost přenosu (50 %).</p> <br>
+                   <p> Pokud je však rodič homozygotní, vždy předá stejnou alelu, takže výběr v tomto případě nemá vliv.</p>
+            
+                <button class="button-vyberAlel" onclick="volbaAlelyRodic()">Vygenerovat alely potomka</button>
+            
+                <!-- Zobrazení zděděných alel od rodičů -->
                 <div class="alely" > 
                     <div class="horizontal-div">
                         <div class="verical-div">
@@ -103,47 +82,56 @@
                             <p class="alela" id="alelaMatka">__</p>
                         </div>
                     </div>
-                </div>
+                </div>    
+                <!-- Výsledný genotyp
+                <div class="genotyp">
+                    <h3>Genotyp potomka</h3>
+                    <p class="alela" id="genotypPotomka">__</p>
+                </div> -->
             </div>
             
 
             <!-- KRIZENI OTCE A MATKY? -->
             <div class="flashcard">
                 <h2>F1 Generace</h2>
-                <p>F1 generace (1. filiální = první generace potomků) vzejde z krizeni dvou A a z rodicu bla bla</p>
+                <p>F1 generace (první filiální generace) vzniká křížením dvou rodičů s rozdílnými alelami pro daný znak. Tito rodiče jsou obvykle homozygotní (AA × aa).</p>
+                <br>
+                <p><b>Genotyp</b>: Všichni jedinci F1 generace budou heterozygoti (Aa).</p>
+                <p><b>Fenotyp</b>: Fenotyp F1 generace odpovídá dominantní alele</p>
                 <img style="height: 400px;" src="/images/KytkaPAa.png" alt="">
-                <p>Červená kytka s alelou <b>Aa</b></p>
+                <p>Heterozygot <b>(Aa)</b></p>
             </div>
     </div>
 <!-- MENDEL 2 -->
     <div id="mendel2" class="body-flashcard" style="display: none;">
-        <!-- <div class="flashcard">
-            <select id="mendelSelect" onchange="showContent()">
-             <option value="">Vyberte mendelův zákon</option>
-             <option value="mendel1">1. Mendelův zákon</option>
-             <option value="mendel2">2. Mendelův zákon</option>
-             <option value="mendel3">3. Mendelův zákon</option>
-            </select>
-         </div>  -->
+       
          <!-- KRIZIM DVA HETEROZIGOTY M2 - 1. FLASHCARD -->
         <div class="flashcard">
             <h1 class="h-flashcard">2. zákon – segregace</h1>
-            <p>Při křížení 2 heterozygotů může být potomkovi předána každá ze dvou alel (dominantní i recesivní) se stejnou pravděpodobností.</p>
+            <p></p>
+            <p>2. Mendelův zákon, neboli zákon o náhodné segregaci genů do gamet, říká, že při křížení dvou <a class="a-flashcard" href="/pojmy#heterozygot">heterozygotů</a> může být potomkovi předána každá ze dvou alel (dominantní i recesivní) se stejnou pravděpodobností. Dochází tak k genotypovému a následně i fenotypovému štěpení, tedy <a class="a-flashcard" href="/pojmy#segregace">segregaci</a>.</p>
 
             <div class="horizontal-div">
                 <div class="verical-div">
-                    <p style="font-weight: 600; font-size: larger;"><a href="http://localhost:3000/literatura#heterozygot">Heterozygot</a> s alelou <b>Aa</b></p>
+                    <p style="font-weight: 600; font-size: larger;">Heterozygot <b>(Aa)</b></p>
                     <img src="/images/KytkaPAa.png" alt="KytkaPAa">
                 </div>
                 <h1 style="align-content: center;"><ion-icon name="close-outline"></ion-icon></h1>
                 <div class="verical-div">
-                    <p style="font-weight: 600; font-size: larger;"><a href="http://localhost:3000/literatura#heterozygot">Heterozygot</a> s alelou <b>Aa</b></p>
+                    <p style="font-weight: 600; font-size: larger;">Heterozygot <b>(Aa)</b></p>
                     <img src="/images/KytkaPAa.png" alt="KytkaPAa">
                 </div>
             </div>
         </div>
-            <!-- VYSLEDEK KRIZENI F1 GENERACE?  M2 - 2. FLASHCARD -->
         <div class="flashcard">
+            <h1 class="h-flashcard">Punnettův čtverec</h1>
+            <br>
+            <p>Genotypový poměr ( 1 AA : 2 Aa : 1 aa )</p>
+            <p>Fenotypový poměr ( 3 : 1 )</p>
+            <img src="/images/F2generace.png" alt="F2generace">
+        </div>
+            <!-- VYSLEDEK KRIZENI F1 GENERACE?  M2 - 2. FLASHCARD -->
+        <!-- <div class="flashcard">
             <h1 class="h-flashcard">F2 Generace</h1>
             <Button class="button-vyberAlel" onclick="zobrazKrizeniF1();showImg()">Spustit křížení</Button>
             <br><br><br>
@@ -184,7 +172,7 @@
                     <td><img id="img4" class="img-M2tabulka" src="/images/MKytkaaa.png" alt="MKytkaaa"></td>
                 </tr>
             </table>
-        </div>
+        </div> -->
 
         <div class="flashcard">
             <h1>Pravděpodobnost projevu fenotypu</h1>
@@ -204,23 +192,176 @@
 
     </div>
 
-    <div id="mendel3" class="body-flashcard" style="display: none;"> 
-        <!-- <div class="flashcard">
-            <select id="mendelSelect" onchange="showContent()">
-             <option value="">Vyberte mendelův zákon</option>
-             <option value="mendel1">1. Mendelův zákon</option>
-             <option value="mendel2">2. Mendelův zákon</option>
-             <option value="mendel3">3. Mendelův zákon</option>
-            </select>
-         </div>  -->
-            <!-- TRETI FLASHCARD -->
+    <!-- <div id="mendel3" class="body-flashcard" style="display: none;"> 
+        
             <div class="flashcard">
                 <h2>F2 - formule</h2>
                 <p>This is the content for the third flashcard.</p>
                 <img src="/images/f3formule.jpeg" alt="">
             </div>
-    </div>  
-    
+    </div>   -->
+    <div id="mendel3" class="body-flashcard" style="display: none;">
+        <div class="flashcard">
+            <h1 class="h-flashcard">3. zákon – nezávislá kombinovatelnost alel</h1>
+            <p>Tento zákon říká, že při sledování dvou znaků se alely kombinují nezávisle na sobě. Každý znak se dědí samostatně, což vede k různým kombinacím fenotypů a genotypů.</p>
+            
+            <!-- <select id="dominanceSelect" onchange="showDominance()">
+                <option class="option-3mendel-UP" value="uplnaDominance">Úplná dominance</option>
+                <option class="option-3mendel-NP" value="neuplnaDominance">Neúplná dominance</option>
+                <option class="option-3mendel-K" value="kodominance">Kodominance</option>
+            </select> -->
+        </div>
+        <div class="flashcard">
+            <h1>Sledované znaky</h1>
+            <p>Budeme provádět křížení podle třetího Mendelova zákona. V tomto případě sledujeme dva znaky: barvu květu a tvar květu</p>
+            <br>
+            <div class="div-popis">
+                <p>Mějme gen pro <b>barvu květu</b>, kde dominantní alela <b>A</b> zajišťuje červenou barvu a recesivní alela <b>a</b> zajišťuje modrou barvu.</p>
+                <p>Mějme gen pro <b>tvar květu</b>, kde dominantní alela <b>B</b> zajišťuje normální tvar a recesivní alela <b>b</b> zajišťuje nepravidelný tvar.</p>
+            </div>
+        </div>
+        <div class="flashcard">
+            <h1>Křížení</h1>
+            <p>Křížíme dva polyhybridy (AaBb × AaBb)</p>
+            <div class="horizontal-div">
+                <div class="verical-div">
+                    <p style="font-weight: 600; font-size: larger;"><a href="http://localhost:3000/literatura#heterozygot">Polyhybrid</a> (AaBb)</p>
+                    <img src="/images/KytkaPAa.png" alt="KytkaPAa">
+                </div>
+                <h1 style="align-content: center;"><ion-icon name="close-outline"></ion-icon></h1>
+                <div class="verical-div">
+                    <p style="font-weight: 600; font-size: larger;"><a href="http://localhost:3000/literatura#heterozygot">Polyhybrid</a> (AaBb)</p>
+                    <img src="/images/KytkaPAa.png" alt="KytkaPAa">
+                </div>
+            </div>
+            <p>V genetice existují různé způsoby dědičnosti, a výsledky křížení skutečně závisí na tom, jaký vztah mezi alelami daného genu platí. Mezi tři základní způsoby dědičnosti patří: <br> Úplná dominance, Neúplná dominance, Kodominance</p> <br>
+            <!-- <select name="" id=""><option value="">Uplna dominance</option><option value="">Neuplna dominance</option><option value="">Kodominance</option></select> -->
+        </div>
+        <!-- UPLNA DOMINANCE -->
+            <div class="flashcard">
+                <h2>Úplná dominance</h2>
+                <p>Při úplné dominanci dominantní alela zcela potlačuje recesivní alelu. To znamená, že v přítomnosti dominantní alely se projeví pouze dominantní znak. Recesivní znak se projeví pouze tehdy, pokud jedinec nese dvě recesivní alely (aa).</p>
+            </div>
+
+            <div class="flashcard">
+                <h2>Výsledný fenotyp</h2>
+                <p>Fenotypový poměr je 9:3:3:1:</p>
+                <div class="flashcard-genotyp-trojice" style="flex-direction: column;">
+                    <p>9x oba dominantní znaky</p>
+                    <p>3x dominantní A, recesivní b</p>
+                    <p>3x recesivní a, dominantní B</p>
+                    <p>1x oba recesivní znaky</p>
+                </div>
+                <div class="horizontal-div-mobile">
+                    <div class="verical-div">
+                        <h1 style="align-content: center; justify-content: center;">9x</h1>
+                        <p style="font-weight: 600; font-size: larger;">Červená pravidelná kytka</p>
+                        <img src="/images/kytka.png" alt="KytkaPAa">
+                    </div>
+                    <div class="verical-div">
+                        <h1 style="align-content: center; text-align: center">3x</h1>
+                        <p style="font-weight: 600; font-size: larger;">Červená nepravidelná kytka</p>
+                        <img src="/images/NepravidelnaCervenaKytka.png" alt="KytkaPAa">
+                    </div>
+                </div>
+                <div class="horizontal-div-mobile">
+                    <div class="verical-div">
+                        <h1 style="align-content: center; justify-content: center;">3x</h1>
+                        <p style="font-weight: 600; font-size: larger;">Modrá pravidelná kytka</p>
+                        <img src="/images/kytka.png" alt="KytkaPAa">
+                    </div>
+                    <div class="verical-div">
+                        <h1 style="align-content: center; text-align: center">1x</h1>
+                        <p style="font-weight: 600; font-size: larger;">Modrá nepravidelná kytka</p>
+                        <img src="/images/NepravidelnaModraKytka.png" alt="KytkaPAa">
+                    </div>
+                </div>
+            </div>
+           
+                <div class="flashcard">
+                    <h2>Výsledný genotyp</h2>
+                    <p>Genotypový poměr obsahuje všechny kombinace alel:</p> 
+                        <div class="flashcard-genotyp-trojice">
+                            <p>1 x (AABB)</p>
+                            <p>2 x (AaBB)</p>
+                            <p>1 x (aaBB)</p>
+                        </div>
+                        <div class="flashcard-genotyp-trojice">
+                            <p>2 x (AABb)</p>
+                            <p>4 x (AaBb)</p>
+                            <p>2 x (aaBb)</p>
+                        </div>
+                        <div class="flashcard-genotyp-trojice">
+                            <p>1 x (AAbb)</p>
+                            <p>2 x (Aabb)</p>
+                            <p>1 x (aabb)</p>
+                        </div>
+                    <!-- <img src="/images/genotyp_uplna.png" alt="Genotyp úplná dominance"> -->
+                </div>
+
+        <!--NEUPLNA DOMINANCE  -->
+            <div class="flashcard">
+                <h2>Neúplná dominance</h2>
+                <p>Při neúplné dominanci dominantní alela nedokáže zcela potlačit recesivní alelu, což vede ke vzniku přechodného fenotypu u heterozygotů (Aa). Například křížením červené a bílé květiny vznikne růžová květina, která je kompromisem mezi oběma rodičovskými znaky.</p>
+                <p>Přechodný znak znamená, že se neprojeví ani jedna alela plně, ale místo toho vznikne smíšený nebo mezistupňový projev, například fialová barva jako kombinace červené a modré.</p>
+            </div>
+            <div class="flashcard">
+                <h2>Fenotyp</h2>
+                <p>Fenotypový poměr při dihybridním křížení odpovídá 1:2:1:2:4:2:1:2:1, což zahrnuje následující kombinace znaků:</p>
+                <div class="flashcard-genotyp-trojice" style="flex-direction: column;">
+                    <p>1x AABB – oba znaky dominantní</p>
+                    <p>2x AABb – dominantní barva, přechodný tvar</p> 
+                    <p>2x AaBB – přechodná barva, dominantní tvar</p>
+                    <p>4x AaBb – oba znaky přechodné</p> 
+                    <p>1x AAbb – dominantní barva, recesivní tvar</p>
+                    <p>2x Aabb – přechodná barva, recesivní tvar</p>
+                    <p>1x aaBB – recesivní barva, dominantní tvar</p>
+                    <p>2x aaBb – recesivní barva, přechodný tvar</p> 
+                    <p>1x aabb – oba znaky recesivní</p>
+                </div>
+            </div>
+            <div class="flashcard">
+                <h2>Genotyp</h2>
+                <p>Při neúplné dominanci je genotypový poměr je stejný jako fenotypový poměr. Poměr je také 1:2:1:2:4:2:1:2:1 a kombinace znaků jsou stejné jako u fenotypu.</p>
+                <!-- <img src="/images/genotyp_neuplna.png" alt="Genotyp neúplná dominance"> -->
+            </div>
+        
+        <!-- KODOMINANCE  -->
+            <div class="flashcard">
+                <h2>Kodominance</h2>
+                <p>Při kodominanci se obě alely projeví současně. To znamená že se projeví oba dva znaky současně.</p>
+            </div>
+            <div class="flashcard">
+                <h2>Fenotyp</h2>
+                <p>Fenotypový poměr se může lišit podle počtu kodominantních genů. Pokud jsou oba geny kodominantní, může být poměr 1:2:1.</p>
+            </div>
+            <div class="flashcard">
+                <h2>Genotyp</h2>
+                <p>Genotypový poměr odpovídá dihybridnímu křížení, kde se alely projevují nezávisle.</p>
+                <!-- <img src="/images/genotyp_kodominance.png" alt="Genotyp kodominance"> -->
+            </div>
+
+
+    </div>
+</div>
+    <script>
+        function showDominance() {
+            // Skryje všechny sekce dominance
+            var allSections = document.querySelectorAll('.body-flashcard');
+            allSections.forEach(function(section) {
+                section.style.display = 'none';
+            });
+
+            // Zjistí, která možnost je vybraná
+            var selectedOption = document.getElementById('dominanceSelect').value;
+
+            // Zobrazí jen odpovídající sekci
+            var selectedDiv = document.getElementById(selectedOption);
+            if (selectedDiv) {
+                selectedDiv.style.display = 'block';
+            }
+        }
+    </script>
     <script src="/javascripts/flashcard.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

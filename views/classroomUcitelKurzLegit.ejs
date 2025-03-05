@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/body.css">
+    <link rel="stylesheet" href="/stylesheets/classroom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Classroom</title>
+</head>
+<style>.kurz-container { max-width: 800px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+    h1, h2 { color: #2c3e50; }
+    .course-info { margin-bottom: 20px; }
+    .task { background: #ecf0f1; padding: 10px; margin-bottom: 10px; border-radius: 5px; }</style>
+<body>
+    <div>
+        <%- include('../views/navbar.ejs') %>
+    </div>
+    <div class="main-body">
+        <div>
+            <%- include('../views/sidebarUcitel.ejs') %>
+        </div>
+       <main>
+        <div class="container" style="text-align: center;">
+            <h1>Classroom</h1>
+            <p>V této sekci Classroom je konkrétní kurz a jaké jsou v něm úkoly.</p>
+        </div>
+        <div class="container">
+            <div class="kurz-container">
+                <h1>Kurz</h1>
+                <div id="course-info" class="course-info">
+                    <p><strong>Název kurzu:</strong> Biologie pro 2. ročník</p>
+                    <p><strong>ID kurzu:</strong> 123456</p>
+                    <p><strong>Jméno učitele:</strong> Mgr. Jana Nováková</p>
+                    <p><strong>Třída:</strong> 2.B</p>
+                </div>
+                <h2>Úkoly</h2>
+                <div id="task-container" class="task-container">
+                    <div class="task">
+                        <p><strong>Název:</strong> Laboratorní práce - Buňky</p>
+                        <p><strong>Termín odevzdání:</strong> 10. března 2025</p>
+                        <p><strong>Popis:</strong> Prostudujte mikroskopické snímky a vypracujte protokol.</p>
+                    </div>
+                    <div class="task">
+                        <p><strong>Název:</strong> Test - Genetika</p>
+                        <p><strong>Termín odevzdání:</strong> 17. března 2025</p>
+                        <p><strong>Popis:</strong> Online test na základní pojmy genetiky.</p>
+                    </div>
+                    <div class="task">
+                        <p><strong>Název:</strong> Test - Genetika</p>
+                        <p><strong>Termín odevzdání:</strong> 17. března 2025</p>
+                        <p><strong>Popis:</strong> Online test na základní pojmy genetiky. Lorem ipsum dolor sit amet consectetur adipisicing elit. Non temporibus culpa ducimus quam, dolor sit minima mollitia error debitis unde placeat, blanditiis suscipit. Aut officia ipsa vero optio adipisci ea. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, quia! Nulla itaque reiciendis consectetur aspernatur sint quidem aperiam quibusdam iste aliquid, obcaecati inventore cupiditate eos quisquam temporibus eius sequi accusamus?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </main>
+    </div>
+    <div>
+        <%- include('../views/footer.ejs') %>
+    </div>
+    <script src="/javascripts/handlers/classroomUcitelKurzLegitHandler.js"></script></body>
+
+    <script>
+   
+    </script>
+    <!-- <script src="/javascripts/classroom.js"></script> -->
+</body>
+</html>

@@ -1,10 +1,10 @@
 var mysql = require('mysql2');
 var con = mysql.createConnection({
-  host: '127.0.0.1', 
-  port: '3306',
-  user: 'root', 
-  password: 'root',        
-  database: 'biocross' 
+  host: 'db-biocross-biocross.b.aivencloud.com', 
+  port: '13258',
+  user: 'avnadmin', 
+  password: 'AVNS_j7kWxPUKk-hSR7M9Dai',        
+  database: 'defaultdb' 
 }); 
 con.connect(function(err) {
   if (err) throw err;

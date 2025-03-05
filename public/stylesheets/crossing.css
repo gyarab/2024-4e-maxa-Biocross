@@ -365,3 +365,32 @@ option {
     border-radius: 6px;
     border: none;
 }
+
+/* KODOMINANCE CSS */
+
+.circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid #1b4332;
+    background: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.kodominance-button {
+    background-color: #2d6a4f; /* tmavě zelená */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+.kodominance-button:hover {
+    background-color: #40916c;
+    transform: scale(1.05);
+}

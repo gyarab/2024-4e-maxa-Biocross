@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
         divCurses.innerHTML = ''; // Vyčištění předchozího obsahu
         curses.forEach(result => {
             const listOfCurses = document.createElement('li'); // Změněno na <li>
-            listOfCurses.innerHTML = `<a href="#">${result.course_className} - ${result.course_teacherName} (${result.course_year})</a>`;
+            listOfCurses.innerHTML = `<a href="/classroomUcitel/kurz?id=${result.course_id}">${result.course_className} - ${result.course_name} </a>`;
             divCurses.appendChild(listOfCurses);
         });
     }

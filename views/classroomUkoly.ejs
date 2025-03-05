@@ -22,14 +22,12 @@
             <%- include('../views/sidebar.ejs') %>
         </div>
        <main>
-        <div class="container">
+        <div class="container" style="text-align: center;">
           <h1>Úkoly</h1>
-          <p>Zde naleznete veškeré úkoly a zadání, které vám byly přiděleny. Můžete si je pohodlně prohlédnout, zodpovědět na ně a snadno odevzdat své vypracování. Každý úkol je jasně popsán s termínem odevzdání, abyste vždy věděli, co je třeba udělat a kdy.
-
-            Stačí vybrat úkol, na kterém chcete pracovat, přidat svoji odpověď a odeslat ji ke kontrole. Učitel si ji následně zkontroluje a případně vám poskytne zpětnou vazbu.</p>
+          <p>Zde naleznete veškeré úkoly a zadání, které vám byly přiděleny. Úkoly se kliknutím dají zvětšit a zobrazí se popis.</p>
         </div>
 
-        <div class="task-container">
+        <div id="task-container" class="task-container">
             <div class="task-card" onclick="toggleTask(this)">
                 <div class="task-header">
                     <h2>Název úkolu</h2>
@@ -214,7 +212,7 @@
     <div>
         <%- include('../views/footer.ejs') %>
     </div>
-    <script src="/javascripts/handlers/classroomUkolSidebarHandler.js"></script>
+    <script src="/javascripts/handlers/classroomUkolHandler.js"></script>
 
     <script>
      function toggleTask(element) {

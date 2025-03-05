@@ -23,14 +23,29 @@
 </head>
 <body>
     <div class="container">
+        <div id="gen" class="bubble" onclick="toggleContent(this)">
+            <h3>Gen</h3>
+            <div class="content">
+                <h3>Gen</h3>
+                <p><b>Gen</b> Gen je základní jednotka genetické informace.</p>
+            </div>
+        </div>
+
+        <div id="gen" class="bubble" onclick="toggleContent(this)">
+            <h3>Genom</h3>
+            <div class="content">
+                <h3>Genom</h3>
+                <p><b>Genom</b>je kompletní soubor genetické informace organismu, uložený v DNA (nebo RNA u některých virů). Zahrnuje všechny geny i nekódující sekvence. 
+                </p>
+            </div>
+        </div>
 
         <div id="alela" class="bubble" onclick="toggleContent(this)">
             <h3>Alela</h3>
             <div class="content">
                 <h3>Alela</h3>
-                <p><b>Alela</b> je varianta určitého genu, která se nachází na konkrétním místě (lokus) na chromozomu. Každý jedinec má od každého genu dvě alely (jednu od otce a jednu od matky), pokud se jedná o diploidní organismy, jako jsou lidé.</p>
-                <p><b><i>Dominantní alela</b></i>: Stačí přítomnost jedné, aby ovlivnila vlastnost organismu (např. alela pro hnědé oči).</p>
-                <p><b><i>Recesivní alela</b></i>: Projevuje se pouze tehdy, pokud jsou přítomny obě recesivní alely (např. alela pro modré oči).</p>
+                <p><b>Alela</b> je konkrétní forma genu. Každý gen je tvořen dvěma alelami, z nichž jedna pochází od otce a druhá od matky. Alela se nachází na konkrétním místě (lokus) na chromozomu.</p>
+                <p> Pro lepší pochopení si uveďme příklad: pokud máme gen určující barvu očí, může jedna alela způsobovat modrou barvu, zatímco druhá může způsobovat barvu zelenou.</p>
             </div>
         </div>
 
@@ -38,9 +53,9 @@
             <h3>Homozygot</h3>
             <div class="content">
                 <h3>Homozygot</h3>
-                <p><b>Homozygot</b> je jedinec, který má ve své genetické výbavě (genotypu) dvě stejné alely pro určitý gen. Tyto alely mohou být buď dominantní (např. AA) nebo recesivní (např. aa). </p>
+                <p><b>Homozygot</b> je jedinec, který má na sledovaném genu obě alely totožné. Tyto alely mohou být buď dominantní (např. AA) nebo recesivní (např. aa). Rozlišujeme tedy dominantního homozygota a recesivního homozygota. </p>
                 <p><b><i>Homozygot dominantní (AA)</i></b>: Má dvě dominantní alely. Projevuje se dominantní vlastnost.</p>
-                <p><b><i>Homozygot recesivní (aa)</i></b>: Má dvě recesivní alely. Projevuje se recesivní vlastnost, pokud dominantní alela není přítomna.</p>
+                <p><b><i>Homozygot recesivní (aa)</i></b>: Má dvě recesivní alely. Projevuje se recesivní vlastnost.</p>
             </div>
         </div>
 
@@ -48,31 +63,39 @@
             <h3>Heterozygot</h3>            
             <div class="content">
                 <h3>Heterozygot</h3>
-                <p><b>Heterozygot</b> je jedinec, který má ve své genetické výbavě (genotypu) dvě různé alely pro určitý gen, tedy jednu dominantní a jednu recesivní alelu (například Aa).</p>
-                <p><b><i>Dominantní alela (A)</i></b>: Projevuje se ve fenotypu (vnějších znacích), pokud je přítomná alespoň jedna.</p>
-                <p><b><i>Recesivní alela (a)</i></b>: Neprojevuje se ve fenotypu, pokud je přítomna dominantní alela.</p>
+                <p><b>Heterozygot</b> je jedinec, který má dvě různé alely konkrétního genu. Tedy jednu dominantní a jednu recesivní alelu (například Aa).</p>
             </div>
         </div>
 
+        <div id="genotyp" class="bubble" onclick="toggleContent(this)">
+            <h3>Genotyp</h3>
+            <div class="content">
+                <h3>Genotyp</h3>
+                <p><b>Genotyp</b> je soubor všech genetických informací organismu, tedy konkrétní kombinace alel, které jedinec zdědil od rodičů.</p>
+            </div>
+        </div>
+
+        <div id="fenotyp" class="bubble" onclick="toggleContent(this)">
+            <h3>Fenotyp</h3>
+            <div class="content">
+                <h3>Fenotyp</h3>
+                <p><b>Fenotyp</b> je soubor pozorovatelných vlastností organismu, které jsou výsledkem interakce genotypu s prostředím.</p>
+            </div>
+        </div>
+       
+        <div id="segregace" class="bubble" onclick="toggleContent(this)">
+            <h3>Segregace</h3>
+            <div class="content">
+                <h3>Segregace</h3>
+                <p><b>Segregace</b> v genetice znamená rozchod alel při tvorbě gamet.</p>
+            </div>
+        </div>
        
 
-        <div class="bubble" onclick="toggleContent(this)">
-            Bublina 4
-            <div class="content">
-                <h3>Téma 4</h3>
-                <p>Detailní informace o tématu 4.</p>
-            </div>
-        </div>
-
-        <div class="bubble" onclick="toggleContent(this)">
-            Bublina 5
-            <div class="content">
-                <h3>Téma 5</h3>
-                <p>Detailní informace o tématu 5.</p>
-            </div>
-        </div>
     </div>
+    <div style="height: 300px;">
 
+    </div>
     <div>
         <%- include('../views/footer.ejs') %>
     </div>

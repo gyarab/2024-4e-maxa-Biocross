@@ -17,19 +17,19 @@
             <%- include('../views/sidebarUcitel.ejs') %>
         </div>
        <main>
-        <div class="container">
+        <!-- <div class="container">
             <h1>Úkoly</h1>
             <p>V této sekci naleznete všechny úkoly přiřazené k vašim kurzům. Můžete si prohlédnout jejich zadání, termíny odevzdání a případně je odevzdat podle pokynů vyučujícího.</p>
     
-        </div>
+        </div> -->
         <div class="container">
             <h1>Nový úkol</h1>
         <p>Vytvářejte nové úkoly pro své studenty. Stačí zadat název úkolu, popis, termín odevzdání a vybrat kurz, ke kterému úkol patří.</p>
 
         </div>
         <div class="container">
-            <h1>Vytvoření nového úkolu</h1>
-            <p>Classroom je místo, kde studenti najdou všechna zadání úkolů a materiály ke studiu na jednom místě. Umožňuje snadný přístup k zadání úkolů, což usnadňuje orientaci a pomáhá studentům lépe si organizovat studium. Každý student zde může jednoduše odevzdat svůj vypracovaný úkol ve formátu PDF, a mít tak přehled o všech odevzdaných pracích.</p>
+            <h1 style="margin-bottom: 2em;">Vytvoření nového úkolu</h1>
+            
             <form action="ukoly" method="POST" class="assignment-form">
                 <label for="assignmentName">Název úkolu:</label>
                 <input name="jmenoUkolu" type="text" placeholder="Zadejte název úkolu" required>
@@ -44,14 +44,14 @@
                 <input name="datumOdevzdaniUkolu" type="date" required>
     
                 <label for="course">Přiřadit do kurzu:</label>
-                <select name="jmenoKurzu" required>
-                    <option value="" disabled selected>Vyberte kurz</option>
+                <select name="idKurz" id="select-course" onchange="updateCourseId()"  required>
                     <option value="math101">Matematika 101</option>
                     <option value="physics202">Fyzika 202</option>
                     <option value="history303">Dějepis 303</option>
                 </select>
     
                 <button class="submit" type="submit" onclick="success_message()">Vytvořit úkol</button>
+                <p id="selected-course-id" name="zvolenyKurz" style="display: none;"></p>
             </form>
     
             <% if (message) { %> 
@@ -71,7 +71,14 @@
         let today = new Date().toISOString().split('T')[0];
         document.getElementById("inputDatumZadani").value = today;
         });
+        function updateCourseId() {
+             // Získáme vybraný <option> element
+            var selectedCourseId = document.getElementById("select-course").value;
+            
 
+            console.log(selectedCourseId);
+            
+        }
        
     </script>
 <script src="/javascripts/handlers/classroomUcitelHandlerUkol.js"></script>

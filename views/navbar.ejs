@@ -13,7 +13,7 @@
             <ul class="links">
                 <li><a class="nav-prepinace" href="/">Domovská stránka</a></li>
                 <li><a class="nav-prepinace" href="/crossing">Crossing</a></li>
-                <li><a class="nav-prepinace" href="/pojmy">Literatura</a></li>
+                <li><a class="nav-prepinace" href="/pojmy">Pojmy</a></li>
                 <li><% if (session.role === "student") { %>
                     <a class="nav-prepinace" href="/classroom">Classroom</a>
                   <% } else if (session.role === "teacher") { %>
@@ -40,7 +40,7 @@
         <div class="dropdown_menu">
                 <li><a href="/">Domovská stránka</a></li>
                 <li><a href="/crossing">Crossing</a></li>
-                <li><a href="/pojmy">Literatura</a></li>
+                <li><a href="/pojmy">Pojmy</a></li>
                 <li><% if (session.role === "student") { %>
                     <a href="/classroom">Classroom</a>
                   <% } else if (session.role === "teacher") { %>

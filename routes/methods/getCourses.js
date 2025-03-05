@@ -2,11 +2,11 @@ var db = require('/Users/kryst/.vscode/Biocross/2024-4e-maxa-Biocross/database')
 
 
 //funkce getCurses() nacte vsechny existujici kurzy pro konkretniho uzivatele
-function getCurses(){
+function getCourses(user_id){
   
     return new Promise((resolve, reject) => {
-       var sql = "SELECT course_teacherName, course_className, course_year FROM student_course sc JOIN student s ON(sc.student_id=s.student_id) JOIN course c ON(sc.course_id=c.course_id)WHERE s.student_id = 1;"
-       db.query(sql, function (err, result, fields) {
+       var sql = "SELECT sc.course_id,course_teacherName, course_className, course_year, course_name FROM student_course sc JOIN student s ON(sc.student_id=s.student_id) JOIN course c ON(sc.course_id=c.course_id)WHERE s.student_id = ?;"
+       db.query(sql,[user_id], function (err, result, fields) {
            if (err) {
              console.log(err);
              reject(err);
@@ -34,4 +34,4 @@ function getCurses(){
 // }
 
 
-module.exports = {getCurses}
+module.exports = {getCourses}
