@@ -1,4 +1,4 @@
-var db = require('/Users/kryst/.vscode/Biocross/2024-4e-maxa-Biocross/database')
+var db = require('../../database')
 
 
 //funkce getTasks() nacte vsechny existujici kurzy pro konkretniho uzivatele
