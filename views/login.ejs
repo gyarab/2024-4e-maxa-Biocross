@@ -5,10 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/stylesheets/body.css">
     <link rel="stylesheet" href="/stylesheets/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
 </head>
+<style>
+    .back_btn {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    background: none;
+    border: none;
+    font-size: 28px; /* Zvětší ikonku */
+    cursor: pointer;
+    color: black;
+    padding: 10px;
+    border-radius: 50%;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.back_btn:hover {
+    background: rgba(0, 0, 0, 0.1);
+    transform: scale(1.1); /* Efekt zvětšení při najetí */
+}
+
+
+</style>
 <body>
 <!-- ZDROJ: https://www.youtube.com/watch?v=NItTR0iBrls&t=1090s -->
-    
+<button class="back_btn">
+    <i class="fa-solid fa-arrow-left"></i>
+</button>
     <div class="form-container">
         <div class="form-col">
             <div class="btn-box">
@@ -201,6 +227,11 @@
             }
             
         }
+
+        document.querySelector('.back_btn').addEventListener('click', () => {
+            window.history.back();
+        });
+
     </script>
 </body>
 </html>

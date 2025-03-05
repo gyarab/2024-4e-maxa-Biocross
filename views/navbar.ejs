@@ -24,7 +24,7 @@
             </ul>
             
             <% if (session.user_email) { %>
-              <p><%= session.user_email %></p>
+              <p class="prihlaseniJmeno"><%= session.user_email %></p>
               <a href="/logout" class="action_btn">Odhlásit se</a>
               <div class="toggle_btn">
                   <i class="fa-solid fa-bars"></i>
@@ -49,8 +49,8 @@
                     <a  href="/login">Classroom</a> <!-- Pokud není přihlášen -->
                   <% } %></li>
                 <li><% if (session.user_email) { %>
-              <span><%= session.user_email %></span>
-              <a href="/logout" class="action_btn">Odhlásit se</a>
+                  <li><%= session.user_email %></li>
+                  <a href="/logout" class="action_btn">Odhlásit se</a>
           <% } else { %>
             <a href="/login" class="action_btn">Přihlásit se</a>
           <% } %></li>

@@ -3,10 +3,8 @@ const toggleBtn = document.querySelector('.toggle_btn')
         const dropDownMenu = document.querySelector('.dropdown_menu')
 
         toggleBtn.onclick = function () {
-            dropDownMenu.classList.toggle('open')
-            const isOpen = dropDownMenu.classList.contains('open')
-
-            toggleBtnIcon.classList = isOpen
-            ? 'fa-solid fa-xmark'
-            : 'fa-solid fa-bars'
+            const isOpen = dropDownMenu.classList.toggle('open'); // Přepnutí třídy
+            dropDownMenu.style.height = isOpen ? dropDownMenu.scrollHeight + "px" : "0";
+            
+            toggleBtnIcon.className = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
         }
