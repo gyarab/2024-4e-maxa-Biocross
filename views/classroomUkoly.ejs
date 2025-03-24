@@ -27,6 +27,29 @@
           <p>Zde naleznete veškeré úkoly a zadání, které vám byly přiděleny. Úkoly se kliknutím dají zvětšit a zobrazí se popis.</p>
         </div>
 
+
+        <div class="task-container">
+            <div class="task-card" onclick="goToCourse(3)">
+                <div class="task-title">Křížení hrachu – Mendelovy zákony v praxi</div>
+                <div class="task-info"><b>Kurz:</b> Biologie</div>
+                <div class="task-info"><b>Učitel:</b> Jakub Maxa</div>
+            </div>
+        
+            <div class="task-card" onclick="goToCourse(4)">
+                <div class="task-title">Dědičnost tvaru zrn u hrachu</div>
+                <div class="task-info"><b>Kurz:</b> BioCross</div>
+                <div class="task-info"><b>Učitel:</b> Pavel Sona</div>
+            </div>
+        
+            <div class="task-card" onclick="goToCourse(5)">
+                <div class="task-title">Ukol pro Studenty</div>
+                <div class="task-info"><b>Kurz:</b> BioCross</div>
+                <div class="task-info"><b>Učitel:</b> Pavel Sona</div>
+            </div>
+        </div>
+        
+      
+
         <div id="task-container" class="task-container">
             <div class="task-card" onclick="toggleTask(this)">
                 <div class="task-header">
@@ -226,6 +249,9 @@
         // Přepne aktivní třídu pro kliknutý úkol
         element.classList.toggle("active");
     }
+            function goToCourse(courseId) {
+                window.location.href = "/classroom/kurz?id=" + courseId;
+            }
     </script>
 </body>
 </html>
