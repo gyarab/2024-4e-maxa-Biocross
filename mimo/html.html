@@ -1,134 +1,219 @@
 <!DOCTYPE html>
-<html lang="cs">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Křížení Kodominance</title>
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background-color: #eafde4;
-            font-family: Arial, sans-serif;
-        }
-        .container {
-            border: 2px solid green;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 20px;
-            background-color: #d6f5d6;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            width: 600px;
-        }
-        .circle {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            background-color: white;
-            border: 2px solid green;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
-        .dot {
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            position: absolute;
-        }
-        .red { background-color: red; }
-        .blue { background-color: blue; }
-        .red-outline {
-            border: 2px solid red;
-            background-color: white;
-        }
-        .label {
-            position: absolute;
-            top: -30px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: red;
-            font-size: 14px;
-            font-weight: bold;
-        }
-        button {
-            padding: 10px 20px;
-            background-color: green;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-    </style>
+    <link rel="stylesheet" href="/stylesheets/body.css">
+    <link rel="stylesheet" href="/stylesheets/classroom.css">
+    <link rel="stylesheet" href="/stylesheets/classroomUcitel.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Classroom</title>
 </head>
+<style>
+  .tasks-container {
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    color: #2c3e50;
+    text-align: center;
+}
+
+.course-info {
+    margin-bottom: 20px;
+}
+
+/* Styl úkolů */
+.task {
+    background: #e8f5e9; /* Světle zelená, která ladí s tvým designem */
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    border-left: 6px solid #388e3c; /* Zvýraznění levého okraje */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.task:hover {
+    transform: scale(1.02);
+}
+
+/* Zvýraznění důležitých informací */
+.task strong {
+    color: #1b5e20;
+}
+
+.task p {
+    margin: 5px 0;
+    color: #2c3e50;
+}
+.task h2{
+    color: #1b5e20;
+    text-align: center;
+}
+
+
+
+
+
+
+
+</style>
 <body>
-    <div class="container" id="parentContainer">
-        <button onclick="vyrobKolecka()">Vytvoř</button>
-        <div class="circle" id="kruh1">
-            <div class="dot red" style="top: 67px; left: 70px;"></div>
-            <div class="dot red" style="top: 42px; left: 45px;"></div>
-            <div class="dot red" style="top: 111px; left: 34px;"></div>
-            <div class="dot red" style="top: 60px; left: 100px;"></div>
-        </div>
-        <button onclick="krizit()">Křížit</button>
-        <div class="circle" id="kruh2">
-            <div class="dot blue" style="top: 30px; left: 30px;"></div>
-            <div class="dot blue" style="top: 60px; left: 50px;"></div>
-            <div class="dot blue" style="top: 50px; left: 80px;"></div>
-            <div class="dot blue" style="top: 60px; left: 100px;"></div>
-
-        </div>
+    <div>
+        <%- include('../views/navbar.ejs') %>
     </div>
-    <div class="container" id="childContainer">
-        <div class="circle" id="child"></div>
-    </div>
-    <script>
-        function krizit() {
-            let child = document.getElementById("child");
-            child.innerHTML = `
-                <div class="dot red" style="top: 25px; left: 54px;"></div>
-                <div class="dot blue" style="top: 60px; left: 20px;"></div>
-                <div class="dot red" style="top: 50px; left: 80px;"></div>
-                <div class="dot blue" style="top: 40px; left: 100px;"></div>
-                <div class="dot red" style="top: 120px; left: 40px;"></div>
-                <div class="dot red" style="top: 25px; left: 32px;"></div>
-                <div class="dot blue" style="top: 90px; left: 90px;"></div>
-                <div class="dot blue" style="top: 90px; left: 55px;"></div>
-            `;
+    <div class="main-body">
+        <div>
+            <%- include('../views/sidebarUcitel.ejs') %>
+        </div>
+       <main>
 
-            // <div class="dot blue" style="top: 60px; left: 20px;"></div>
-            //     <div class="dot red" style="top: 50px; left: 80px;"></div>
-            //     <div class="dot blue" style="top: 40px; left: 90px;"></div>
-            //     <div class="dot red" style="top: 5px; left: 30px;"></div>
-            //     <div class="dot red" style="top: 25px; left: 60px;"></div>
-            //     <div class="dot red" style="top: 100px; left: 80px;"></div>
-            //     <div class="dot blue" style="top: 5px; left: 33px;"></div>
-        }
-        //da do prvnich dvou kolecek nahodne rozmistena kolecka, tak aby se neprekryvala
-        function vyrobKolecka() {
-            let kruh1 = document.getElementById("kruh1");
-            // kruh1.innerHTML = ` <div class="dot red" style="top: 5px; left: 90px;"></div>
-            // <div class="dot red" style="top: 120px; left: 33px;"></div>
-            // <div class="dot red" style="top: 120px; left: 50px;"></div>
-            // <div class="dot red" style="top: 5px; left: 80px;"></div>`;
-             kruh1.innerHTML = ` <div class="dot red" style="top: 67px; left: 70px;"></div>
-            <div class="dot red" style="top: 42px; left: 45px;"></div>
-            <div class="dot red" style="top: 111px; left: 34px;"></div>
-            <div class="dot red" style="top: 60px; left: 100px;"></div>`;
-            let kruh2 = document.getElementById("kruh2");
-            // kruh1.innerHTML = ` <div class="dot red" style="top: 5px; left: 90px;"></div>
-            // <div class="dot red" style="top: 120px; left: 33px;"></div>
-            // <div class="dot red" style="top: 120px; left: 50px;"></div>
-            // <div class="dot red" style="top: 5px; left: 80px;"></div>`;
-             kruh1.innerHTML = ` <div class="dot blue" style="top: 67px; left: 70px;"></div>
-            <div class="dot blue" style="top: 42px; left: 45px;"></div>
-            <div class="dot blue" style="top: 111px; left: 34px;"></div>
-            <div class="dot blue" style="top: 60px; left: 100px;"></div>`;
-        }
-    </script>
+            <div id="" class="tasks-container">  
+                <h1>Ukoly</h1>
+                <div class="task">
+                        <h2>${task.task_name}</h2>
+                        <p><strong>Termín zadání:</strong> ${extractDate(task.task_dateEntered)}</p>
+                        <p><strong>Termín odevzdání:</strong> ${extractDate(task.task_deadline)}</p>
+                        <p><strong>Popis:</strong> ${task.task_description}</p>
+                </div>
+                <div class="task">
+                        <h2>${task.task_name}</h2>
+                        <p><strong>Termín zadání:</strong> ${extractDate(task.task_dateEntered)}</p>
+                        <p><strong>Termín odevzdání:</strong> ${extractDate(task.task_deadline)}</p>
+                        <p><strong>Popis:</strong> ${task.task_description}</p>
+                </div>
+                <div class="task">
+                        <h2>${task.task_name}</h2>
+                        <p><strong>Termín zadání:</strong> ${extractDate(task.task_dateEntered)}</p>
+                        <p><strong>Termín odevzdání:</strong> ${extractDate(task.task_deadline)}</p>
+                        <p><strong>Popis:</strong> ${task.task_description}</p>
+                </div>
+            </div>
+            <div class="kurz-container">  
+                <h1>Ukol</h1>
+                <div class="task-container">
+                    <div class="task">
+                            <h2>${task.task_name}</h2>
+                            <p><strong>Termín zadání:</strong> ${extractDate(task.task_dateEntered)}</p>
+                            <p><strong>Termín odevzdání:</strong> ${extractDate(task.task_deadline)}</p>
+                            <p><strong>Popis:</strong> ${task.task_description}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container" style="text-align: center;">
+            <h1>Classroom</h1>
+            <p>V této sekci Classroom je konkrétní kurz a jaké jsou v něm úkoly.</p>
+        </div>
+        <!-- <div class="container">
+            <div class="kurz-container">
+                <h1>Kurz</h1>
+                <div id="course-info" class="course-info">
+                    <p><strong>Název kurzu:</strong> Biologie pro 2. ročník</p>
+                    <p><strong>ID kurzu:</strong> 123456</p>
+                    <p><strong>Jméno učitele:</strong> Mgr. Jana Nováková</p>
+                    <p><strong>Třída:</strong> 2.B</p>
+                </div>
+                <h2>Úkoly</h2>
+                <div id="task-container" class="task-container">
+                    <div class="task">
+                        <p><strong>Název:</strong> Laboratorní práce - Buňky</p>
+                        <p><strong>Termín odevzdání:</strong> 10. března 2025</p>
+                        <p><strong>Popis:</strong> Prostudujte mikroskopické snímky a vypracujte protokol.</p>
+                    </div>
+                    <div class="task">
+                        <p><strong>Název:</strong> Test - Genetika</p>
+                        <p><strong>Termín odevzdání:</strong> 17. března 2025</p>
+                        <p><strong>Popis:</strong> Online test na základní pojmy genetiky.</p>
+                    </div>
+                    <div class="task">
+                        <p><strong>Název:</strong> Test - Genetika</p>
+                        <p><strong>Termín odevzdání:</strong> 17. března 2025</p>
+                        <p><strong>Popis:</strong> Online test na základní pojmy genetiky. Lorem ipsum dolor sit amet consectetur adipisicing elit. Non temporibus culpa ducimus quam, dolor sit minima mollitia error debitis unde placeat, blanditiis suscipit. Aut officia ipsa vero optio adipisci ea. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, quia! Nulla itaque reiciendis consectetur aspernatur sint quidem aperiam quibusdam iste aliquid, obcaecati inventore cupiditate eos quisquam temporibus eius sequi accusamus?</p>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+        <div id="task-container">
+
+            <div class="container">
+                <div class="kurz-container">
+                    <!-- <h1>Kurz</h1> -->
+                    <div id="course-info" class="course-info">
+                        <p><strong>Název kurzu:</strong> Biologie pro 2. ročník</p>
+                        <p><strong>ID kurzu:</strong> 123456</p>
+                        <p><strong>Jméno učitele:</strong> Mgr. Jana Nováková</p>
+                        <p><strong>Třída:</strong> 2.B</p>
+                    </div>
+                    <h2>Úkoly</h2>
+                    <div id="a" class="task-container">
+                        <div class="task">
+                            <p><strong>Název:</strong> Laboratorní práce - Buňky</p>
+                            <p><strong>Termín odevzdání:</strong> 10. března 2025</p>
+                            <p><strong>Popis:</strong> Prostudujte mikroskopické snímky a vypracujte protokol.</p>
+                        </div>
+                        <div class="task">
+                            <p><strong>Název:</strong> Test - Genetika</p>
+                            <p><strong>Termín odevzdání:</strong> 17. března 2025</p>
+                            <p><strong>Popis:</strong> Online test na základní pojmy genetiky.</p>
+                        </div>
+                        <div class="task">
+                            <p><strong>Název:</strong> Test - Genetika</p>
+                            <p><strong>Termín odevzdání:</strong> 17. března 2025</p>
+                            <p><strong>Popis:</strong> Online test na základní pojmy genetiky. Lorem ipsum dolor sit amet consectetur adipisicing elit. Non temporibus culpa ducimus quam, dolor sit minima mollitia error debitis unde placeat, blanditiis suscipit. Aut officia ipsa vero optio adipisci ea. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, quia! Nulla itaque reiciendis consectetur aspernatur sint quidem aperiam quibusdam iste aliquid, obcaecati inventore cupiditate eos quisquam temporibus eius sequi accusamus?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="kurz-container">  
+                    <h1>Ukol</h1>
+                    <div id="task-container" class="task-container">
+                        <div class="task">
+                            <p><strong>Název:</strong> Laboratorní práce - Buňky</p>
+                            <p><strong>Termín odevzdání:</strong> 10. března 2025</p>
+                            <p><strong>Popis:</strong> Prostudujte mikroskopické snímky a vypracujte protokol.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>          
+        <div class="task-container">
+            <div class="task-card" onclick="goToCourse(3)">
+                <div class="task-title">Křížení hrachu – Mendelovy zákony v praxi</div>
+                <div class="task-info"><b>Kurz:</b> Biologie</div>
+                <div class="task-info"><b>Učitel:</b> Jakub Maxa</div>
+            </div>
+        
+            <div class="task-card" onclick="goToCourse(4)">
+                <div class="task-title">Dědičnost tvaru zrn u hrachu</div>
+                <div class="task-info"><b>Kurz:</b> BioCross</div>
+                <div class="task-info"><b>Učitel:</b> Pavel Sona</div>
+            </div>
+        
+            <div class="task-card" onclick="goToCourse(5)">
+                <div class="task-title">Ukol pro Studenty</div>
+                <div class="task-info"><b>Kurz:</b> BioCross</div>
+                <div class="task-info"><b>Učitel:</b> Pavel Sona</div>
+            </div>
+        </div>
+        
+        
+
+
+      </main>
+    </div>
+    <div>
+        <%- include('../views/footer.ejs') %>
+    </div>
+    <script src="/javascripts/handlers/classroomUcitelKurzLegitHandler.js"></script>
 </body>
 </html>

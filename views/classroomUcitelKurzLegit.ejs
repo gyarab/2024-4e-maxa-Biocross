@@ -51,29 +51,51 @@
                 </div>
             </div>
         </div> -->
-
-        <div id="" class="tasks-container">  
-            <h1>Úkoly</h1>
-            <div id="task-container">
-                <div class="task">
-                        <h2>${task.task_name}</h2>
-                        <p><strong>Termín zadání:</strong> ${extractDate(task.task_dateEntered)}</p>
-                        <p><strong>Termín odevzdání:</strong> ${extractDate(task.task_deadline)}</p>
-                        <p><strong>Popis:</strong> ${task.task_description}</p>
+        <div class="container">
+            <div class="course-header" id="course-info">
+                <h1>Kurz: Biologie - Genetika</h1>
+                
+                <div class="course-row">
+                    <div class="course-info">
+                        <h3>Učitel:</h3>
+                        <p>Jan Novák</p>
+                    </div>
+                    <div style="justify-self: center;" class="course-info">
+                        <h3>Třída:</h3>
+                        <p>3.A</p>
+                    </div>
                 </div>
-                <div class="task">
-                        <h2>${task.task_name}</h2>
-                        <p><strong>Termín zadání:</strong> ${extractDate(task.task_dateEntered)}</p>
-                        <p><strong>Termín odevzdání:</strong> ${extractDate(task.task_deadline)}</p>
-                        <p><strong>Popis:</strong> ${task.task_description}</p>
-                </div>
-                <div class="task">
-                        <h2>${task.task_name}</h2>
-                        <p><strong>Termín zadání:</strong> ${extractDate(task.task_dateEntered)}</p>
-                        <p><strong>Termín odevzdání:</strong> ${extractDate(task.task_deadline)}</p>
-                        <p><strong>Popis:</strong> ${task.task_description}</p>
+        
+                <div class="course-row">
+                    <div class="course-info">
+                        <h3>Kód kurzu:</h3>
+                        <div onclick="copyButton()" id="copyCode" class="course-code">BIO123</div>
+                    </div>
+                        <button class="leave-button">Odejít z kurzu</button>
                 </div>
             </div>
+        </div>
+        
+        <div class="tasks-container">  
+            <h1>Úkoly</h1>
+                <div class="task">
+                        <h2>${task.task_name}</h2>
+                        <p><strong>Termín zadání:</strong> ${extractDate(task.task_dateEntered)}</p>
+                        <p><strong>Termín odevzdání:</strong> ${extractDate(task.task_deadline)}</p>
+                        <p><strong>Popis:</strong> ${task.task_description}</p>
+                </div>
+                <div class="task">
+                        <h2>${task.task_name}</h2>
+                        <p><strong>Termín zadání:</strong> ${extractDate(task.task_dateEntered)}</p>
+                        <p><strong>Termín odevzdání:</strong> ${extractDate(task.task_deadline)}</p>
+                        <p><strong>Popis:</strong> ${task.task_description}</p>
+                </div>
+                <div class="task">
+                        <h2>${task.task_name}</h2>
+                        <p><strong>Termín zadání:</strong> ${extractDate(task.task_dateEntered)}</p>
+                        <p><strong>Termín odevzdání:</strong> ${extractDate(task.task_deadline)}</p>
+                        <p><strong>Popis:</strong> ${task.task_description}</p>
+                </div>
         </div>
       </main>
     </div>
