@@ -130,3 +130,82 @@ h1 {
 button:hover {
     background-color: #215e24;
 }
+
+/* CSS na jmeno kurzu */
+.kurz-container {
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    color: #2c3e50;
+}
+
+.course-info {
+    margin-bottom: 20px;
+}
+
+/* CHATGPT: Vytvoril bys prosim design pro container, kde bude jmeno kurzu, jmeno ucitele, jmeno tridy, tlacitko odejt a kod kurzu (plus screen stranky) */
+.course-header {
+    background: #e8f5e9;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.course-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-left: 3em;
+    margin-right: 3em;
+}
+
+.course-info h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #1b5e20;
+}
+
+.course-info p {
+    margin: 0;
+    font-size: 16px;
+    color: #2c3e50;
+    font-weight: bold;
+    text-align: center;
+}
+
+.course-code {
+    background: #388e3c;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+    min-width: 120px;
+}
+
+.leave-button {
+    background: #d32f2f;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+
+}
+
+.leave-button:hover {
+    background: #b71c1c;
+}

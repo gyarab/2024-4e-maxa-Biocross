@@ -71,7 +71,7 @@
                         <h3>Kód kurzu:</h3>
                         <div onclick="copyButton()" id="copyCode" class="course-code">BIO123</div>
                     </div>
-                        <button class="leave-button">Odejít z kurzu</button>
+                        <button onclick="smazatKurz()" id="smazatKurz" class="leave-button">Odejít z kurzu</button>
                 </div>
             </div>
         </div>
@@ -105,5 +105,68 @@
         <%- include('../views/footer.ejs') %>
     </div>
     <script src="/javascripts/handlers/classroomUcitelKurzLegitHandler.js"></script>
+    <script>
+
+function smazatKurz() {
+    console.log("ahoj");
+    console.log("Kliknuto na tlačítko");
+
+    const params = new URLSearchParams(window.location.search);
+    const kurzId = params.get("id");
+
+    console.log("ID kurzu:", kurzId);
+
+    if (!kurzId) {
+        alert("ID kurzu nebylo nalezeno!");
+        return;
+    }
+
+    if (!confirm("Opravdu chcete smazat tento kurz?")) return;
+
+    fetch(`/classroomUcitel/kurz?id=${kurzId}`, {
+        method: "DELETE"
+    })
+    .then(response => {
+        console.log("Odpověď serveru:", response);
+        if (!response.ok) throw new Error("Chyba při mazání kurzu");
+        return response.json();
+    })
+    .then(data => {
+        console.log("Úspěšně smazáno:", data);
+        alert("Kurz byl úspěšně smazán!");
+        window.location.href = "/classroomUcitel";
+    })
+    .catch(error => console.error("Chyba:", error.message));
+            
+}
+
+        
+// // Skript pro smazani kurzu
+// document.addEventListener("DOMContentLoaded", function() {
+// document.getElementById("smazatKurz").addEventListener("click", function() {
+//     console.log("Kliknuto na tlačítko");
+    
+//     // Získání ID kurzu z URL
+//     const params = new URLSearchParams(window.location.search);
+//     const kurzId = params.get("id");
+
+//     if (!confirm("Opravdu chcete smazat tento kurz?")) return;
+
+//     // Odeslání DELETE požadavku na server
+//     fetch(`/classroomUcitel/kurz/${kurzId}`, {
+//         method: "DELETE"
+//     })
+//     .then(response => {
+//         if (!response.ok) throw new Error("Chyba při mazání kurzu");
+//         return response.json();
+//     })
+//     .then(data => {
+//         alert("Kurz byl úspěšně smazán!");
+//         window.location.href = "/classroomUcitel"; // Přesměrování zpět
+//     })
+//     .catch(error => alert(error.message));
+// });
+// });
+    </script>
 </body>
 </html>

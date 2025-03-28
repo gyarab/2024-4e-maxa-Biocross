@@ -31,19 +31,19 @@
 
             <div class="new-task-container">
                 <h1>Vytvořit nový úkol</h1>
-                <form id="new-task-form">
+                <form action="ukoly" method="POST">
                     <div class="new-task">
                         <label for="new_task_name"><strong>Název úkolu:</strong></label>
-                        <input type="text" id="new_task_name" name="new_task_name" required>
+                        <input type="text" name="jmenoUkolu" required>
                         
                         <label for="new_task_dateEntered"><strong>Termín zadání:</strong></label>
-                        <input type="date" id="new_task_dateEntered" name="new_task_dateEntered" value="2025-03-28">
+                        <input type="date" name="datumZasaniUkolu" value="2025-03-28">
                         
                         <label for="new_task_deadline"><strong>Termín odevzdání:</strong></label>
-                        <input type="date" id="new_task_deadline" name="new_task_deadline" required>
+                        <input type="date" name="datumOdevzdaniUkolu" required>
                         
                         <label for="new_task_description"><strong>Popis úkolu:</strong></label>
-                        <textarea id="new_task_description" name="new_task_description" rows="4" required></textarea>
+                        <textarea name="popisUkolu" rows="4" required></textarea>
                         
                         <label for="new_task_course"><strong>Do jakého kurzu patří:</strong></label>
                         <select name="idKurz" id="select-course" onchange="updateCourseId()"  required>

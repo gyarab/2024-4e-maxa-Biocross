@@ -86,8 +86,6 @@ router.get("/ukoly",requireRole("teacher"), async(req,res)=>{
       }
 });
 
-//id ucitele - jeste nefunguje
-var course_id = 1;
 
 //Pridani noveho ukolu
 //do DB se prida novy ukol
@@ -106,7 +104,7 @@ router.post("/ukoly", (req,res)=>{
     var task_name = req.body.jmenoUkolu;
     
     var task_description = req.body.popisUkolu;
-    var task_dateEntered = req.body.datumOdevzdaniUkolu;
+    var task_dateEntered = req.body.datumZasaniUkolu;
     var task_deadline = req.body.datumOdevzdaniUkolu;
 
  
@@ -116,7 +114,7 @@ router.post("/ukoly", (req,res)=>{
     db.query(insertTaskSQL,[teacher_id,course_id,task_name,task_description, task_dateEntered, task_deadline], function (err, results) {
         if (err){
             console.log(err);
-            req.session.message = { success: true, text:"Něco se pokazilo!"}
+            req.session.message = { success: false, text:"Něco se pokazilo!"}
             res.redirect("/classroomUcitel/ukoly")
         }else {
             req.session.message = { success: true, text:"Úkol byl úspěšně vytvořen!"}
@@ -152,6 +150,24 @@ router.post("/novyKurz", async (req,res)=>{
             res.redirect("/classroomUcitel/novyKurz");
         }
     });
+});
+
+// Smazani kurzu
+router.delete("/kurz", async (req, res) => {
+  console.log("spousti se deleteth");
+  
+  const kurzId = req.query.id; // Získání ID z query stringu
+  var deleteKurzSQL = "DELETE FROM course WHERE course_id = ?";
+  db.query(deleteKurzSQL,[kurzId], function(err,result){
+    if(err){
+        console.log(err);
+        res.redirect("/classroomUcitel/kurz");
+
+    }else{
+        console.log("Course deleted correctly");
+        res.redirect("/classroomUcitel/kurz");
+    }
+  });
 });
 
 //kazdy kurz ma svuj random kod, musi byt unikatni 
