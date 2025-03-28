@@ -5,13 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/stylesheets/body.css">
     <link rel="stylesheet" href="/stylesheets/classroom.css">
+    <link rel="stylesheet" href="/stylesheets/classroomUcitel.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Classroom</title>
 </head>
-<style>.kurz-container { max-width: 800px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
-    h1, h2 { color: #2c3e50; }
-    .course-info { margin-bottom: 20px; }
-    .task { background: #ecf0f1; padding: 10px; margin-bottom: 10px; border-radius: 5px; }</style>
 <body>
     <div>
         <%- include('../views/navbar.ejs') %>
@@ -25,7 +22,7 @@
             <h1>Classroom</h1>
             <p>V této sekci Classroom je konkrétní kurz a jaké jsou v něm úkoly.</p>
         </div>
-        <div class="container">
+        <!-- <div class="container">
             <div class="kurz-container">
                 <h1>Kurz</h1>
                 <div id="course-info" class="course-info">
@@ -53,17 +50,36 @@
                     </div>
                 </div>
             </div>
+        </div> -->
+
+        <div id="" class="tasks-container">  
+            <h1>Úkoly</h1>
+            <div id="task-container">
+                <div class="task">
+                        <h2>${task.task_name}</h2>
+                        <p><strong>Termín zadání:</strong> ${extractDate(task.task_dateEntered)}</p>
+                        <p><strong>Termín odevzdání:</strong> ${extractDate(task.task_deadline)}</p>
+                        <p><strong>Popis:</strong> ${task.task_description}</p>
+                </div>
+                <div class="task">
+                        <h2>${task.task_name}</h2>
+                        <p><strong>Termín zadání:</strong> ${extractDate(task.task_dateEntered)}</p>
+                        <p><strong>Termín odevzdání:</strong> ${extractDate(task.task_deadline)}</p>
+                        <p><strong>Popis:</strong> ${task.task_description}</p>
+                </div>
+                <div class="task">
+                        <h2>${task.task_name}</h2>
+                        <p><strong>Termín zadání:</strong> ${extractDate(task.task_dateEntered)}</p>
+                        <p><strong>Termín odevzdání:</strong> ${extractDate(task.task_deadline)}</p>
+                        <p><strong>Popis:</strong> ${task.task_description}</p>
+                </div>
+            </div>
         </div>
       </main>
     </div>
     <div>
         <%- include('../views/footer.ejs') %>
     </div>
-    <script src="/javascripts/handlers/classroomUcitelKurzLegitHandler.js"></script></body>
-
-    <script>
-   
-    </script>
-    <!-- <script src="/javascripts/classroom.js"></script> -->
+    <script src="/javascripts/handlers/classroomUcitelKurzLegitHandler.js"></script>
 </body>
 </html>

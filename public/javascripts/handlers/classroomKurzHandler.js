@@ -34,7 +34,7 @@ function displayKurz(tasks) {
         listOfTask.innerHTML = ` <div class="container">
         <div class="kurz-container">  
             <h1>Ukol</h1>
-            <div id="a" class="task-container">
+            <div class="task-container">
             <div class="task">
                         <h2>${task.task_name}</h2>
                         <p><strong>Termín zadání:</strong> ${extractDate(task.task_dateEntered)}</p>

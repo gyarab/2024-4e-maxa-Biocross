@@ -176,34 +176,7 @@ form.zapis-form .success-message {
 }
 
 
-/* VYTVORENI UKOLU FORM */
-.assignment-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 10px;
-}
 
-.assignment-form input, 
-.assignment-form textarea, 
-.assignment-form select, 
-.assignment-form button {
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.assignment-form button {
-  background: #007bff;
-  color: white;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.assignment-form button:hover {
-  background: #0056b3;
-}
 
 /* ZPRAVA JESTLI TO PROBEHLO DOBRE NEBO NE */
 .message-box {

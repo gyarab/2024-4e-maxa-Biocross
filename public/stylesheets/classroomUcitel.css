@@ -1,0 +1,48 @@
+.tasks-container {
+    max-width: 800px;
+    margin: auto;
+    background: #d4edda;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    color: #2c3e50;
+    text-align: center;
+}
+
+.course-info {
+    margin-bottom: 20px;
+}
+
+/* Styl úkolů */
+.task {
+    background: #e8f5e9; /* Světle zelená, která ladí s tvým designem */
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    border-left: 6px solid #388e3c; /* Zvýraznění levého okraje */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    margin: 2em;
+}
+
+.task:hover {
+    transform: scale(1.02);
+}
+
+/* Zvýraznění důležitých informací */
+.task strong {
+    color: #1b5e20;
+}
+
+.task p {
+    margin: 5px 0;
+    color: #2c3e50;
+}
+.task h2{
+    color: #1b5e20;
+    text-align: center;
+}
+
