@@ -14,6 +14,7 @@ fetch(`/classroomUcitel/kurz`+location.search, {headers: {
     })
     .catch(error => console.error('Chyba při vyhledávání:', error));
 
+//zobrazi kurzy do sidebaru
 function displayCourses(courses) {
     divCurses.innerHTML = '';
     courses.forEach(result => {
