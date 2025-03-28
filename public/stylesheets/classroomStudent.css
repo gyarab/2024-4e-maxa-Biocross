@@ -1,72 +1,35 @@
- /* Kontejner pro karty */
- .task-container {
+.task-container {
     display: flex;
     flex-wrap: wrap;
+    gap: 20px;
     justify-content: center;
-    gap: 10px;
+    margin-top: 20px;
 }
 
-/* Základní styl karty */
 .task-card {
-    width: 260px;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
-    background: white;
+    background-color: #d4edda; /* Světle zelená */
+    border-left: 6px solid #2e7d32; /* Tmavší zelený pruh */
+    border-radius: 12px;
+    padding: 15px;
+    width: 250px;
     cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: 0.3s;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Zvětšená karta s animací */
-.task-card.active {
-    transform: scale(1.1);
-    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.25);
-    position: relative;
-    z-index: 10;
+.task-card:hover {
+    background-color: #c8e6c9; /* O trochu tmavší při najetí */
+    transform: translateY(-3px);
 }
 
-/* Hlavička úkolu */
-.task-header {
-    padding: 15px;
-    color: white;
-    font-size: 1.2em;
+.task-title {
+    font-size: 18px;
     font-weight: bold;
-    background: linear-gradient(135deg, #1E88E5, #42A5F5);
-    text-align: center;
-    border-radius: 15px 15px 0 0;
+    color: #2e7d32; /* Zelená */
+    margin-bottom: 10px;
 }
 
-/* Tělo úkolu */
-.task-body {
-    padding: 15px;
-    background: #F9F9F9;
-    font-size: 0.95em;
-}
-
-/* Detaily úkolu – skryté dokud není karta aktivní */
-.task-details {
-    display: none;
-    padding: 15px;
-    background: #E3F2FD;
-    font-size: 0.9em;
-    border-top: 1px solid #90CAF9;
-    border-radius: 0 0 15px 15px;
-}
-
-/* Zobrazení detailů při aktivaci */
-.task-card.active .task-details {
-    display: block;
-    animation: fadeIn 0.3s ease-in-out;
-}
-
-/* Efekt přechodu */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.task-info {
+    font-size: 14px;
+    color: #555;
 }

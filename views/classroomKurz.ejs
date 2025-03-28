@@ -9,10 +9,114 @@
     <title>Classroom</title>
 </head>
 <style>
-    .kurz-container { max-width: 800px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
-    h1, h2 { color: #2c3e50; }
-    .course-info { margin-bottom: 20px; }
-    .task { background: #ecf0f1; padding: 10px; margin-bottom: 10px; border-radius: 5px; }
+   .kurz-container {
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    color: #2c3e50;
+}
+
+.course-info {
+    margin-bottom: 20px;
+}
+
+/* Styl úkolů */
+.task {
+    background: #e8f5e9; /* Světle zelená, která ladí s tvým designem */
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    border-left: 6px solid #388e3c; /* Zvýraznění levého okraje */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.task:hover {
+    transform: scale(1.02);
+}
+
+/* Zvýraznění důležitých informací */
+.task strong {
+    color: #1b5e20;
+}
+
+.task p {
+    margin: 5px 0;
+    color: #2c3e50;
+}
+.task h2{
+    color: #1b5e20;
+    text-align: center;
+}
+/* CHATGPT: Vytvoril bys prosim design pro container, kde bude jmeno kurzu, jmeno ucitele, jmeno tridy, tlacitko odejt a kod kurzu (plus screen stranky) */
+.course-header {
+    background: #e8f5e9;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.course-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-left: 3em;
+    margin-right: 3em;
+}
+
+.course-info h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #1b5e20;
+}
+
+.course-info p {
+    margin: 0;
+    font-size: 16px;
+    color: #2c3e50;
+    font-weight: bold;
+    text-align: center;
+}
+
+.course-code {
+    background: #388e3c;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+    min-width: 120px;
+}
+
+.leave-button {
+    background: #d32f2f;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+
+}
+
+.leave-button:hover {
+    background: #b71c1c;
+}
+
+
+
 </style>
 <body>
     <div>
@@ -22,15 +126,37 @@
         <div>
             <%- include('../views/sidebar.ejs') %>
         </div>
-       <main>
+       <main >
         <div class="container">
-          <h1>Classroom</h1>
-          <p>V této sekci Classroomu jste v konkrétním kurzu. Vidíte zde úkoly, které vám byly zadány.</p>
+            <div class="course-header" id="course-info">
+                <h1>Kurz: Biologie - Genetika</h1>
+                
+                <div class="course-row">
+                    <div class="course-info">
+                        <h3>Učitel:</h3>
+                        <p>Jan Novák</p>
+                    </div>
+                    <div style="justify-self: center;" class="course-info">
+                        <h3>Třída:</h3>
+                        <p>3.A</p>
+                    </div>
+                </div>
+        
+                <div class="course-row">
+                    <div class="course-info">
+                        <h3>Kód kurzu:</h3>
+                        <div onclick="copyButton()" id="copyCode" class="course-code">BIO123</div>
+                    </div>
+                        <button class="leave-button">Odejít z kurzu</button>
+                </div>
+            </div>
         </div>
+        
+        <div id="task-container">
 
         <div class="container">
             <div class="kurz-container">
-                <h1>Kurz</h1>
+                <!-- <h1>Kurz</h1> -->
                 <div id="course-info" class="course-info">
                     <p><strong>Název kurzu:</strong> Biologie pro 2. ročník</p>
                     <p><strong>ID kurzu:</strong> 123456</p>
@@ -38,7 +164,7 @@
                     <p><strong>Třída:</strong> 2.B</p>
                 </div>
                 <h2>Úkoly</h2>
-                <div id="task-container" class="task-container">
+                <div id="a" class="task-container">
                     <div class="task">
                         <p><strong>Název:</strong> Laboratorní práce - Buňky</p>
                         <p><strong>Termín odevzdání:</strong> 10. března 2025</p>
@@ -57,6 +183,19 @@
                 </div>
             </div>
         </div>
+        <div class="container">
+            <div class="kurz-container">  
+                <h1>Ukol</h1>
+                <div id="task-container" class="task-container">
+                    <div class="task">
+                        <p><strong>Název:</strong> Laboratorní práce - Buňky</p>
+                        <p><strong>Termín odevzdání:</strong> 10. března 2025</p>
+                        <p><strong>Popis:</strong> Prostudujte mikroskopické snímky a vypracujte protokol.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>          
       </main>
     </div>
     <div>

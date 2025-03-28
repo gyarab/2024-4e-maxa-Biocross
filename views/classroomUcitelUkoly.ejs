@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/stylesheets/body.css">
     <link rel="stylesheet" href="/stylesheets/classroom.css">
+    <link rel="stylesheet" href="/stylesheets/classroomUcitel.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Classroom</title>
 </head>
@@ -27,39 +28,37 @@
         <p>Vytvářejte nové úkoly pro své studenty. Stačí zadat název úkolu, popis, termín odevzdání a vybrat kurz, ke kterému úkol patří.</p>
 
         </div>
-        <div class="container">
-            <h1 style="margin-bottom: 2em;">Vytvoření nového úkolu</h1>
-            
-            <form action="ukoly" method="POST" class="assignment-form">
-                <label for="assignmentName">Název úkolu:</label>
-                <input name="jmenoUkolu" type="text" placeholder="Zadejte název úkolu" required>
-    
-                <label for="assignmentDescription">Popis úkolu:</label>
-                <textarea name="popisUkolu" placeholder="Zadejte popis úkolu" required></textarea>
 
-                <label for="dueDate">Termín zadání:</label>
-                <input id="inputDatumZadani" name="datumZadaniUkolu" type="date" required>
-
-                <label for="dueDate">Termín odevzdání:</label>
-                <input name="datumOdevzdaniUkolu" type="date" required>
-    
-                <label for="course">Přiřadit do kurzu:</label>
-                <select name="idKurz" id="select-course" onchange="updateCourseId()"  required>
-                    <option value="math101">Matematika 101</option>
-                    <option value="physics202">Fyzika 202</option>
-                    <option value="history303">Dějepis 303</option>
-                </select>
-    
-                <button class="submit" type="submit" onclick="success_message()">Vytvořit úkol</button>
-                <p id="selected-course-id" name="zvolenyKurz" style="display: none;"></p>
-            </form>
-    
-            <% if (message) { %> 
-                <div class="message-box <%= message.success ? 'message-success' : 'message-error' %>">
-                    <%= message.text %>
-                </div>
-            <% } %>        
-        </div>
+            <div class="new-task-container">
+                <h1>Vytvořit nový úkol</h1>
+                <form id="new-task-form">
+                    <div class="new-task">
+                        <label for="new_task_name"><strong>Název úkolu:</strong></label>
+                        <input type="text" id="new_task_name" name="new_task_name" required>
+                        
+                        <label for="new_task_dateEntered"><strong>Termín zadání:</strong></label>
+                        <input type="date" id="new_task_dateEntered" name="new_task_dateEntered" value="2025-03-28">
+                        
+                        <label for="new_task_deadline"><strong>Termín odevzdání:</strong></label>
+                        <input type="date" id="new_task_deadline" name="new_task_deadline" required>
+                        
+                        <label for="new_task_description"><strong>Popis úkolu:</strong></label>
+                        <textarea id="new_task_description" name="new_task_description" rows="4" required></textarea>
+                        
+                        <label for="new_task_course"><strong>Do jakého kurzu patří:</strong></label>
+                        <select name="idKurz" id="select-course" onchange="updateCourseId()"  required>
+                            
+                        </select>
+                        
+                        <button class="submit-task" type="submit" onclick="success_message()">Vytvořit úkol</button>
+                    </div>
+                </form>
+                <% if (message) { %> 
+                    <div class="message-box <%= message.success ? 'message-success' : 'message-error' %>">
+                        <%= message.text %>
+                    </div>
+                <% } %>   
+            </div>
         </main>
     </div>
     <div>

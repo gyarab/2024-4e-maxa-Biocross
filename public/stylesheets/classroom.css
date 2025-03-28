@@ -23,10 +23,14 @@ main p{
     margin-bottom: 15px;
 }
 .container{
-    border: 1px solid var(--line-clr);
-    width: 80%;
-    margin-left: 10%;
-    border-radius: 1em;
+  
+  max-width: 800px;
+  margin: auto;
+  background: #d4edda;
+  padding: 20px;
+  border: 1px solid #2c3e50;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
     padding: min(3em,15%);
 
@@ -55,7 +59,7 @@ main p{
 
 
 /* CSS pro formulare */
-form {
+/* form {
   width: 90%;
   max-width: 600px;
   margin: 20px auto;
@@ -67,15 +71,15 @@ form {
   flex-wrap: wrap;
   gap: 10px;
   justify-content: space-between;
-}
+} */
 
-input {
+/* input {
   width: calc(50% - 5px);
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
-}
+} */
 
 @media (max-width: 500px) {
   input {
@@ -176,34 +180,7 @@ form.zapis-form .success-message {
 }
 
 
-/* VYTVORENI UKOLU FORM */
-.assignment-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 10px;
-}
 
-.assignment-form input, 
-.assignment-form textarea, 
-.assignment-form select, 
-.assignment-form button {
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.assignment-form button {
-  background: #007bff;
-  color: white;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.assignment-form button:hover {
-  background: #0056b3;
-}
 
 /* ZPRAVA JESTLI TO PROBEHLO DOBRE NEBO NE */
 .message-box {
