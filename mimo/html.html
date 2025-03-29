@@ -1,81 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cs">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/stylesheets/body.css">
-    <link rel="stylesheet" href="/stylesheets/classroom.css">
-    <link rel="stylesheet" href="/stylesheets/classroomUcitel.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Classroom</title>
+    <title>Generování PDF</title>
 </head>
-<style>
-  .tasks-container {
-    max-width: 800px;
-    margin: auto;
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-h1, h2 {
-    color: #2c3e50;
-    text-align: center;
-}
-
-.course-info {
-    margin-bottom: 20px;
-}
-
-/* Styl úkolů */
-.task {
-    background: #e8f5e9; /* Světle zelená, která ladí s tvým designem */
-    padding: 15px;
-    margin-bottom: 15px;
-    border-radius: 10px;
-    border-left: 6px solid #388e3c; /* Zvýraznění levého okraje */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease-in-out;
-}
-
-.task:hover {
-    transform: scale(1.02);
-}
-
-/* Zvýraznění důležitých informací */
-.task strong {
-    color: #1b5e20;
-}
-
-.task p {
-    margin: 5px 0;
-    color: #2c3e50;
-}
-.task h2{
-    color: #1b5e20;
-    text-align: center;
-}
-
-
-
-
-
-
-
-</style>
 <body>
-    <div>
-        <%- include('../views/navbar.ejs') %>
-    </div>
-    <div class="main-body">
-        <div>
-            <%- include('../views/sidebarUcitel.ejs') %>
-        </div>
-       <main>
 
-            <div id="" class="tasks-container">  
-                <h1>Ukoly</h1>
+    <div id="export">
+        <div class="tasks-container">  
+            <h1>Úkoly</h1>
+            <div id="task-container">    
                 <div class="task">
                         <h2>${task.task_name}</h2>
                         <p><strong>Termín zadání:</strong> ${extractDate(task.task_dateEntered)}</p>
@@ -95,125 +30,32 @@ h1, h2 {
                         <p><strong>Popis:</strong> ${task.task_description}</p>
                 </div>
             </div>
-            <div class="kurz-container">  
-                <h1>Ukol</h1>
-                <div class="task-container">
-                    <div class="task">
-                            <h2>${task.task_name}</h2>
-                            <p><strong>Termín zadání:</strong> ${extractDate(task.task_dateEntered)}</p>
-                            <p><strong>Termín odevzdání:</strong> ${extractDate(task.task_deadline)}</p>
-                            <p><strong>Popis:</strong> ${task.task_description}</p>
-                    </div>
-                </div>
-            </div>
         </div>
-
-        <div class="container" style="text-align: center;">
-            <h1>Classroom</h1>
-            <p>V této sekci Classroom je konkrétní kurz a jaké jsou v něm úkoly.</p>
-        </div>
-        <!-- <div class="container">
-            <div class="kurz-container">
-                <h1>Kurz</h1>
-                <div id="course-info" class="course-info">
-                    <p><strong>Název kurzu:</strong> Biologie pro 2. ročník</p>
-                    <p><strong>ID kurzu:</strong> 123456</p>
-                    <p><strong>Jméno učitele:</strong> Mgr. Jana Nováková</p>
-                    <p><strong>Třída:</strong> 2.B</p>
-                </div>
-                <h2>Úkoly</h2>
-                <div id="task-container" class="task-container">
-                    <div class="task">
-                        <p><strong>Název:</strong> Laboratorní práce - Buňky</p>
-                        <p><strong>Termín odevzdání:</strong> 10. března 2025</p>
-                        <p><strong>Popis:</strong> Prostudujte mikroskopické snímky a vypracujte protokol.</p>
-                    </div>
-                    <div class="task">
-                        <p><strong>Název:</strong> Test - Genetika</p>
-                        <p><strong>Termín odevzdání:</strong> 17. března 2025</p>
-                        <p><strong>Popis:</strong> Online test na základní pojmy genetiky.</p>
-                    </div>
-                    <div class="task">
-                        <p><strong>Název:</strong> Test - Genetika</p>
-                        <p><strong>Termín odevzdání:</strong> 17. března 2025</p>
-                        <p><strong>Popis:</strong> Online test na základní pojmy genetiky. Lorem ipsum dolor sit amet consectetur adipisicing elit. Non temporibus culpa ducimus quam, dolor sit minima mollitia error debitis unde placeat, blanditiis suscipit. Aut officia ipsa vero optio adipisci ea. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, quia! Nulla itaque reiciendis consectetur aspernatur sint quidem aperiam quibusdam iste aliquid, obcaecati inventore cupiditate eos quisquam temporibus eius sequi accusamus?</p>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-
-        <div id="task-container">
-
-            <div class="container">
-                <div class="kurz-container">
-                    <!-- <h1>Kurz</h1> -->
-                    <div id="course-info" class="course-info">
-                        <p><strong>Název kurzu:</strong> Biologie pro 2. ročník</p>
-                        <p><strong>ID kurzu:</strong> 123456</p>
-                        <p><strong>Jméno učitele:</strong> Mgr. Jana Nováková</p>
-                        <p><strong>Třída:</strong> 2.B</p>
-                    </div>
-                    <h2>Úkoly</h2>
-                    <div id="a" class="task-container">
-                        <div class="task">
-                            <p><strong>Název:</strong> Laboratorní práce - Buňky</p>
-                            <p><strong>Termín odevzdání:</strong> 10. března 2025</p>
-                            <p><strong>Popis:</strong> Prostudujte mikroskopické snímky a vypracujte protokol.</p>
-                        </div>
-                        <div class="task">
-                            <p><strong>Název:</strong> Test - Genetika</p>
-                            <p><strong>Termín odevzdání:</strong> 17. března 2025</p>
-                            <p><strong>Popis:</strong> Online test na základní pojmy genetiky.</p>
-                        </div>
-                        <div class="task">
-                            <p><strong>Název:</strong> Test - Genetika</p>
-                            <p><strong>Termín odevzdání:</strong> 17. března 2025</p>
-                            <p><strong>Popis:</strong> Online test na základní pojmy genetiky. Lorem ipsum dolor sit amet consectetur adipisicing elit. Non temporibus culpa ducimus quam, dolor sit minima mollitia error debitis unde placeat, blanditiis suscipit. Aut officia ipsa vero optio adipisci ea. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, quia! Nulla itaque reiciendis consectetur aspernatur sint quidem aperiam quibusdam iste aliquid, obcaecati inventore cupiditate eos quisquam temporibus eius sequi accusamus?</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="kurz-container">  
-                    <h1>Ukol</h1>
-                    <div id="task-container" class="task-container">
-                        <div class="task">
-                            <p><strong>Název:</strong> Laboratorní práce - Buňky</p>
-                            <p><strong>Termín odevzdání:</strong> 10. března 2025</p>
-                            <p><strong>Popis:</strong> Prostudujte mikroskopické snímky a vypracujte protokol.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>          
-        <div class="task-container">
-            <div class="task-card" onclick="goToCourse(3)">
-                <div class="task-title">Křížení hrachu – Mendelovy zákony v praxi</div>
-                <div class="task-info"><b>Kurz:</b> Biologie</div>
-                <div class="task-info"><b>Učitel:</b> Jakub Maxa</div>
-            </div>
-        
-            <div class="task-card" onclick="goToCourse(4)">
-                <div class="task-title">Dědičnost tvaru zrn u hrachu</div>
-                <div class="task-info"><b>Kurz:</b> BioCross</div>
-                <div class="task-info"><b>Učitel:</b> Pavel Sona</div>
-            </div>
-        
-            <div class="task-card" onclick="goToCourse(5)">
-                <div class="task-title">Ukol pro Studenty</div>
-                <div class="task-info"><b>Kurz:</b> BioCross</div>
-                <div class="task-info"><b>Učitel:</b> Pavel Sona</div>
-            </div>
-        </div>
-        
-        
-
-
-      </main>
     </div>
-    <div>
-        <%- include('../views/footer.ejs') %>
-    </div>
-    <script src="/javascripts/handlers/classroomUcitelKurzLegitHandler.js"></script>
+
+    <button onclick="generatePDF()">Stáhnout PDF</button>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script>
+        async function generatePDF() {
+            const { jsPDF } = window.jspdf; // Importuje jsPDF
+            const doc = new jsPDF();
+            
+            const element = document.getElementById('export'); // Vybereme element
+
+            html2canvas(element).then(canvas => {
+                const imgData = canvas.toDataURL('image/png');
+                const imgWidth = 190; // Šířka v mm
+                const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+                doc.addImage(imgData, 'PNG', 10, 10, imgWidth, imgHeight);
+                doc.save('export.pdf'); // Uloží PDF
+            });
+        }
+    </script>
+
 </body>
 </html>

@@ -40,6 +40,7 @@ function displayKurz(tasks) {
                         <p><strong>Termín zadání:</strong> ${extractDate(task.task_dateEntered)}</p>
                         <p><strong>Termín odevzdání:</strong> ${extractDate(task.task_deadline)}</p>
                         <p><strong>Popis:</strong> ${task.task_description}</p>
+                        <button> Odevzdat ukol </button>
                     </div></div>
                     </div>
                 </div>`;

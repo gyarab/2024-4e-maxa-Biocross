@@ -394,3 +394,21 @@ option {
     background-color: #40916c;
     transform: scale(1.05);
 }
+
+
+/* Styl pro PDF */
+.color-preview {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Zakulacení */
+    border: 2px solid black;
+    display: none;
+}
+
+.number-preview {
+    background-color: lightgray; /* Jemné pozadí */
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    display: none;
+}
