@@ -31,19 +31,34 @@ function displayKurz(tasks) {
     divTaskInfo.innerHTML = '';
     tasks.forEach(task=>{
         const listOfTask = document.createElement('div');
-        listOfTask.innerHTML = ` <div class="container">
-        <div class="kurz-container">  
-            <h1>Ukol</h1>
-            <div class="task-container">
-            <div class="task">
+        listOfTask.innerHTML = `
+        <div class="container">
+            <div class="kurz-container">  
+                <h1>Ukol</h1>
+                <div class="task-container">
+                    <div class="task">
                         <h2>${task.task_name}</h2>
                         <p><strong>Termín zadání:</strong> ${extractDate(task.task_dateEntered)}</p>
                         <p><strong>Termín odevzdání:</strong> ${extractDate(task.task_deadline)}</p>
                         <p><strong>Popis:</strong> ${task.task_description}</p>
-                        <button> Odevzdat ukol </button>
-                    </div></div>
+
+                        <button onclick="document.getElementById('uploadForm').style.display = 'block'">Odevzdat ukol</button>
+                
+                        <!-- Formulář pro odevzdání souboru, který je zpočátku skrytý -->
+                        <div id="uploadForm" style="display: none; margin-top: 20px;">
+                            <form action="/classroom/kurz?id=${task.course_id}" method="POST" enctype="multipart/form-data">
+                                <!-- Skrytý input pro ID kurzu -->
+                                <input type="hidden" name="courseId" value="${task.course_id}">
+                                
+                                <label for="file">Vyberte soubor (PDF):</label>
+                                <input type="file" id="file" name="taskFile" accept="application/pdf" required>
+                                <button type="submit">Odevzdat</button>
+                            </form>
+                        </div>
                     </div>
-                </div>`;
+                </div>
+            </div>
+        </div>`;
         divTasks.appendChild(listOfTask);
 
         if (i<1){

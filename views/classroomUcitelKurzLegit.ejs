@@ -22,35 +22,7 @@
             <h1>Classroom</h1>
             <p>V této sekci Classroom je konkrétní kurz a jaké jsou v něm úkoly.</p>
         </div>
-        <!-- <div class="container">
-            <div class="kurz-container">
-                <h1>Kurz</h1>
-                <div id="course-info" class="course-info">
-                    <p><strong>Název kurzu:</strong> Biologie pro 2. ročník</p>
-                    <p><strong>ID kurzu:</strong> 123456</p>
-                    <p><strong>Jméno učitele:</strong> Mgr. Jana Nováková</p>
-                    <p><strong>Třída:</strong> 2.B</p>
-                </div>
-                <h2>Úkoly</h2>
-                <div id="task-container" class="task-container">
-                    <div class="task">
-                        <p><strong>Název:</strong> Laboratorní práce - Buňky</p>
-                        <p><strong>Termín odevzdání:</strong> 10. března 2025</p>
-                        <p><strong>Popis:</strong> Prostudujte mikroskopické snímky a vypracujte protokol.</p>
-                    </div>
-                    <div class="task">
-                        <p><strong>Název:</strong> Test - Genetika</p>
-                        <p><strong>Termín odevzdání:</strong> 17. března 2025</p>
-                        <p><strong>Popis:</strong> Online test na základní pojmy genetiky.</p>
-                    </div>
-                    <div class="task">
-                        <p><strong>Název:</strong> Test - Genetika</p>
-                        <p><strong>Termín odevzdání:</strong> 17. března 2025</p>
-                        <p><strong>Popis:</strong> Online test na základní pojmy genetiky. Lorem ipsum dolor sit amet consectetur adipisicing elit. Non temporibus culpa ducimus quam, dolor sit minima mollitia error debitis unde placeat, blanditiis suscipit. Aut officia ipsa vero optio adipisci ea. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, quia! Nulla itaque reiciendis consectetur aspernatur sint quidem aperiam quibusdam iste aliquid, obcaecati inventore cupiditate eos quisquam temporibus eius sequi accusamus?</p>
-                    </div>
-                </div>
-            </div>
-        </div> -->
+      
         <div class="container">
             <div class="course-header" id="course-info">
                 <h1>Kurz: Biologie - Genetika</h1>
@@ -106,67 +78,37 @@
     </div>
     <script src="/javascripts/handlers/classroomUcitelKurzLegitHandler.js"></script>
     <script>
-
-function smazatKurz() {
-    console.log("ahoj");
-    console.log("Kliknuto na tlačítko");
-
-    const params = new URLSearchParams(window.location.search);
-    const kurzId = params.get("id");
-
-    console.log("ID kurzu:", kurzId);
-
-    if (!kurzId) {
-        alert("ID kurzu nebylo nalezeno!");
-        return;
-    }
-
-    if (!confirm("Opravdu chcete smazat tento kurz?")) return;
-
-    fetch(`/classroomUcitel/kurz?id=${kurzId}`, {
-        method: "DELETE"
-    })
-    .then(response => {
-        console.log("Odpověď serveru:", response);
-        if (!response.ok) throw new Error("Chyba při mazání kurzu");
-        return response.json();
-    })
-    .then(data => {
-        console.log("Úspěšně smazáno:", data);
-        alert("Kurz byl úspěšně smazán!");
-        window.location.href = "/classroomUcitel";
-    })
-    .catch(error => console.error("Chyba:", error.message));
-            
-}
-
-        
 // // Skript pro smazani kurzu
-// document.addEventListener("DOMContentLoaded", function() {
-// document.getElementById("smazatKurz").addEventListener("click", function() {
-//     console.log("Kliknuto na tlačítko");
+    function smazatKurz() {
     
-//     // Získání ID kurzu z URL
-//     const params = new URLSearchParams(window.location.search);
-//     const kurzId = params.get("id");
+        const params = new URLSearchParams(window.location.search);
+        const kurzId = params.get("id");
 
-//     if (!confirm("Opravdu chcete smazat tento kurz?")) return;
+        console.log("ID kurzu:", kurzId);
 
-//     // Odeslání DELETE požadavku na server
-//     fetch(`/classroomUcitel/kurz/${kurzId}`, {
-//         method: "DELETE"
-//     })
-//     .then(response => {
-//         if (!response.ok) throw new Error("Chyba při mazání kurzu");
-//         return response.json();
-//     })
-//     .then(data => {
-//         alert("Kurz byl úspěšně smazán!");
-//         window.location.href = "/classroomUcitel"; // Přesměrování zpět
-//     })
-//     .catch(error => alert(error.message));
-// });
-// });
+        if (!kurzId) {
+            alert("ID kurzu nebylo nalezeno!");
+            return;
+        }
+
+        if (!confirm("Opravdu chcete smazat tento kurz?")) return;
+
+        fetch(`/classroomUcitel/kurz?id=${kurzId}`, {
+            method: "DELETE"
+        })
+        .then(response => {
+            console.log("Odpověď serveru:", response);
+            if (!response.ok) throw new Error("Chyba při mazání kurzu");
+            return response.json();
+        })
+        .then(data => {
+            console.log("Úspěšně smazáno:", data);
+            alert("Kurz byl úspěšně smazán!");
+            window.location.href = "/classroomUcitel";
+        })
+        .catch(error => console.error("Chyba:", error.message));
+                
+    }
     </script>
 </body>
 </html>

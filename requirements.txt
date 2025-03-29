@@ -1,2 +1,3 @@
 npm install ejs
 npm install mysql2
+npm install multer
