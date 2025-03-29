@@ -1,4 +1,7 @@
 var express = require('express');
+var multer = require('multer');
+
+const upload = multer({ dest: 'uploads/' }); // Složka pro dočasné uložení souboru
 
 var app = express();
 
@@ -45,6 +48,37 @@ app.get("/login",(req,res)=>{
 //Domovska stranka
 app.get("/",(req,res)=>{
   res.render("homepage")
+})
+
+const db = require('./database');
+app.get("/chcipdf",(req,res)=>{
+  const taskId = 1; // Získání taskId z query parametru URL
+
+  if (!taskId) {
+      return res.status(400).send('Task ID is required');
+  }
+
+  // SQL dotaz pro získání PDF souboru z databáze
+  const query = 'SELECT donetasks_pdf FROM donetasks WHERE task_id = ?';
+  db.execute(query, [taskId], (err, results) => {
+      if (err) {
+          console.error(err);
+          return res.status(500).send('Error retrieving PDF from the database');
+      }
+
+      if (results.length === 0) {
+          return res.status(404).send('PDF not found for the given task ID');
+      }
+
+      const pdfData = results[0].pdf_data;
+
+      // Nastavení hlaviček pro PDF soubor
+      res.setHeader('Content-Type', 'application/pdf');
+      res.setHeader('Content-Disposition', 'inline; filename="task.pdf"'); // Můžeš změnit název souboru
+
+      // Odeslání PDF souboru uživateli
+      res.send(pdfData);
+  });  
 })
 
 //Crossing stranka
