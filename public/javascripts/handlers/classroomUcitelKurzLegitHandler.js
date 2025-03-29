@@ -37,6 +37,13 @@ function displayKurz(tasks) {
         <p><strong>Termín zadání:</strong> ${extractDate(task.task_dateEntered)}</p>
         <p><strong>Termín odevzdání:</strong> ${extractDate(task.task_deadline)}</p>
         <p><strong>Popis:</strong> ${task.task_description}</p>
+        <button onclick="toggleSubmissions()">Zobrazit odevzdané úkoly</button>
+        <div id="submissions" class="hidden">
+            <ul>
+                <li>Student 1 - <a href="student1.pdf" target="_blank">Odevzdaný soubor</a></li>
+                <li>Student 2 - <a href="student2.pdf" target="_blank">Odevzdaný soubor</a></li>
+            </ul>
+        </div>
 </div>`;
         divTasks.appendChild(listOfTask);
 
@@ -81,3 +88,8 @@ function copyButton() {
             console.error("Chyba při kopírování:", err);
         });
   }
+
+function toggleSubmissions() {
+    const submissions = document.getElementById("submissions");
+    submissions.classList.toggle("hidden");
+}

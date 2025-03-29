@@ -209,3 +209,8 @@ h1, h2 {
 .leave-button:hover {
     background: #b71c1c;
 }
+
+/* Zobrazeni pdf */
+.hidden {
+    display: none;
+}
