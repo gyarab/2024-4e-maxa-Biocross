@@ -40,12 +40,17 @@ router.get("/kurz",requireRole("teacher"), async(req,res)=>{
   // nejdriv si nactu vsechny kurzy ktere mam k tomuto uciteli
   var arrCourses = await getCoursesTeacher.getCoursesTeacher(user_id);
   var arrKurzTask = await getCoursesTeacher.getKurzTask( user_id, course_id);
+  console.log(course_id);
+  
+  var arrDoneTasks = await getTasksTeacher.getDoneTasks(course_id);
+  console.log(arrDoneTasks);
+
   try {
       res.format({
         html: async () => {
           res.render('classroomUcitelKurzLegit'); //new kurz          
       },json: () => {   
-          res.json({courses:arrCourses, tasks: arrKurzTask});
+          res.json({courses:arrCourses, tasks: arrKurzTask, doneTasks:arrDoneTasks});
         }
       }); 
     } catch (err){
