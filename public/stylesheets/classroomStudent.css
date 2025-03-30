@@ -33,3 +33,48 @@
     font-size: 14px;
     color: #555;
 }
+.button-odevzdat {
+    background-color: #2e7d32;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 10px 5px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.button-odevzdat:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+.button-odevzdat:active {
+    background-color: #3e8e41;
+    transform: scale(0.95);
+}
+
+.input-pdf {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    padding: 8px;
+    border: 2px solid #4CAF50;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.3s ease;
+    background-color: #f8fff8;
+}
+
+.input-pdf:hover,
+.input-pdf:focus {
+    border-color: #45a049;
+    box-shadow: 0 0 8px rgba(76, 175, 80, 0.5);
+}
+
