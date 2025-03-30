@@ -19,6 +19,8 @@ router.get("/ukoly",requireRole("student"), async(req,res)=>{
     var arrCourses = await getCourses.getCourses(student_id)
     var arrTasks = await getTasks.getTasks(student_id);
     console.log(arrTasks);
+    console.log("Tohle jsou tasky");
+    
     
     try {
       res.format({

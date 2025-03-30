@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/stylesheets/body.css">
     <link rel="stylesheet" href="/stylesheets/classroom.css">
+    <link rel="stylesheet" href="/stylesheets/classroomStudent.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Classroom</title>
 </head>
@@ -24,9 +25,10 @@
         <div class="horizontal-div">
             <div class="container">
                 <h1>Zpasat se do kurzu</h1>
-                <form class="zapis-form" action="/classroom" method="post">
+                <form class="zapsat-kurz" action="/classroom" method="post">
+                    <label><strong>Zde napište kód kurzu:</strong></label>
                     <input name="input_course" type="number" placeholder="Kód kurzu" required>
-                    <button class="submit" type="submit">Zapsat se</button>
+                    <button class="submit-kurz" type="submit">Zapsat se</button>
                     <p id="message" style="display:none;"></p>
                 </form>
 

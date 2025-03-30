@@ -15,21 +15,14 @@ function displayTasks(tasks) {
 
     tasks.forEach(task => {
         const taskCard = document.createElement('div');
-        taskCard.classList.add('task-card');
-        taskCard.setAttribute('onclick', 'toggleTask(this)');
 
-        taskCard.innerHTML = `
-            <div class="task-header">
-                <h2>${task.task_name}</h2>
-            </div>
-            <div class="task-body">
-                <p><strong>Kurz:</strong> ${task.course_name}</p>
-                <p><strong>Učitel:</strong> ${task.course_teacherName}</p>
-            </div>
-            <div class="task-details">
-                <p><strong>Popis úkolu:</strong> ${task.task_description}</p>
-            </div>
-        `;
+        taskCard.innerHTML = `  <div class="task-card" onclick="goToCourse(${task.course_id})">
+                <div class="task-title">${task.task_name}</div>
+                <div class="task-info"><b>Kurz:</b> ${task.course_name}</div>
+                <div class="task-info"><b>Učitel:</b>${task.course_teacherName}</div>
+            </div>`;
+
+        
         
         divTasks.appendChild(taskCard);
     });

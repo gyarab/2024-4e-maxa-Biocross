@@ -15,6 +15,8 @@
     cursor: pointer;
     transition: 0.3s;
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
+    min-width: 180px;
+    min-height: 180px;
 }
 
 .task-card:hover {
@@ -78,3 +80,52 @@
     box-shadow: 0 0 8px rgba(76, 175, 80, 0.5);
 }
 
+.zapsat-kurz {
+    background: #e8f5e9;
+    width: 80%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    border-left: 6px solid #388e3c;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    margin: 2em;
+    justify-self: center;
+    /* text-align: center;
+    justify-items: center; */
+}
+
+.zapsat-kurz:hover {
+    transform: scale(1.02);
+}
+.zapsat-kurz label{
+    font-size: 21px;
+    color: #388e3c;
+    margin-top: 20px;
+    margin-left: 5%;
+}
+.zapsat-kurz input{
+    display: block;
+    width: 70%;
+    padding: 10px;
+    /* border: 1px solid #000000; */
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    margin-left: 5%;
+    margin-top: 10px;
+
+}
+
+.submit-kurz{
+    margin-left: 5%;
+    width: 30%;
+    padding: 10px;
+    background: #388e3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 17px;
+    cursor: pointer;
+}

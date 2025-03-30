@@ -69,9 +69,9 @@ function displayKurz(tasks) {
         <p><strong>Termín zadání:</strong> ${extractDate(task.task_dateEntered)}</p>
         <p><strong>Termín odevzdání:</strong> ${extractDate(task.task_deadline)}</p>
         <p><strong>Popis:</strong> ${task.task_description}</p>
-        <button onclick="toggleSubmissions(${task.task_id})">Zobrazit odevzdané úkoly</button>
+        <button class="button-zobrazitUkoly" onclick="toggleSubmissions(${task.task_id})">Zobrazit odevzdané úkoly</button>
         <div id="submissions-${task.task_id}" class="hidden">
-            <ul id="submission-list-${task.task_id}"></ul> <!-- Sem se vloží <li> -->
+            <ul class="taskDone-list" id="submission-list-${task.task_id}"></ul> <!-- Sem se vloží <li> -->
         </div>
 </div>`;
         // // Zavolání getTaskTeacher a naplnění seznamu
@@ -147,7 +147,7 @@ function toggleSubmissions(task_id) {
     let submissionList = document.getElementById(`submission-list-${task_id}`);
 
     if (!doneTasksData[task_id] || doneTasksData[task_id].length === 0) {
-        submissionList.innerHTML = "<li>Žádné odevzdané úkoly</li>";
+        submissionList.innerHTML = `<li class="taskDone-item">Žádné odevzdané úkoly</li>`;
     } else {
         submissionList.innerHTML = "";
 
@@ -162,6 +162,7 @@ function toggleSubmissions(task_id) {
             let blobUrl = URL.createObjectURL(blob);
 
             const listItem = document.createElement('li');
+            listItem.classList.add('taskDone-item');
             listItem.innerHTML = `${sub.student_name} - <a href="${blobUrl}" download="ukol.pdf">Stáhnout PDF</a>`;
             submissionList.appendChild(listItem);
         });

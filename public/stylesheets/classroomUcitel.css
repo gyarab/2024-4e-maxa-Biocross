@@ -214,3 +214,43 @@ h1, h2 {
 .hidden {
     display: none;
 }
+
+.button-zobrazitUkoly {
+    background-color: #2e7d32;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    /* font-weight: bold; */
+    margin: 10px 5px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.button-zobrazitUkoly:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+.button-zobrazitUkoly:active {
+    background-color: #3e8e41;
+    transform: scale(0.95);
+}
+
+.taskDone-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+.taskDone-item {
+    padding: 8px;
+    background-color: #f1f1f1;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    color: black;
+}
