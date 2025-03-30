@@ -60,7 +60,6 @@
 }
 
 .input-pdf {
-    display: block;
     width: 100%;
     max-width: 300px;
     padding: 8px;
@@ -70,6 +69,7 @@
     outline: none;
     transition: all 0.3s ease;
     background-color: #f8fff8;
+    color: #000;
 }
 
 .input-pdf:hover,

@@ -65,8 +65,9 @@ router.post("/kurz",requireRole("student"), upload.single('taskFile'), async(req
   var course_id = req.query.id;
   let student_id = req.session.user_id; // 💡 Tady bereme student_id ze session
   const file = req.file;
-  var task_id = 1;
-  console.log(file);
+  var task_id = req.body.taskId;
+  console.log(task_id + "task");
+  
 
   if (!file) {
     return res.status(400).send('No file uploaded.');
@@ -74,12 +75,14 @@ router.post("/kurz",requireRole("student"), upload.single('taskFile'), async(req
   // Načtení PDF souboru do paměti (binary data)
   const pdfData = fs.readFileSync(file.path);
   const query = 'INSERT INTO donetasks (task_id, course_id, student_id, donetasks_pdf) VALUES (?,?, ?, ?)';
-  db.execute(query, [course_id, task_id, student_id, pdfData], (err, results) => {
+  db.execute(query, [ task_id, course_id, student_id, pdfData], (err, results) => {
       if (err) {
           console.error(err);
           return res.status(500).send('Error saving to the database');
       }
-      res.redirect("/");
+      res.redirect("/classroom");
+      console.log("Ukol uspesne odevzdan");
+      
   });
   console.log("Provedl se post");
 

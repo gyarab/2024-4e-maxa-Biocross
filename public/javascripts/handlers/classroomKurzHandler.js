@@ -42,13 +42,13 @@ function displayKurz(tasks) {
                         <p><strong>Termín odevzdání:</strong> ${extractDate(task.task_deadline)}</p>
                         <p><strong>Popis:</strong> ${task.task_description}</p>
 
-                        <button class="button-odevzdat" onclick="document.getElementById('uploadForm').style.display = 'block'">Odevzdat ukol</button>
+                        <button class="button-odevzdat" onclick="odevzdatButton(${task.task_id})">Odevzdat úkol</button>
                 
                         <!-- Formulář pro odevzdání souboru, který je zpočátku skrytý -->
-                        <div id="uploadForm" style="display: none; margin-top: 20px;">
+                        <div id="uploadForm${task.task_id}" style="display: none; margin-top: 20px;">
                             <form action="/classroom/kurz?id=${task.course_id}" method="POST" enctype="multipart/form-data">
                                 <!-- Skrytý input pro ID kurzu -->
-                                <input type="hidden" name="courseId" value="${task.course_id}">
+                                <input type="hidden" name="taskId" value="${task.task_id}">
                                 
                                 <p>Vyberte soubor (PDF):</p>
                                 <input class="input-pdf" type="file" id="file" name="taskFile" accept="application/pdf" required>
@@ -101,4 +101,14 @@ function copyButton() {
         }).catch(err => {
             console.error("Chyba při kopírování:", err);
         });
-  }
+}
+
+function odevzdatButton(id) { 
+    let uploadForm = document.getElementById(`uploadForm${id}`);
+    
+    if (uploadForm.style.display === 'block') { 
+        uploadForm.style.display = 'none'; 
+    } else {
+        uploadForm.style.display = 'block'; 
+    }
+}
