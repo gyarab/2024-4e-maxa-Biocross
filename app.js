@@ -50,37 +50,6 @@ app.get("/",(req,res)=>{
   res.render("homepage")
 })
 
-const db = require('./database');
-app.get("/chcipdf",(req,res)=>{
-  const taskId = 1; // Získání taskId z query parametru URL
-
-  if (!taskId) {
-      return res.status(400).send('Task ID is required');
-  }
-
-  // SQL dotaz pro získání PDF souboru z databáze
-  const query = 'SELECT donetasks_pdf FROM donetasks WHERE task_id = ?';
-  db.execute(query, [taskId], (err, results) => {
-      if (err) {
-          console.error(err);
-          return res.status(500).send('Error retrieving PDF from the database');
-      }
-
-      if (results.length === 0) {
-          return res.status(404).send('PDF not found for the given task ID');
-      }
-
-      const pdfData = results[0].pdf_data;
-
-      // Nastavení hlaviček pro PDF soubor
-      res.setHeader('Content-Type', 'application/pdf');
-      res.setHeader('Content-Disposition', 'inline; filename="task.pdf"'); // Můžeš změnit název souboru
-
-      // Odeslání PDF souboru uživateli
-      res.send(pdfData);
-  });  
-})
-
 //Crossing stranka
 //gets
 app.get("/crossing",(req,res)=>{
@@ -158,19 +127,7 @@ app.get('/logout', (req, res) => {
 });
 
 
-//DEVELOPMENT HTML
-// app.get("/navbar",(req,res)=>{
-//   res.render("navbar")
-// })
 
-// app.get("/footer",(req,res)=>{
-//   res.render("footer")
-// })
-//routers
-// const registerRouter = require("./routes/register")
-// app.use('/register', registerRouter)
-
-//ROUTERS
 //login
 const loginRouter = require("./routes/login");
 app.use("/login", loginRouter);
