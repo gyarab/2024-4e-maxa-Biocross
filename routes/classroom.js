@@ -11,7 +11,7 @@ const db = require('../database');
 const getCourses = require('./methods/getCourses')
 const getTasks = require('./methods/getTasks')
 
-
+// praci s pdf jsem vygeneroval pomoci umele inteligence
 //Ukoly
 router.get("/ukoly",requireRole("student"), async(req,res)=>{
     let student_id = req.session.user_id; // 💡 Tady bereme student_id ze session
