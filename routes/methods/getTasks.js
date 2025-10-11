@@ -1,7 +1,7 @@
 var db = require('../../database')
 
 
-//funkce getTasks() nacte vsechny existujici kurzy pro konkretniho uzivatele
+//funkce getTasks() nacte vsechny existujici ukoly pro konkretniho uzivatele
 function getTasks(user_id){
   
     return new Promise((resolve, reject) => {
